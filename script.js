@@ -9,7 +9,7 @@
 //adresses
 // userProfileDatabase.dat -> https://luckyxii.github.io/Projekt1JS2T5/profileTextDatabase.dat
 
-/*
+
 var req = new XMLHttpRequest();
 
 
@@ -22,11 +22,11 @@ req.onreadystatechange = function(){
     
 };
 
-req.open("get", "https://luckyxii.github.io/Projekt1JS2T5/profileTextDatabase.dat");
+req.open("get", "https://luckyxii.github.io/Projekt1JS2T5/profileTextDatabase.dat?users=user1");
 req.send();
 
 
-*/
+
 
 //***********************************************************************
 //experimental private user info
@@ -109,19 +109,3 @@ newUser.setBirthday("1992-09-04");
 
 console.log(newUser);
 
-
-
-var req = new XMLHttpRequest();
-
-
-req.onreadystatechange = function(){
-    
-    if(req.readyState === 4){
-        
-        console.log(req.responseText); //when done print database
-    }
-    
-};
-
-req.open("post", "https://luckyxii.github.io/Projekt1JS2T5/submitFormTEST.html");
-req.send();
