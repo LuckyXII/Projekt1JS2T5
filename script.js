@@ -9,7 +9,7 @@
 //adresses
 // userProfileDatabase.dat -> https://luckyxii.github.io/Projekt1JS2T5/profileTextDatabase.dat
 
-
+/*
 var req = new XMLHttpRequest();
 
 
@@ -22,9 +22,9 @@ req.onreadystatechange = function(){
     
 };
 
-req.open("get", "https://luckyxii.github.io/Projekt1JS2T5/profileTextDatabase.dat?users=user1");
+req.open("get", "https://luckyxii.github.io/Projekt1JS2T5/profileTextDatabase.dat?users.name=johan");
 req.send();
-
+*/
 
 
 
@@ -32,7 +32,7 @@ req.send();
 //experimental private user info
 
 function UserObject(_username, _password, _email, sex, lookingFor,
-                    firstName, lastName, adress, district, profilePic, height,
+                    firstName, lastName, _adress, district, profilePic, height,
                     hairColor, eyeColor, smoker, hasAnimals, vegetarian,
                     employed, hasKids, interests, aboutSelf, aboutMatch,
                     prefEyeColor, prefDistrict, prefMaxHeight, prefMinHeight, prefHairColor,
@@ -40,9 +40,10 @@ function UserObject(_username, _password, _email, sex, lookingFor,
 
 //---------------------------
 // private 
-    var username = username; //String
-    var password = password; //String
-    var email = email; //String
+    var username = _username; //String
+    var password = _password; //String
+    var email = _email; //String
+    var adress = _adress; //String
    
 //-----------------------------
 //public
@@ -51,7 +52,6 @@ function UserObject(_username, _password, _email, sex, lookingFor,
     this.lookingFor = lookingFor; //Array
     this.firstName = firstName; //String
     this.lastName = lastName;
-    this.adress = adress; //String
     this.district = district; // string
     this.profilePic = profilePic; //String, href-link
     this.height = height; //num
@@ -95,7 +95,11 @@ function UserObject(_username, _password, _email, sex, lookingFor,
     //get email
     this.getEmail = function(){
         return email;    
-    };   
+    };  
+    //get adress
+    this.getAdress = function(){
+        return adress;
+    };
 }
 
 
@@ -108,4 +112,14 @@ var newUser = new UserObject("luckyxii", "a123", "fakemail@dumpTrump.com", "male
 newUser.setBirthday("1992-09-04");
 
 console.log(newUser);
+console.log(newUser.getPassword());
+
+
+/*
+var req = new XMLHttpRequest();
+req.open("POST", "https://luckyxii.github.io/Projekt1JS2T5/profileTextDatabase.dat");
+req.withCredentials = true;
+req.setRequestHeader("Content-type", "text/plain");
+req.send("TEST");
+*/
 
