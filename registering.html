@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+ <html>
+  <head>
+    <meta charset="utf-8">
+        <link href="style.css" rel="stylesheet" type="text/css">
+    <title>WestDate - Register</title>
+  </head>
+  <body>
+
+    <div id="reg1" class="regContainer">          <!-- Register steg 1 !-->
+      <h1>Registera ny medlem, steg 1 av 4</h1>
+      <div class="regHalfPage">
+        <div class="regOption">
+          <p class="regOptionText">Användarnamn:</P>
+          <input class="regInput"></input>
+        </div>
+        <div class="regOption">
+          <p class="regOptionText">Lösenord:</P>
+          <input class="regInput"></input>
+        </div>
+      </div>
+      <div class="regHalfPage">
+        <div class="regOption">
+          <p class="regOptionText">e-mail:</P>
+          <input class="regInput"></input>
+        </div>
+        <div class="regOption">
+          <p class="regOptionText">repetera e-mail:</P>
+          <input class="regInput"></input>
+        </div>
+      </div>
+      <div class="regWholePage">
+        <p class="regInfo">Genom att fortsätta bekräftar du att du har läst och godkänt våra Villkor och regler, Sekretesspolicy samt Cookiepolicy.</p>
+         <div class="RegOption">
+           <p class="regConfirmText">Skapa konto!</p>
+             <button id="reg1Confirm" class="regConfirm">O</button>
+         </div>
+      </div>
+    </div>                                        <!-- Register steg 1  SLUT !-->
+
+
+    <div id="reg2" class="regContainer">          <!-- Register steg 2  !-->
+      <h1>Registera ny medlem, steg 2 av 4</h1>
+      <div class="regWholePage">
+        <div class="regOption">
+          <p class="regOptionText">Kön:</p>
+          <input type="radio" name="gender" value="male">Man
+          <input type="radio" name="gender" value="female">Kvinna
+          <input type="radio" name="gender" value="transgender">Transgender
+          <input type="radio" name="gender" value="cyborg">Cyborg
+        </div>
+        <div class="regOption">
+          <p class="regOptionText">Intresserad av:</p>
+          <input type="checkbox" name="matchgender" value="male">Man
+          <input type="checkbox" name="matchgender" value="female">Kvinna
+          <input type="checkbox" name="matchgender" value="transgender">Transgender
+          <input type="checkbox" name="matchgender" value="cyborg">Cyborg
+        </div>
+      </div>
+        <div class="regHalfPage">
+          <div class="regOption">
+            <p class="regOptionText">Förnamn:</p>
+          </div>
+          <div class="regOption">
+            <p class="regOptionText">Födelsedatum:</p>
+            <select id="regYear" class="regDropdown"></select>
+            <select id="regYear" class="regDropdown"></select>
+            <select id="regYear" class="regDropdown"></select>
+          </div>
+        </div>
+        <div class="regHalfPage">
+          <div class="regOption">
+            <p class="regOptionText">Stadsdel:</p>
+            <input class="regInput"></input>
+          </div>
+          <div class="RegOption">
+            <p class="regConfirmText">Gå vidare</p>
+              <button id="reg2Confirm" class="regConfirm">O</button>
+          </div>
+        </div>
+      </div>                                    <!-- Register steg 2  SLUT !-->
+
+
+      <div id="reg3" class="regContainer">      <!-- Register steg 3 !-->
+        <h1>Registera ny medlem, steg 3 av 4</h1>
+        <div class="regHalfPage">
+          <div class="regOption">
+            <p class="regOptionText">Ladda upp bild:</p>
+            <button id="regUploadPic">+</button>
+          </div>
+          <div class="regOption">
+            <p class="regOptionText">Ta bort bild:</p>
+            <button id="regDeletePic">-</button>
+          </div>
+          <div class="regOption">
+            <p class="regOptionText">Längd:</p>
+            <input id="regHeight" class="regInput"></input><p class="regOptionText">cm</p>
+          </div>
+          <div class="regOption">
+            <p class="regOptionText">Hårfärg:</p>
+            <select class="regDropdown">
+              <option>Blond</option>
+              <option>Brunette</option>
+              <option>Svart</option>
+              <option>Rött</option>
+              <option>Grått</option>
+              <option>Vitt</option>
+              <option>Varierande</option>
+            </select>
+          </div>
+        </div>
+        <div class="regHalfPage">
+          <div class="regOption">
+            <div id="regProfilePic">
+          </div>
+          <div class="regHalfPage">
+            <div class="regOption">
+              <p class="regOptionText">Kroppstyp:</p>
+              <select class="regDropdown">
+                <option>Normal</option>
+                <option>Atletisk</option>
+                <option>Smal</option>
+                <option>Kramgo</option>
+              </select>
+            </div>
+            <div class="regOption">
+              <p class="regOptionText">Ögonförg:</p>
+              <select class="regDropdown">
+                <option>Blåa</option>
+                <option>Gröna</option>
+                <option>Bruna</option>
+                <option>Gråa</option>
+                <option>Röda/Violetta</option>
+              </select>
+            </div>
+            <div class="RegOption">
+              <p class="regConfirmText">Gå vidare</p>
+                <button id="reg3Confirm" class="regConfirm">O</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>                                    <!-- Register steg 3  SLUT !-->
+
+
+      <div id="reg4" class="regContainer">      <!-- Register steg 4 !-->
+        <h1>Registera ny medlem, steg 4 av 4</h1>
+        <div class="regWholePage">
+          <div class="RegOption">
+            <p class="regOptionText">Intressen:</p>
+            <div id="regInterestBoxes"></div>
+          </div>
+          <div class="RegOption">
+            <p class="regOptionText">Berätta lite om dig själv:</p>
+            <textarea rows="4" id="regTextAboutSelf"></textarea>
+          </div>
+          <div class="RegOption">
+            <p class="regOptionText">Om den du söker:</p>
+            <textarea rows="3" id="regTextAboutMatch"></textarea>
+          </div>
+          <div class="RegOption">
+            <p class="regConfirmText">Slutför din profil!</p>
+              <button id="reg4Confirm" class="regConfirm">O</button>
+          </div>
+        </div>
+      </div>                                    <!-- Register steg 4  SLUT !-->
+  </body>
+  <script src="reg.js"></script>
+
+</html>
