@@ -12,29 +12,30 @@ document.head.appendChild(imported);
 
 var regConfirm = document.getElementsByClassName("regConfirm");
 var currentYear = new Date().getFullYear();
+var selectedYear = document.getElementById("regYear");
+var selectedMonth = document.getElementById("regMonth");
+var selectedDay = document.getElementById("regDay");
 
 
 var username = document.getElementsByClassName("regInput")[0].value;
 var password = document.getElementsByClassName("regInput")[1].value;
-var confirmEmail = document.getElementsByClassName("regInput")[3].value;
 var email = document.getElementsByClassName("regInput")[2].value;
-var birthday = ""; 
-var selectedYear = document.getElementById("regYear");
-var selectedMonth = document.getElementById("regMonth");
-var selectedDay = document.getElementById("regDay");
-var sex = document.getElementsByName("gender");
-var lookingFor = document.getElementsByName("matchgender");
+var confirmEmail = document.getElementsByClassName("regInput")[3].value;
 var firstName = document.getElementsByName("firstName")[0].value;
 var lastName = document.getElementsByName("lastName")[0].value;
 var adress = document.getElementsByName("adress")[0].value;
 var district = document.getElementsByName("stadsdel")[0].value;
+var height = document.getElementById("regHeight").value;
+var gender = selectedSex();
+var lookingFor = checkboxSelected(document.getElementsByName("matchgender"));
 var profilePic
-var height = document.getElementById("regHeight");           
-var hairColor
-var bodyType
-var eyeColor
-var aboutSelf
-var aboutMatch
+var birthday = ""; 
+var hairColor = getSelectOptionValue(document.getElementById("hairColor"));
+var bodyType = getSelectOptionValue(document.getElementById("bodytype"));
+var eyeColor = getSelectOptionValue(document.getElementById("eyeColor"));
+var interests = checkboxSelected(document.getElementsByName("regInterests"));
+var aboutSelf = document.getElementById("regTextAboutSelf").value;
+var aboutMatch = document.getElementById("regTextAboutMatch");
 
 
 
@@ -54,20 +55,64 @@ var newUser = new UserObject("luckyxii", "a123", "fakemail@dumpTrump.com",
 //==========================================================================
 //Callbacks
 
+/*************TO DO*********
+- Validate fields(check for proper format, no-empty fields etc): keyup event (add green symbol once 
+            validated and un-disable "next")
+*/
+
 regConfirm[0].addEventListener("click", createOptionsBirthdate);
 regConfirm[1].addEventListener("click", setBirthday);
 
 //==========================================================================
 //functions
 
-//selected haircolor value
-function setHaircolor(){
+//add user to database
+function pushToDatabase(){
     
+}
+
+//push values to constructor
+function createUser(){
+    
+}
+
+//option element attribute value
+function getSelectOptionValue(attr){
+    
+    for(let i = 0; i < attr.length; i++){
+    
+        if(attr.children[i].selected === true){
+            return attr.children[i].textContent;
+        }
+    }
+}
+
+//value of checkboxes Selected
+function checkboxSelected(inputID){
+    
+    let outputArray = [];
+    
+    for(let i = 0; i < inputID.length; i++){
+        
+        if(inputID[i].checked === true){
+            outputArray.push(inputID[i].value);
+        }
+    }
+    return outputArray;
 }
 
 //setBirthdate
 function setBirthday(){
     
+    /* saved incase buggs
+    for(let i = 0; i < selectedMonth.length; i++){
+        if(selectedMonth.children[i].selected === true){
+            month = selectedMonth.children[i].textContent;
+        }
+    }
+    */
+    
+   
     let bday;
     let year = 0;
     let month = 0;
@@ -75,60 +120,33 @@ function setBirthday(){
     
     // Vore det bättra att omvandla till en statik array och filtrera selected
     // med filter?
-    for(let i = 0; i < selectedYear.length; i++){
-        if(selectedYear.children[i].selected === true){
-            year = selectedYear.children[i].textContent;
-        }
-    }
+    year = getSelectOptionValue(selectedYear);
+    month = getSelectOptionValue(selectedMonth);
+    day = getSelectOptionValue(selectedDay);
     
-    for(let i = 0; i < selectedMonth.length; i++){
-        if(selectedMonth.children[i].selected === true){
-            month = selectedMonth.children[i].textContent;
-        }
-    }
-    
-    for(let i = 0; i < selectedDay.length; i++){
-         if(selectedDay.children[i].selected === true){
-            day = selectedDay.children[i].textContent;
-        }
-    }
+    //format string
     if(day < 10){
         day = "0"+day;
     }
     if(month < 10){
         month = "0"+month;
-    }
-        
+    }  
     bday = year + "-" + month + "-" + day;
+    //save to global var
     birthday = bday;
 } 
 
-//Genders prefered
-function preferedSex(){
-    
-    let preferedGender = [];
-    
-    for(let i = 0; i < lookingFor.length; i++){
-        
-        if(lookingFor[i].checked === true){
-            preferedGender.push(lookingFor[i].value);
-        }
-    }
-    return preferedGender;
-}
 
 //Gender selected
 function selectedSex(){
+    
+    let sex = document.getElementsByName("gender");
     
     for(let i = 0; i < sex.length; i++){
         
         if(sex[i].checked === true){
             return sex[i].value;
         }
-        else{
-            console.log("no sex selected");
-        }
-        
     }
 }
 
