@@ -65,10 +65,10 @@ function loginAuthenticatedUser(){
 // User Objects
 function UserObject(_username, _password, _email, _birthday, sex, lookingFor,
                     firstName, lastName, _adress, district, profilePic, height,
-                    hairColor, eyeColor, smoker, hasAnimals, vegetarian,
-                    employed, hasKids, interests, aboutSelf, aboutMatch,
-                    prefEyeColor, prefDistrict, prefMaxHeight, prefMinHeight, prefHairColor,
-                    prefSmoker, prefAnimals, prefVegetarian, prefEmployed, prefHasKids ) {
+                    hairColor, eyeColor,bodyType,interests, aboutSelf, aboutMatch, 
+                    hasAnimals, vegetarian, employed, hasKids, smoker, prefEyeColor, 
+                    prefDistrict, prefMaxHeight, prefMinHeight, prefHairColor,
+                    prefSmoker, prefAnimals, prefVegetarian, prefEmployed, prefHasKids) {
 
 //---------------------------
 // private 

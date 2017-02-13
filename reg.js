@@ -15,27 +15,10 @@ var currentYear = new Date().getFullYear();
 var selectedYear = document.getElementById("regYear");
 var selectedMonth = document.getElementById("regMonth");
 var selectedDay = document.getElementById("regDay");
-
-
-var username = document.getElementsByClassName("regInput")[0].value;
-var password = document.getElementsByClassName("regInput")[1].value;
-var email = document.getElementsByClassName("regInput")[2].value;
 var confirmEmail = document.getElementsByClassName("regInput")[3].value;
-var firstName = document.getElementsByName("firstName")[0].value;
-var lastName = document.getElementsByName("lastName")[0].value;
-var adress = document.getElementsByName("adress")[0].value;
-var district = document.getElementsByName("stadsdel")[0].value;
-var height = document.getElementById("regHeight").value;
-var gender = selectedSex();
-var lookingFor = checkboxSelected(document.getElementsByName("matchgender"));
-var profilePic
-var birthday = ""; 
-var hairColor = getSelectOptionValue(document.getElementById("hairColor"));
-var bodyType = getSelectOptionValue(document.getElementById("bodytype"));
-var eyeColor = getSelectOptionValue(document.getElementById("eyeColor"));
-var interests = checkboxSelected(document.getElementsByName("regInterests"));
-var aboutSelf = document.getElementById("regTextAboutSelf").value;
-var aboutMatch = document.getElementById("regTextAboutMatch");
+var email = document.getElementsByClassName("regInput")[2].value;
+
+
 
 
 
@@ -43,13 +26,14 @@ var aboutMatch = document.getElementById("regTextAboutMatch");
 //main
 
 //manual user remove once registration is completed
-var newUser = new UserObject("luckyxii", "a123", "fakemail@dumpTrump.com",
-                        1992-09-04, "male", ["female"],"johan", "magnusson", "fakerStreet", "fakerWard",
+/*var newUser = new UserObject("luckyxii", "a123", "fakemail@dumpTrump.com",
+                        "1992-09-04", "male", ["female"],"johan", "magnusson", 
+                        "fakerStreet", "fakerWard",
                         "https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/14232971_10207465694944968_1889056014685634462_n.jpg?oh=ea3f2fa7e1a410f7a26387cd821d5ae4&oe=5942D6A3",
                         178, "brown", "hazel", false, false, false, false, false, ["stuff", "other stuff"], "is_l33t", "has to be_l33t", "blue", "fakerWard", 
                         175, 160, "blond", false, true, false, true, false );
 //localStorage.setItem("luckyxii", JSON.stringify(newUser));
-
+*/
 
 
 //==========================================================================
@@ -62,19 +46,50 @@ var newUser = new UserObject("luckyxii", "a123", "fakemail@dumpTrump.com",
 
 regConfirm[0].addEventListener("click", createOptionsBirthdate);
 regConfirm[1].addEventListener("click", setBirthday);
+regConfirm[3].addEventListener("click", newUserToDatabase);
 
 //==========================================================================
 //functions
 
 //add user to database
-function pushToDatabase(){
+function newUserToDatabase(){
     
+    let username = document.getElementsByClassName("regInput")[0].value;
+    let password = document.getElementsByClassName("regInput")[1].value;
+    let email = document.getElementsByClassName("regInput")[2].value;
+   
+    let firstName = document.getElementsByName("firstName")[0].value;
+    let lastName = document.getElementsByName("lastName")[0].value;
+    let adress = document.getElementsByName("adress")[0].value;
+    let district = document.getElementsByName("stadsdel")[0].value;
+    let height = document.getElementById("regHeight").value;
+    let gender = selectedSex();
+    let lookingFor = checkboxSelected(document.getElementsByName("matchgender"));
+    let birthday = setBirthday();
+    let hairColor = getSelectOptionValue(document.getElementById("hairColor"));
+    let bodyType = getSelectOptionValue(document.getElementById("bodytype"));
+    let eyeColor = getSelectOptionValue(document.getElementById("eyeColor"));
+    let interests = checkboxSelected(document.getElementsByName("regInterests"));
+    let aboutSelf = document.getElementById("regTextAboutSelf").value;
+    let aboutMatch = document.getElementById("regTextAboutMatch").value;
+    //CHANGE THIS 
+    var profilePic = "https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/14232971_10207465694944968_1889056014685634462_n.jpg?oh=ea3f2fa7e1a410f7a26387cd821d5ae4&oe=5942D6A3";
+
+
+    
+    let newUser = new UserObject(username,password,email,birthday,gender,lookingFor,
+                                 firstName,lastName,adress,district,profilePic,height,
+                                 hairColor,eyeColor,bodyType, interests, aboutSelf, aboutMatch,
+                                 null,null,null,null,null,null,null,null,null,null,null,null,null,
+                                 null,null);
+    
+   
+    
+    localStorage.setItem(username,JSON.stringify(newUser));
+    console.log("User added to database");
 }
 
-//push values to constructor
-function createUser(){
-    
-}
+
 
 //option element attribute value
 function getSelectOptionValue(attr){
@@ -111,8 +126,7 @@ function setBirthday(){
         }
     }
     */
-    
-   
+
     let bday;
     let year = 0;
     let month = 0;
@@ -133,7 +147,7 @@ function setBirthday(){
     }  
     bday = year + "-" + month + "-" + day;
     //save to global var
-    birthday = bday;
+    return bday;
 } 
 
 
@@ -203,16 +217,15 @@ function createOptionsBirthdate(){
     //create options month
     for(let i = 0; i < 12; i++){
         selectedMonth.appendChild(document.createElement("option"));
-        selectedMonth.children[i].value = 12-i;
+        selectedMonth.children[i].value = 1+i;
         selectedMonth.children[i].textContent = selectedMonth.children[i].value;
     }
     //create options day
     for(let i = 0; i < 31; i++){
         selectedDay.appendChild(document.createElement("option"));
-        selectedDay.children[i].value = 31-i;
+        selectedDay.children[i].value = 1+i;
          selectedDay.children[i].textContent =  selectedDay.children[i].value;
     }
-   
 }
 
 
@@ -271,7 +284,7 @@ function confirmButtonsActions(){
   });
 }
 
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", function() {
   addInterestsToDocument();
   hidePagesAtStart();
   confirmButtonsActions();
@@ -283,12 +296,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 // User Objects
 //---------------------------------------------
-function UserObject(_username, _password, _email, _birthday, sex, lookingFor,
-                    firstName, lastName, _adress, district, profilePic, height,
-                    hairColor, eyeColor,bodyType, smoker, hasAnimals, vegetarian,
-                    employed, hasKids, interests, aboutSelf, aboutMatch,
-                    prefEyeColor, prefDistrict, prefMaxHeight, prefMinHeight, prefHairColor,
-                    prefSmoker, prefAnimals, prefVegetarian, prefEmployed, prefHasKids) {
+function UserObject(_username, _password, _email, _birthday, _sex, _lookingFor,
+                    _firstName, _lastName, _adress, _district, _profilePic, _height,
+                    _hairColor, _eyeColor,_bodyType,_interests, _aboutSelf, _aboutMatch, 
+                    _hasAnimals, _vegetarian, _employed, _hasKids, _smoker, _prefEyeColor, 
+                    _prefDistrict, _prefMaxHeight, _prefMinHeight, _prefHairColor,
+                    _prefSmoker, _prefAnimals, _prefVegetarian, _prefEmployed, _prefHasKids) {
 
 //---------------------------
 // private 
@@ -301,36 +314,36 @@ function UserObject(_username, _password, _email, _birthday, sex, lookingFor,
     this.adress = _adress; //String
     this.birthday = _birthday; //string
     
-    this.sex = sex; //String
-    this.lookingFor = lookingFor; //Array
-    this.firstName = firstName; //String
-    this.lastName = lastName; //string
-    this.district = district; // string
-    this.profilePic = profilePic; //String, href-link
-    this.height = height; //num
-    this.hairColor = hairColor; //String
-    this.eyeColor = eyeColor; //String
-    this.bodyType = bodyType; //string
-    this.smoker = smoker; //bool
-    this.hasAnimals = hasAnimals; //bool
-    this.vegetarian = vegetarian; //bool
-    this.employed = employed; //bool
-    this.hasKids = hasKids; //bool
-    this.interests = interests; //Array
-    this.aboutSelf = aboutSelf; //String
-    this.aboutMatch = aboutMatch; //String
+    this.sex = _sex; //String
+    this.lookingFor = _lookingFor; //Array
+    this.firstName = _firstName; //String
+    this.lastName = _lastName; //string
+    this.district = _district; // string
+    this.profilePic = _profilePic; //String, href-link
+    this.height = _height; //num
+    this.hairColor = _hairColor; //String
+    this.eyeColor = _eyeColor; //String
+    this.bodyType = _bodyType; //string
+    this.smoker = _smoker; //bool
+    this.hasAnimals = _hasAnimals; //bool
+    this.vegetarian = _vegetarian; //bool
+    this.employed = _employed; //bool
+    this.hasKids = _hasKids; //bool
+    this.interests = _interests; //Array
+    this.aboutSelf = _aboutSelf; //String
+    this.aboutMatch = _aboutMatch; //String
     
     //Preferences
-    this.prefEyeColor = prefEyeColor; //string
-    this.prefDistrict = prefDistrict; //string
-    this.prefMaxHeight = prefMaxHeight; //num
-    this.prefMinHeight = prefMinHeight; //num
-    this.prefHairColor = prefHairColor; //string
-    this.prefSmoker = prefSmoker; //bool
-    this.prefAnimals = prefAnimals; //bool
-    this.prefVegetarian = prefVegetarian; //bool
-    this.prefEmployed = prefEmployed; //bool
-    this.prefHasKids = prefHasKids; //bool
+    this.prefEyeColor = _prefEyeColor; //string
+    this.prefDistrict = _prefDistrict; //string
+    this.prefMaxHeight = _prefMaxHeight; //num
+    this.prefMinHeight = _prefMinHeight; //num
+    this.prefHairColor = _prefHairColor; //string
+    this.prefSmoker = _prefSmoker; //bool
+    this.prefAnimals = _prefAnimals; //bool
+    this.prefVegetarian = _prefVegetarian; //bool
+    this.prefEmployed = _prefEmployed; //bool
+    this.prefHasKids = _prefHasKids; //bool
     
 //-----------------------------
 //methods
