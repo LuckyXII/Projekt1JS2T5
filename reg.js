@@ -25,16 +25,14 @@ var email = document.getElementsByClassName("regInput")[2].value;
 //==================================================================================
 //main
 
-//manual user remove once registration is completed
-/*var newUser = new UserObject("luckyxii", "a123", "fakemail@dumpTrump.com",
-                        "1992-09-04", "male", ["female"],"johan", "magnusson", 
-                        "fakerStreet", "fakerWard",
-                        "https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/14232971_10207465694944968_1889056014685634462_n.jpg?oh=ea3f2fa7e1a410f7a26387cd821d5ae4&oe=5942D6A3",
-                        178, "brown", "hazel", false, false, false, false, false, ["stuff", "other stuff"], "is_l33t", "has to be_l33t", "blue", "fakerWard", 
-                        175, 160, "blond", false, true, false, true, false );
-//localStorage.setItem("luckyxii", JSON.stringify(newUser));
+/* LOOP THROUGH LOCALSTORAGE USING KEY()
+var key;
+for(let i = 0; i < localStorage.length; i++){
+    key = localStorage.key(i);
+    console.log(localStorage.getItem(key));
+    
+}
 */
-
 
 //==========================================================================
 //Callbacks
@@ -42,6 +40,8 @@ var email = document.getElementsByClassName("regInput")[2].value;
 /*************TO DO*********
 - Validate fields(check for proper format, no-empty fields etc): keyup event (add green symbol once 
             validated and un-disable "next")
+        
+    OBS Validate mail and user ready but not assigned to an event
 */
 
 regConfirm[0].addEventListener("click", createOptionsBirthdate);
@@ -85,7 +85,7 @@ function newUserToDatabase(){
     
    
     
-    localStorage.setItem(username,JSON.stringify(newUser));
+    localStorage.setItem(email,JSON.stringify(newUser));
     console.log("User added to database");
 }
 
@@ -119,14 +119,6 @@ function checkboxSelected(inputID){
 //setBirthdate
 function setBirthday(){
     
-    /* saved incase buggs
-    for(let i = 0; i < selectedMonth.length; i++){
-        if(selectedMonth.children[i].selected === true){
-            month = selectedMonth.children[i].textContent;
-        }
-    }
-    */
-
     let bday;
     let year = 0;
     let month = 0;
@@ -172,9 +164,9 @@ function validateUser(username){
         console.log("taken");
         return false;
     }
-    else
+    else{
         return true;
-    
+    }
 }
 
 //Validate email
