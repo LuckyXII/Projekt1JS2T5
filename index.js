@@ -9,8 +9,6 @@ document.head.appendChild(imported);
 //===========================================================================
 //Globals
 
-var inputMail = document.getElementById("inputEmail");
-var inputPassword = document.getElementById("inputPassword");
 var login = document.getElementById("login");
 var users = userDatabase.users;
 
@@ -19,7 +17,7 @@ var users = userDatabase.users;
 //===========================================================================
 //Main
 
-console.log(localStorage);
+
 
 //===========================================================================
 //Callbacks
@@ -33,12 +31,11 @@ login.addEventListener("click", loginAuthenticatedUser);
 
 //Log in authenticated user
 function loginAuthenticatedUser(){
+
+    let userName = document.getElementById("inputEmail").value;
+    let password = document.getElementById("inputPassword").value;
     
-    users.push(JSON.parse(localStorage.getItem(inputMail.value)));
-    
-    console.log("pressed");
-    let userName = inputMail.value;
-    let password = inputPassword.value;
+    users.push(JSON.parse(localStorage.getItem(userName)));
     
     for(let i = 0; i < users.length; i++){
         
