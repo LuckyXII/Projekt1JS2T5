@@ -29,20 +29,23 @@
     -->
     <body background="resources\goteborg00.jpg">
 
-    <div class="login">
-        <div class="login-page">
-            <div class="form">
-                <form class="login-form">
-                    <img id="logo" src="resources/Logo.png">
-                    <input type="text" placeholder="E-mail"/>
-                    <input type="password" placeholder="Lösenord"/>
-                    <button>Logga in</button>
-                    <p class="message">Inte registrerad? <a href="#">Skapa ett konto</a></p>
-                </form>
+        <div class="login">
+            <div class="login-page">
+                <div class="form">
+                    <form class="login-form">
+                        <img id="logo" src="resources/Logo.png">
+                        <input id="inputEmail" type="text" placeholder="E-mail"/>
+                        <input id="inputPassword" type="password" placeholder="Lösenord"/>
+                        <button id="login" type ="button">Logga in</button>
+                        <p class="message">
+                            Inte registrerad? <a href="#">Skapa ett konto</a>
+                        </p>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
 
-
+        <script src="userDatabase.js"></script>
+        <script src="scriptTest.js"></script>
     </body>
 </html>

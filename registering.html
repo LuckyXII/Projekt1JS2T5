@@ -2,8 +2,8 @@
  <html>
   <head>
     <meta charset="utf-8">
-        <link href="style.css" rel="stylesheet" type="text/css">
     <title>WestDate - Register</title>
+    <link type="text/css" href="registrering.css" rel="stylesheet">
   </head>
   <body>
 
@@ -11,22 +11,22 @@
       <h1>Registera ny medlem, steg 1 av 4</h1>
       <div class="regHalfPage">
         <div class="regOption">
-          <p class="regOptionText">Användarnamn:</P>
-          <input class="regInput"></input>
+          <p class="regOptionText">Användarnamn:</p>
+          <input class="regInput" type="text"/>
         </div>
         <div class="regOption">
-          <p class="regOptionText">Lösenord:</P>
-          <input class="regInput"></input>
+          <p class="regOptionText">Lösenord:</p>
+          <input class="regInput" type="password"/>
         </div>
       </div>
       <div class="regHalfPage">
         <div class="regOption">
-          <p class="regOptionText">e-mail:</P>
-          <input class="regInput"></input>
+          <p class="regOptionText">e-mail:</p>
+          <input class="regInput" type="email"/>
         </div>
         <div class="regOption">
-          <p class="regOptionText">repetera e-mail:</P>
-          <input class="regInput"></input>
+          <p class="regOptionText">repetera e-mail:</p>
+          <input class="regInput" type="email"/>
         </div>
       </div>
       <div class="regWholePage">
@@ -44,10 +44,10 @@
       <div class="regWholePage">
         <div class="regOption">
           <p class="regOptionText">Kön:</p>
-          <input type="radio" name="gender" value="male">Man
-          <input type="radio" name="gender" value="female">Kvinna
-          <input type="radio" name="gender" value="transgender">Transgender
-          <input type="radio" name="gender" value="cyborg">Cyborg
+          <input  type="radio" name="gender" value="male">Man
+          <input  type="radio" name="gender" value="female">Kvinna
+          <input  type="radio" name="gender" value="transgender">Transgender
+          <input  type="radio" name="gender" value="cyborg">Cyborg
         </div>
         <div class="regOption">
           <p class="regOptionText">Intresserad av:</p>
@@ -59,19 +59,22 @@
       </div>
         <div class="regHalfPage">
           <div class="regOption">
-            <p class="regOptionText">Förnamn:</p>
+            <p class="regOptionText">Förnamn och Efternamn (efternamn kommer inte att visas)</p>
+            <input type="text" name="firstName" placeholder="Förnamn"/>
+            <input type="text" name="lastName" placeholder="Efternamn"/>
           </div>
           <div class="regOption">
             <p class="regOptionText">Födelsedatum:</p>
             <select id="regYear" class="regDropdown"></select>
-            <select id="regYear" class="regDropdown"></select>
-            <select id="regYear" class="regDropdown"></select>
+            <select id="regMonth" class="regDropdown"></select>
+            <select id="regDay" class="regDropdown"></select>
           </div>
         </div>
         <div class="regHalfPage">
           <div class="regOption">
-            <p class="regOptionText">Stadsdel:</p>
-            <input class="regInput"></input>
+            <p class="regOptionText">Stadsdel och Adress (adress kommer inte visas)</p>
+            <input type="text" name="stadsdel" class="regInput" placeholder="Tex Mölndal"/>
+            <input type="text" name="Adress" class="regInput" placeholder="Tex Möndalsvägen 77"/>
           </div>
           <div class="RegOption">
             <p class="regConfirmText">Gå vidare</p>
@@ -94,7 +97,8 @@
           </div>
           <div class="regOption">
             <p class="regOptionText">Längd:</p>
-            <input id="regHeight" class="regInput"></input><p class="regOptionText">cm</p>
+            <input id="regHeight" class="regInput"/>
+            <p class="regOptionText">cm</p>
           </div>
           <div class="regOption">
             <p class="regOptionText">Hårfärg:</p>
