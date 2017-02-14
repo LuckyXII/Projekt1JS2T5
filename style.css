@@ -1,5 +1,23 @@
 img{
-    margin: 0px;   
+    margin: 0px;
     height: 100vh;
     width: 100vw;
+}
+textarea{
+}
+.regContainer{
+    border: 1px solid cyan;
+    padding: 5px;
+}
+.regWholePage{
+  border: 1px solid blue;
+  padding: 5px;
+}
+.regHalfPage{
+  border: 1px solid red;
+  padding: 5px;
+}
+.RegOption{
+    border: 1px solid green;
+        padding: 5px;
 }
