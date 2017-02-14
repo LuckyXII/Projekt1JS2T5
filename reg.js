@@ -253,14 +253,12 @@ function $(str) {
 
 function hidePagesAtStart(){
   let pages = [$("#reg2"),$("#reg3"),$("#reg4")];
-  console.log(pages);
   pages.forEach(e=>{
     e.style.display = "none";
   });
 }
 
 function confirmButtonsActions(){
-  console.log($("#reg1Confirm"));
   $("#reg1Confirm").addEventListener("click", function(){
     $("#reg2").style.display = "block";
     $("#reg1").style.display = "none";
@@ -270,11 +268,23 @@ function confirmButtonsActions(){
     $("#reg2").style.display = "none";
   });
   $("#reg3Confirm").addEventListener("click", function(){
-    console.log($("#reg4"));
     $("#reg4").style.display = "block";
     $("#reg3").style.display = "none";
   });
+  $("#reg2Previous").addEventListener("click", function() {
+    $("#reg1").style.display = "block";
+    $("#reg2").style.display = "none";
+  });
+  $("#reg3Previous").addEventListener("click", function() {
+    $("#reg2").style.display = "block";
+    $("#reg3").style.display = "none";
+  });
+  $("#reg4Previous").addEventListener("click", function() {
+    $("#reg3").style.display = "block";
+    $("#reg4").style.display = "none";
+  });
 }
+
 
 document.addEventListener("DOMContentLoaded", function() {
   addInterestsToDocument();
