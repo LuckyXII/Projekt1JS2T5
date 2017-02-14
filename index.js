@@ -35,13 +35,15 @@ function loginAuthenticatedUser(){
     let userName = document.getElementById("inputEmail").value;
     let password = document.getElementById("inputPassword").value;
     
-    users.push(JSON.parse(localStorage.getItem(userName)));
+    if(localStorage.getItem(userName) !== null){
+        users.push(JSON.parse(localStorage.getItem(userName)));
+    }
     
     for(let i = 0; i < users.length; i++){
         
         if((users[i].email == userName || users[i].username == userName) &&
            users[i].password == password){
-            
+            localStorage.setItem("logedIn",localStorage.getItem(userName));
             console.log("sucessful login");
             alert("sucessful login!");
         }
