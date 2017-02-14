@@ -43,6 +43,7 @@ function loginAuthenticatedUser(){
            users[i].password == password){
             
             console.log("sucessful login");
+            alert("sucessful login!");
         }
     }
 }
