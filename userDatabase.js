@@ -19,8 +19,8 @@ function addTestUsersToStorage(){
     xml.open("GET", "testUsers.dat");
     xml.onreadystatechange = () => {
         if(xml.readyState == 4){
+             console.log("Response: ${xml.responseText}");
             testUsers = JSON.parse(xml.responseText);
-            console.log("Response: ${xml.responseText}");
             for(let i = 0; i < testUsers.users.length; i++){
                 localStorage.setItem(testUsers.users[i].email, JSON.stringify(testUsers.users[i]));
                 
