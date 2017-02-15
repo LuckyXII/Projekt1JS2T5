@@ -2,7 +2,7 @@
 /*jslint browser:true */
 
 var userDatabase = {
-    
+   logedIn: {},
   "users":[]  
     
 };
