@@ -75,7 +75,7 @@
         {
              "username":"Polackski",
             "password":"a123",
-            "email":"Polackski",
+            "email":"Polackski@mail.com",
             "adress":"Mölndalsvägen 88",
             "birthday":"1994-09-02",
             "sex":"female",
@@ -320,7 +320,7 @@
         {
              "username":"dovakhin",
             "password":"a123",
-            "email":"dovakhin",
+            "email":"dovakhin@mail.com",
             "adress":"Kruniusvägen 1",
             "birthday":"1930-11-11",
             "sex":"male",
