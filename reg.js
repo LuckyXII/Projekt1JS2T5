@@ -25,14 +25,7 @@ var email = document.getElementsByClassName("regInput")[2].value;
 //==================================================================================
 //main
 
-/* LOOP THROUGH LOCALSTORAGE USING KEY()
-var key;
-for(let i = 0; i < localStorage.length; i++){
-    key = localStorage.key(i);
-    console.log(localStorage.getItem(key));
-    
-}
-*/
+
 
 //==========================================================================
 //Callbacks

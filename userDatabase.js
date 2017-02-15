@@ -3,7 +3,8 @@
 
 var userDatabase = {
    logedIn: {},
-  "users":[]  
+  "users":[],
+    currentProfile: {}
     
 };
 
@@ -42,6 +43,17 @@ function localAddTestUsersToStorage(){
                 localStorage.setItem(localTestUsers.users[i].email, JSON.stringify(localTestUsers.users[i]));  
             }
 }
+
+// LOOP THROUGH LOCALSTORAGE USING KEY()
+
+function addUsersToDatabase(){
+    var key;
+    for(let i = 0; i < localStorage.length; i++){
+        key = localStorage.key(i);
+        userDatabase.users.push(localStorage.getItem(key));  
+    }
+};
+
 
 
 
