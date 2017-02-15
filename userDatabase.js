@@ -9,6 +9,39 @@ var userDatabase = {
 };
 
 
+//===================================================================================
+//callbacks
+
+
+
+//===================================================================================
+//functions
+
+
+function logoutUser(target){
+    target.addEventListener("click", ()=>{
+        let logedIn = JSON.parse(localStorage.getItem("logedIn"));
+        localStorage.setItem(logedIn.email, JSON.stringify(logedIn));
+        localStorage.removeItem("logedIn");
+    });
+}
+
+//*******************************************************
+//ready for implementation
+
+//load selected profile
+function loadCurrentProfile(e){
+    let currentProfile = e.target.value;
+    localStorage.setItem("currentProfile", currentProfile);
+}
+//Get profile from clicked element
+function getProfileOnClick(target){
+    target.addEventListener("click", loadCurrentProfile);
+}
+
+//*******************************************************
+
+
 //Made for GitHub (and to train AJAX)
 function addTestUsersToStorage(){
     let choice = prompt("Clear Storage before adding users? Y/N");
@@ -45,14 +78,16 @@ function localAddTestUsersToStorage(){
 }
 
 // LOOP THROUGH LOCALSTORAGE USING KEY()
-
 function addUsersToDatabase(){
     var key;
+    userDatabase.logedIn = JSON.parse(localStorage.getItem("logedIn"));
     for(let i = 0; i < localStorage.length; i++){
         key = localStorage.key(i);
-        userDatabase.users.push(localStorage.getItem(key));  
+        if(JSON.parse(localStorage.getItem(key)).email != userDatabase.logedIn.email){
+            userDatabase.users.push(JSON.parse(localStorage.getItem(key)));     
+        }
     }
-};
+}
 
 
 

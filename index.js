@@ -28,7 +28,7 @@ login.addEventListener("click", loginAuthenticatedUser);
 //===========================================================================
 //Functions
 
-function loadCurrentProfile ()
+
 
 //Log in authenticated user
 function loginAuthenticatedUser(){
@@ -48,7 +48,7 @@ function loginAuthenticatedUser(){
     if((logedIn.email == userName || logedIn.username == userName) &&
        logedIn.password == password){
         localStorage.setItem("logedIn",JSON.stringify(logedIn));
-        localStorage.removeItem(userName);
+        localStorage.removeItem(logedIn.email);
         console.log("sucessful login");
         alert("sucessful login!");
 

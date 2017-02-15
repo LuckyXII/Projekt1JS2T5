@@ -182,6 +182,7 @@
             "password":"a123",
             "email":"tinyTina@mail.com",
             "adress":"Skänningegatan 11",
+            
             "birthday":"1996-12-01",
             "sex":"female",
             "lookingFor":["female","cyborg"],

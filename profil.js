@@ -6,14 +6,14 @@
 /*jslint browser:true */
 
 
+//=====================================================================
+//Global Variables
+
 //Import database
 var imported = document.createElement("script");
 imported.scr = "userDatabase.js";
 document.head.appendChild(imported);
-
-
-
-
+var users = userDatabase.users;
 
 var firstName = document.getElementById("firstName");
 var profileSex = document.getElementById("profileSex");
@@ -23,49 +23,86 @@ var profileHeight = document.getElementById("profileHeight");
 var profileAge = document.getElementById("profileAge");
 var profileInterests = document.getElementById("profileInterests");
 var profileFullname = document.getElementById("profileFullname");
-
-//var profilePic = document.getElementById("profilePic");
-/*
-function getLogedIn(){
-	
-}
-*/
 var logedIn = userDatabase.logedIn;
 	logedIn = (JSON.parse(localStorage.getItem("logedIn")));
+var logout = document.getElementById("logout");
+//var profilePic = document.getElementById("profilePic");
+
+//=====================================================================
+//main
+
+var counter = compareProfiles();
+logoutUser(logout);
 	
-	console.log(logedIn);
-//====================================================
+	
+//======================================================================
 //Callbacks
-//window.addEventListener("load", getLogedIn);
 
 
 
-/*
-function UserObject() {
-    this.profileSex = null; //String
-    this.lookingFor = null; //Array
-    this.firstName = null; //String
-    this.district = null; // string
-    this.profilePic = null; //String, href-link
-    this.height = null; //num
-    this.hairColor = null; //String
-    this.eyeColor = null; //String
-    this.bodyType = null; //string
-    this.smoker = null; //bool
-    this.hasAnimals = null; //bool
-    this.vegetarian = null; //bool
-    this.employed = null; //bool
-    this.hasKids = null; //bool
-    this.interests = null; //Array
-    this.aboutSelf = null; //String
-    this.aboutMatch = null; //String
-    this.birthday = null; //string
-	this.username = null; //String
-	//this.lastname = null; //String
-	}
-	*/
+//=====================================================================
+//functions
 
-/*Konstruktor*/
+
+function compareProfiles(){
+    addUsersToDatabase();
+    let logedIn = JSON.parse(localStorage.getItem("logedIn"));
+    
+    //CHANGE LATER
+    let counter = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    
+    for(let i = 0; i < users.length; i++){
+       
+        if(users[i].district == logedIn.prefDistrict){
+            counter[i]++;
+        }
+        for(let i = 0; i < logedIn.lookingFor.length; i++){
+            
+            if(users[i].sex == logedIn.lookingFor[i]){
+                counter[i]++;
+            }
+            
+        }
+        if(users[i].hairColor == logedIn.prefHairColor){
+            counter[i]++;
+        }
+        if(users[i].eyeColor == logedIn.prefEyeColor){
+            counter[i]++;
+        }
+        /*if(users[i].bodyType == logedIn.prefBodyType){
+            counter[i]++;
+        }*/
+        if(users[i].smoker == logedIn.prefSmoker){
+            counter[i]++;
+        }
+        if(users[i].hasAnimals == logedIn.prefAnimals){
+            counter[i]++;
+        }
+        if(users[i].vegetarian == logedIn.prefVegetarian){
+            counter[i]++;
+        }
+        if(users[i].employed == logedIn.prefEmployed){
+            counter[i]++;
+        }
+        if(users[i].hasKids == logedIn.prefHasKids){
+            counter[i]++;
+        }
+        for(let i = 0; i < users[i].interests.length; i++){
+            for(let y = 0; i < logedIn.interests.length; i++){
+                if(users[i].interests[i] == logedIn.interests[y]){
+                    counter[i]++;
+                }    
+            }
+        }
+        if(users[i].height > logedIn.prefMinHeight && users[i].height < logedIn.prefMaxHeight){
+            counter[i]++;
+        }
+     console.log(users[i].username + counter[i]);   
+    }
+    
+     return counter;
+}
+
 
 /*
 var peter = new UserObject();
