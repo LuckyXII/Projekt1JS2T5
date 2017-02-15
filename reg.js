@@ -45,8 +45,8 @@ for(let i = 0; i < localStorage.length; i++){
 */
 
 regConfirm[0].addEventListener("click", createOptionsBirthdate);
-regConfirm[1].addEventListener("click", setBirthday);
-regConfirm[3].addEventListener("click", newUserToDatabase);
+regConfirm[2].addEventListener("click", setBirthday);
+regConfirm[6].addEventListener("click", newUserToDatabase);
 
 //==========================================================================
 //functions

@@ -10,7 +10,7 @@ document.head.appendChild(imported);
 //Globals
 
 var login = document.getElementById("login");
-var users = userDatabase.users;
+var logedin = userDatabase.logedin;
 
 
 
@@ -36,14 +36,15 @@ function loginAuthenticatedUser(){
     let password = document.getElementById("inputPassword").value;
     
     if(localStorage.getItem(userName) !== null){
-        users.push(JSON.parse(localStorage.getItem(userName)));
+        logedin = (JSON.parse(localStorage.getItem(userName)));
     }
     
-    for(let i = 0; i < users.length; i++){
+    for(let i = 0; i < logedin.length; i++){
         
-        if((users[i].email == userName || users[i].username == userName) &&
-           users[i].password == password){
-            localStorage.setItem("logedIn",localStorage.getItem(userName));
+        if((logedin.email == userName || logedin.username == userName) &&
+           logedin.password == password){
+            localStorage.setItem("logedIn",localStorage.getItem(JASON.stringify(logedin)));
+			localStorage.removeItem(username);
             console.log("sucessful login");
             alert("sucessful login!");
         }
