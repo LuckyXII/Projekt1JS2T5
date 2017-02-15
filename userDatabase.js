@@ -8,7 +8,7 @@ var userDatabase = {
 };
 
 
-//Made for GitHub
+//Made for GitHub (and to train AJAX)
 function addTestUsersToStorage(){
     let choice = prompt("Clear Storage before adding users? Y/N");
     let testUsers;
