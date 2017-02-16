@@ -2,9 +2,9 @@
 /*jslint browser:true */
 
 var userDatabase = {
-   logedIn: {},
-  "users":[],
-    currentProfile: {}
+   "logedIn": {},
+   "users":[],
+   "currentProfile": {}
     
 };
 
@@ -31,8 +31,15 @@ function logoutUser(target){
 
 //load selected profile
 function loadCurrentProfile(e){
-    let currentProfile = e.target.value;
-    localStorage.setItem("currentProfile", currentProfile);
+    let targetProfile = e.target.value;
+    
+    if(localStorage.getItem(targetProfile) !== null){
+        let currentProfile = localStorage.getItem(targetProfile);
+        localStorage.setItem("currentProfile", currentProfile);
+    }
+    else{
+        console.log("Error: profile not found");
+    }
 }
 //Get profile from clicked element
 function getProfileOnClick(target){
