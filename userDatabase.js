@@ -2,9 +2,10 @@
 /*jslint browser:true */
 
 var userDatabase = {
-   "logedIn": {},
-   "users":[],
-   "currentProfile": {}
+    "logedIn": {},
+    "users":[],
+    "currentProfile": {},
+    "bestMatch":[]
     
 };
 
@@ -90,7 +91,8 @@ function addUsersToDatabase(){
     userDatabase.logedIn = JSON.parse(localStorage.getItem("logedIn"));
     for(let i = 0; i < localStorage.length; i++){
         key = localStorage.key(i);
-        if(JSON.parse(localStorage.getItem(key)).email != userDatabase.logedIn.email){
+        if(!(JSON.parse(localStorage.getItem(key)) instanceof Array) && 
+           (JSON.parse(localStorage.getItem(key)).email != userDatabase.logedIn.email)){
             userDatabase.users.push(JSON.parse(localStorage.getItem(key)));     
         }
     }
@@ -140,7 +142,7 @@ var localTestUsers =
             "prefBody":"Normal"
         },
         {
-             "username":"Godus",
+             "username":"Grodus",
             "password":"a123",
             "email":"grodus@mail.com",
             "adress":"Siriusgatan 24",

@@ -27,12 +27,14 @@ var logedIn = userDatabase.logedIn;
 	logedIn = (JSON.parse(localStorage.getItem("logedIn")));
 var logout = document.getElementById("logout");
 //var profilePic = document.getElementById("profilePic");
+var userScore = compareProfiles();
 
 //=====================================================================
 //main
 
-var counter = compareProfiles();
-logout.addEventListener("click", logoutUser());
+logout.addEventListener("click", logoutUser);
+
+bestMatch();
 	
 	
 //======================================================================
@@ -43,22 +45,40 @@ logout.addEventListener("click", logoutUser());
 //=====================================================================
 //functions
 
+function bestMatch(){
+    let bestMatches =[];
+    
+    for(let i = 0; i < userScore.length; i++){
+        bestMatches.push({"username":userDatabase.users[i].username, "score":userScore[i]});
+   }
+    
+    bestMatches.sort((x,y)=>{
+        return y.score - x.score;
+    });
+    
+    userDatabase.bestMatch = bestMatches;
+    localStorage.setItem("bestMatches", JSON.stringify(userDatabase.bestMatch));
+
+}
+
 
 function compareProfiles(){
     addUsersToDatabase();
     let logedIn = JSON.parse(localStorage.getItem("logedIn"));
     
-    //CHANGE LATER
-    let counter = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    //Fill array with 0 per user
+    let counter = new Array(userDatabase.users.length).fill(0);
+    
     
     for(let i = 0; i < users.length; i++){
        
         if(users[i].district == logedIn.prefDistrict){
             counter[i]++;
         }
-        for(let i = 0; i < logedIn.lookingFor.length; i++){
+        for(let j = 0; j < logedIn.lookingFor.length; j++){
             
-            if(users[i].sex == logedIn.lookingFor[i]){
+            if((users[i].sex == logedIn.lookingFor[j]) &&
+              (users[i].lookingFor[j] == logedIn.sex)){
                 counter[i]++;
             }
             
@@ -87,21 +107,39 @@ function compareProfiles(){
         if(users[i].hasKids == logedIn.prefHasKids){
             counter[i]++;
         }
-        for(let i = 0; i < users[i].interests.length; i++){
-            for(let y = 0; i < logedIn.interests.length; i++){
-                if(users[i].interests[i] == logedIn.interests[y]){
+        for(let y = 0; y < users[i].interests.length; y++){
+            for(let j = 0; j < logedIn.interests.length; j++){
+                if(users[i].interests[y] == logedIn.interests[j]){
                     counter[i]++;
                 }    
             }
+
         }
         if(users[i].height > logedIn.prefMinHeight && users[i].height < logedIn.prefMaxHeight){
             counter[i]++;
         }
-     console.log(users[i].username + counter[i]);   
+        console.log(`${users[i].username}: ${counter[i]}`); 
     }
     
-     return counter;
+    
+    
+    
+    
+    return counter;
 }
+
+
+/* 
+   for(let i = 0; i < matchedUsers.length; i++){
+        bestMatches.push({"username":database.users[i].username, "score":matchedUsers[i]});
+   }
+    
+    bestMatches.sort((x,y)=>{
+        return x.score - y.score;
+    });
+    
+    userDatabase.bestMatch = bestMatches;
+    localStorage.setItem("bestMatches", bestMatches);*/
 
 
 /*

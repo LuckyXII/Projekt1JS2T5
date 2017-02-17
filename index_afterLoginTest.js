@@ -84,7 +84,6 @@ function loginAuthenticatedUser(){
         localStorage.setItem("logedIn",JSON.stringify(logedIn));
         localStorage.removeItem(logedIn.email);
         console.log("sucessful login");
-        onLogin();
     }
     else{
         console.log("Inte rätt");
