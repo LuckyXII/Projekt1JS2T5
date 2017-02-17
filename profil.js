@@ -32,7 +32,7 @@ var logout = document.getElementById("logout");
 //main
 
 var counter = compareProfiles();
-logoutUser(logout);
+logout.addEventListener("click", logoutUser());
 	
 	
 //======================================================================
@@ -69,9 +69,9 @@ function compareProfiles(){
         if(users[i].eyeColor == logedIn.prefEyeColor){
             counter[i]++;
         }
-        /*if(users[i].bodyType == logedIn.prefBodyType){
+        if(users[i].bodyType == logedIn.prefBody){
             counter[i]++;
-        }*/
+        }
         if(users[i].smoker == logedIn.prefSmoker){
             counter[i]++;
         }

@@ -35,7 +35,8 @@
             "prefAnimals":"True",
             "prefVegetarian":"False",
             "prefEmployed":"True",
-            "prefHasKids":"False"
+            "prefHasKids":"False",
+            "prefBody":"Normal"
         },
         {
              "username":"Godus",
@@ -70,7 +71,8 @@
             "prefAnimals":"True",
             "prefVegetarian":"False",
             "prefEmployed":"True",
-            "prefHasKids":"False"
+            "prefHasKids":"False",
+            "prefBody":"Smal"
         },
         {
              "username":"Polackski",
@@ -105,7 +107,8 @@
             "prefAnimals":"True",
             "prefVegetarian":"False",
             "prefEmployed":"True",
-            "prefHasKids":"False"
+            "prefHasKids":"False",
+            "prefBody":"Normal"
         },
         {
              "username":"L33tKid",
@@ -140,7 +143,8 @@
             "prefAnimals":"False",
             "prefVegetarian":"True",
             "prefEmployed":"True",
-            "prefHasKids":"True"
+            "prefHasKids":"True",
+            "prefBody":"Kramgo"
         },
         {
             "username":"V-dog",
@@ -175,14 +179,14 @@
             "prefAnimals":"False",
             "prefVegetarian":"True",
             "prefEmployed":"True",
-            "prefHasKids":"False"
+            "prefHasKids":"False",
+            "prefBody":"Atletisk"
         },
         {
              "username":"tinyTina",
             "password":"a123",
             "email":"tinyTina@mail.com",
             "adress":"Skänningegatan 11",
-            
             "birthday":"1996-12-01",
             "sex":"female",
             "lookingFor":["female","cyborg"],
@@ -211,7 +215,8 @@
             "prefAnimals":"True",
             "prefVegetarian":"False",
             "prefEmployed":"True",
-            "prefHasKids":"False"
+            "prefHasKids":"False",
+            "prefBody":"Kramgo"
         },
         {
              "username":"trump",
@@ -246,7 +251,8 @@
             "prefAnimals":"False",
             "prefVegetarian":"False",
             "prefEmployed":"True",
-            "prefHasKids":"False"
+            "prefHasKids":"False",
+            "prefBody":"Atletisk"
         },
         {
              "username":"jesus",
@@ -281,7 +287,8 @@
             "prefAnimals":"True",
             "prefVegetarian":"True",
             "prefEmployed":"False",
-            "prefHasKids":"False"
+            "prefHasKids":"False",
+            "prefBody":"Normal"
         },
         {
              "username":"putin",
@@ -316,7 +323,8 @@
             "prefAnimals":"False",
             "prefVegetarian":"False",
             "prefEmployed":"True",
-            "prefHasKids":"False"
+            "prefHasKids":"False",
+            "prefBody":"Kramgo"
         },
         {
              "username":"dovakhin",
@@ -351,7 +359,8 @@
             "prefAnimals":"False",
             "prefVegetarian":"False",
             "prefEmployed":"False",
-            "prefHasKids":"False"
+            "prefHasKids":"False",
+            "prefBody":"Atletisk"
         },
         {
             "username":"slimShady",
@@ -386,7 +395,8 @@
             "prefAnimals":"False",
             "prefVegetarian":"False",
             "prefEmployed":"False",
-            "prefHasKids":"False"
+            "prefHasKids":"False",
+            "prefBody":"Smal"
         }
     ]
     
