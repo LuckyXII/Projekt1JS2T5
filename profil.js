@@ -28,12 +28,13 @@ var logedIn = userDatabase.logedIn;
 var logout = document.getElementById("logout");
 //var profilePic = document.getElementById("profilePic");
 var userScore = compareProfiles();
+var profile = document.getElementById("profilePic");
 
 //=====================================================================
 //main
 
 logout.addEventListener("click", logoutUser);
-
+getProfileOnClick(profile);
 bestMatch();
 	
 	
@@ -51,14 +52,11 @@ function bestMatch(){
     for(let i = 0; i < userScore.length; i++){
         bestMatches.push({"username":userDatabase.users[i].username, "score":userScore[i]});
    }
-    
     bestMatches.sort((x,y)=>{
         return y.score - x.score;
     });
-    
-    userDatabase.bestMatch = bestMatches;
-    localStorage.setItem("bestMatches", JSON.stringify(userDatabase.bestMatch));
-
+    userDatabase.logedIn.bestMatch = bestMatches;
+    localStorage.setItem("logedIn", JSON.stringify(userDatabase.logedIn));
 }
 
 

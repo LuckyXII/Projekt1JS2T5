@@ -31,11 +31,11 @@ login.addEventListener("click", loginAuthenticatedUser, {once:true});
 //Functions
 
 function isLogedIn(){
+   
     if(localStorage.getItem("logedIn") !== null){
         onLogin();
-        login.href = "#";
         logOut = document.getElementById("logOut");
-        logOut.addEventListener("click", onLogOut);
+        logOut.addEventListener("click", logoutUser);
     }
     else{
         return false;
@@ -46,7 +46,11 @@ function onLogin(){
     
     let logedIn = JSON.parse(localStorage.getItem("logedIn"));
     let welcome = `Välkommen ${logedIn.firstName}`;
-
+    let longDiv = document.getElementById("longDiv");
+    let centerContent = document.getElementById("centerContent");
+    
+    longDiv.hidden = false;
+    centerContent.hidden = false;
     logInForm.children[1].hidden = "true";
     logInForm.children[2].hidden = "true";
     logInForm.children[3].id = "logOut";
@@ -54,16 +58,6 @@ function onLogin(){
     logInForm.children[4].textContent = welcome;
     
 }
-
-function onLogOut(){
-    logoutUser();
-    logInForm.children[1].hidden = "false";
-    logInForm.children[2].hidden = "false";
-    logInForm.children[3].textContent = "Logga in";
-    logInForm.children[4].textContent =  "Inte registrerad? <a href='registering.html'>Skapa ett konto</a>";
-    
-}
-
 
 //Log in authenticated user
 function loginAuthenticatedUser(){
@@ -74,19 +68,16 @@ function loginAuthenticatedUser(){
     if(localStorage.getItem(userName) !== null){
         logedIn = (JSON.parse(localStorage.getItem(userName)));
     }
-        else{
-            console.log("Fugerar inte 2");
-        }
-    
-
+   
     if((logedIn.email == userName || logedIn.username == userName) &&
        logedIn.password == password){
         localStorage.setItem("logedIn",JSON.stringify(logedIn));
         localStorage.removeItem(logedIn.email);
         console.log("sucessful login");
     }
-    else{
-        console.log("Inte rätt");
+    else if(logInForm.children[3].textContent !== "Logga ut"){
+        console.log("login unsucessful");
+        alert("Fel användarnamn eller lösenord");
     }
 }
 

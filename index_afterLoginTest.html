@@ -15,7 +15,7 @@
         <link href="Css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom CSS -->
-        <link href="Css/style.css" rel="stylesheet">
+        <link href="Css/styleTest.css" rel="stylesheet">
         <link href="Css/modern-business.css" rel="stylesheet">
 
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -27,7 +27,8 @@
    <!-- låg innanför body tag men skapade error, flyttat till style.css  
       style="background-size:cover; background-attachment: fixed"
     -->
-    <body background="resources\goteborg00.jpg">
+    <body>
+        <img id="backgroundImg" src="resources\goteborg00.jpg">
 
         <div class="login">
             <div class="login-page">
@@ -44,6 +45,8 @@
                 </div>
             </div>
         </div>
+        <div id="longDiv" hidden ="true"></div>
+        <main id="centerContent" hidden ="true"></main>
 
         
         <script src="index_afterLoginTest.js"></script>

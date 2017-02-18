@@ -32,7 +32,7 @@ function logoutUser(){
 
 //load selected profile
 function loadCurrentProfile(e){
-    let targetProfile = e.target.value;
+    let targetProfile = e.target.title;
     
     if(localStorage.getItem(targetProfile) !== null){
         let currentProfile = localStorage.getItem(targetProfile);
@@ -198,7 +198,7 @@ var localTestUsers =
             "vegetarian":"False",
             "employed":"True",
             "hasKids":"False",
-            "interests":["Musik","Litteratur","Resa","Film","Matlagning"],
+            "interests":["Musik","Korsord","Resa","Resturang","Städa"],
             "aboutSelf":"Gillar hästar",
             "aboutMatch":"Bör ha mycket pengar",
             "prefEyeColor":"Gröna",
@@ -234,7 +234,7 @@ var localTestUsers =
             "vegetarian":"True",
             "employed":"False",
             "hasKids":"False",
-            "interests":["Musik","Litteratur","Resa","Film","Matlagning"],
+            "interests":["Musik","Datorer","New Age","Välta Kossor","PornHub"],
             "aboutSelf":"is l33t",
             "aboutMatch":"Borde va l33t",
             "prefEyeColor":"Gröna",
@@ -270,7 +270,7 @@ var localTestUsers =
             "vegetarian":"False",
             "employed":"True",
             "hasKids":"False",
-            "interests":["Musik","Litteratur","Resa","Film","Matlagning"],
+            "interests":["TV","Vin & Dryck","Resturang","Bakning","Övrigt"],
             "aboutSelf":"gillar party",
             "aboutMatch":"Bör kunna stå ut med mig",
             "prefEyeColor":"Gråa",
@@ -306,7 +306,7 @@ var localTestUsers =
             "vegetarian":"False",
             "employed":"True",
             "hasKids":"True",
-            "interests":["Musik","Litteratur","Resa","Film","Matlagning"],
+            "interests":["Datorer","Städa","Matlagning","Trädgård","Hälsa"],
             "aboutSelf":"Gillar gosedjur",
             "aboutMatch":"Bör gilla barn och gosedjur",
             "prefEyeColor":"Röda/Violetta",
@@ -342,7 +342,7 @@ var localTestUsers =
             "vegetarian":"False",
             "employed":"True",
             "hasKids":"True",
-            "interests":["Musik","Litteratur","Resa","Film","Matlagning"],
+            "interests":["Övrigt","Välta Kossor","PornHub","Film","TV"],
             "aboutSelf":"Gillar att bygga väggar",
             "aboutMatch":"Bör hata mexikanare",
             "prefEyeColor":"Blåa",
@@ -378,7 +378,7 @@ var localTestUsers =
             "vegetarian":"False",
             "employed":"False",
             "hasKids":"True",
-            "interests":["Musik","Litteratur","Resa","Film","Matlagning"],
+            "interests":["Bilar","Litteratur","Resa","New Age","Stoppa elakingar från välta kossor"],
             "aboutSelf":"Gillar gud",
             "aboutMatch":"Bör inte förråda mig som judas",
             "prefEyeColor":"Bruna",
@@ -414,7 +414,7 @@ var localTestUsers =
             "vegetarian":"False",
             "employed":"True",
             "hasKids":"False",
-            "interests":["Musik","Litteratur","Resa","Film","Matlagning"],
+            "interests":["TV","Litteratur","Resa","Vin & Dryck","Städa"],
             "aboutSelf":"Gillar krig",
             "aboutMatch":"Bör också gilla krig",
             "prefEyeColor":"Blåa",
@@ -450,7 +450,7 @@ var localTestUsers =
             "vegetarian":"False",
             "employed":"False",
             "hasKids":"False",
-            "interests":["Musik","Litteratur","Resa","Film","Matlagning"],
+            "interests":["Musik","Trädgård","Övrigt","PornHub","Hälsa"],
             "aboutSelf":"Gillar att loot lådor",
             "aboutMatch":"Bör gilla snö",
             "prefEyeColor":"Gråa",
@@ -486,7 +486,7 @@ var localTestUsers =
             "vegetarian":"False",
             "employed":"False",
             "hasKids":"True",
-            "interests":["Musik","Litteratur","Resa","Film","Matlagning"],
+            "interests":["Musik","TV","Datorer","Film","PornHub"],
             "aboutSelf":"Gillar dope",
             "aboutMatch":"Bör vara galen",
             "prefEyeColor":"Bruna",
