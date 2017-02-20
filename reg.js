@@ -30,7 +30,10 @@ function addInterestsToDocument(){
                       "Bakning", "Bilar", "Datorer", "New Age", "Städa", "PornHub",
                       "Välta Kossor", "Stoppa elakingar från välta kossor", "Övrigt"];
   let addTo = $("#regInterestBoxes");
-  interestList.forEach(e=>{
+  interestList.forEach(e =>{
+    let div = $$("div");
+    div.style.marginRight = "30px";
+    div.style.float ="left";
     let box = $$("input");
     box.type = "checkbox";
     box.name = "regInterests";
@@ -39,10 +42,12 @@ function addInterestsToDocument(){
     let label = $$("label");
     label.htmlFor = document.getElementById(e);
     label.appendChild(document.createTextNode(e));
-    addTo.appendChild(box);
-    addTo.appendChild(label);
+    div.appendChild(box);
+    div.appendChild(label);
+    addTo.appendChild(div);
   });
 }
+
 function $(str) {
   if (document.querySelectorAll(str).length <= 1) {
     return document.querySelector(str);
@@ -51,12 +56,14 @@ function $(str) {
         return document.querySelectorAll(str);
   }
 }
+
 function hidePagesAtStart(){
   let pages = [$("#reg2"),$("#reg3"),$("#reg4")];
   pages.forEach(e=>{
     e.style.display = "none";
   });
 }
+
 function confirmButtonsActions(){
   $("#reg1Confirm").addEventListener("click", function(){
     $("#reg2").style.display = "block";
@@ -83,10 +90,24 @@ function confirmButtonsActions(){
     $("#reg4").style.display = "none";
   });
 }
-
-
+/*
+function addBootStrapClasses(){
+  let halfPage = $(".regHalfPage");
+  halfPage.forEach(e=>{
+    e.className += " col-xs-12 col-md-6";
+  });
+  let regOption = $(".regOptionText");
+  regOption.forEach(e=>{
+    e.className += " col-sm-6";
+  });
+  let regInput = $(".regInput");
+  regInput.forEach(e=>{
+    e.className += " col-sm-6";
+  });
+} */
 document.addEventListener("DOMContentLoaded", function(event) {
   addInterestsToDocument();
   hidePagesAtStart();
   confirmButtonsActions();
+//  addBootStrapClasses();
 });

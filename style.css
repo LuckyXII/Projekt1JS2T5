@@ -1,23 +1,39 @@
+body{
+  padding-top: 15px;
+  padding-right: 8%;
+  padding-left: 8%;
+}
 img{
     margin: 0px;
     height: 100vh;
     width: 100vw;
 }
+h1 {
+  text-align: center;
+}
 textarea{
 }
-.regContainer{
-    border: 1px solid cyan;
-    padding: 5px;
+.row{
+  margin: 20px;
 }
-.regWholePage{
-  border: 1px solid blue;
-  padding: 5px;
+.regOptionText{
+    text-align: left;
+    margin-top: 10px;
 }
-.regHalfPage{
-  border: 1px solid red;
-  padding: 5px;
+.regInfo {
+  font-style: italic;
+  color: #92959b;
+  font-size: 12px;
 }
-.RegOption{
-    border: 1px solid green;
-        padding: 5px;
+.container {
+}
+.regInput {
+  float: right;
+}
+.regConfirm {
+  float: right;
+  margin: 10px;
+}
+.row {
+  margin-top: 30px;
 }
