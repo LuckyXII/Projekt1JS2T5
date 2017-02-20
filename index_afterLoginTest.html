@@ -15,19 +15,20 @@
         <link href="Css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom CSS -->
-        <link href="Css/style.css" rel="stylesheet">
+        <link href="Css/styleTest.css" rel="stylesheet">
         <link href="Css/modern-business.css" rel="stylesheet">
 
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-
+        <script src="userDatabase.js"></script>
     </head>
 
    
    <!-- låg innanför body tag men skapade error, flyttat till style.css  
       style="background-size:cover; background-attachment: fixed"
     -->
-    <body background="resources\goteborg00.jpg">
+    <body>
+        <img id="backgroundImg" src="resources\goteborg00.jpg">
 
         <div class="login">
             <div class="login-page">
@@ -36,7 +37,7 @@
                         <img id="logo" src="resources/Logo.png">
                         <input id="inputEmail" type="text" placeholder="E-mail"/>
                         <input id="inputPassword" type="password" placeholder="Lösenord"/>
-                        <button id="login" type ="button">Logga in</button>
+                        <button id="login" href="#">Logga in</button>
                         <p class="message">
                             Inte registrerad? <a href="registering.html">Skapa ett konto</a>
                         </p>
@@ -44,8 +45,11 @@
                 </div>
             </div>
         </div>
+        <div id="longDiv" hidden ="true"></div>
+        <main id="centerContent" hidden ="true"></main>
 
-        <script src="userDatabase.js"></script>
-        <script src="index.js"></script>
+        
+        <script src="index_afterLoginTest.js"></script>
     </body>
 </html>
+

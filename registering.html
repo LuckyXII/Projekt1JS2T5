@@ -3,7 +3,13 @@
   <head>
     <meta charset="utf-8">
         <link href="style.css" rel="stylesheet" type="text/css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
     <title>WestDate - Register</title>
+    <link type="text/css" href="registrering.css" rel="stylesheet">
   </head>
   <body>
 
@@ -11,22 +17,22 @@
       <h1>Registera ny medlem, steg 1 av 4</h1>
       <div class="regHalfPage">
         <div class="regOption">
-          <p class="regOptionText">Användarnamn:</P>
-          <input class="regInput"></input>
+          <p class="regOptionText">Användarnamn:</p>
+          <input class="regInput" type="text"/>
         </div>
         <div class="regOption">
-          <p class="regOptionText">Lösenord:</P>
-          <input class="regInput"></input>
+          <p class="regOptionText">Lösenord:</p>
+          <input class="regInput" type="password"/>
         </div>
       </div>
       <div class="regHalfPage">
         <div class="regOption">
-          <p class="regOptionText">e-mail:</P>
-          <input class="regInput"></input>
+          <p class="regOptionText">e-mail:</p>
+          <input class="regInput" type="email"/>
         </div>
         <div class="regOption">
-          <p class="regOptionText">repetera e-mail:</P>
-          <input class="regInput"></input>
+          <p class="regOptionText">repetera e-mail:</p>
+          <input class="regInput" type="email"/>
         </div>
       </div>
       <div class="regWholePage">
@@ -44,10 +50,10 @@
       <div class="regWholePage">
         <div class="regOption">
           <p class="regOptionText">Kön:</p>
-          <input type="radio" name="gender" value="male">Man
-          <input type="radio" name="gender" value="female">Kvinna
-          <input type="radio" name="gender" value="transgender">Transgender
-          <input type="radio" name="gender" value="cyborg">Cyborg
+          <input  type="radio" name="gender" value="male">Man
+          <input  type="radio" name="gender" value="female">Kvinna
+          <input  type="radio" name="gender" value="transgender">Transgender
+          <input  type="radio" name="gender" value="cyborg">Cyborg
         </div>
         <div class="regOption">
           <p class="regOptionText">Intresserad av:</p>
@@ -59,19 +65,26 @@
       </div>
         <div class="regHalfPage">
           <div class="regOption">
-            <p class="regOptionText">Förnamn:</p>
+            <p class="regOptionText">Förnamn och Efternamn (efternamn kommer inte att visas)</p>
+            <input type="text" name="firstName" placeholder="Förnamn"/>
+            <input type="text" name="lastName" placeholder="Efternamn"/>
           </div>
           <div class="regOption">
             <p class="regOptionText">Födelsedatum:</p>
             <select id="regYear" class="regDropdown"></select>
-            <select id="regYear" class="regDropdown"></select>
-            <select id="regYear" class="regDropdown"></select>
+            <select id="regMonth" class="regDropdown"></select>
+            <select id="regDay" class="regDropdown"></select>
           </div>
         </div>
         <div class="regHalfPage">
           <div class="regOption">
-            <p class="regOptionText">Stadsdel:</p>
-            <input class="regInput"></input>
+            <p class="regOptionText">Stadsdel och Adress (adress kommer inte visas)</p>
+            <input type="text" name="stadsdel" class="regInput" placeholder="Tex Mölndal"/>
+            <input type="text" name="adress" class="regInput" placeholder="Tex Möndalsvägen 77"/>
+          </div>
+          <div class="RegOption">
+            <p class="regConfirmText">Föregående</p>
+              <button id="reg2Previous" class="regConfirm">Go back</button>
           </div>
           <div class="RegOption">
             <p class="regConfirmText">Gå vidare</p>
@@ -94,11 +107,12 @@
           </div>
           <div class="regOption">
             <p class="regOptionText">Längd:</p>
-            <input id="regHeight" class="regInput"></input><p class="regOptionText">cm</p>
+            <input id="regHeight" class="regInput"/>
+            <p class="regOptionText">cm</p>
           </div>
           <div class="regOption">
             <p class="regOptionText">Hårfärg:</p>
-            <select class="regDropdown">
+            <select id="hairColor" class="regDropdown">
               <option>Blond</option>
               <option>Brunette</option>
               <option>Svart</option>
@@ -116,7 +130,7 @@
           <div class="regHalfPage">
             <div class="regOption">
               <p class="regOptionText">Kroppstyp:</p>
-              <select class="regDropdown">
+              <select id="bodytype" class="regDropdown">
                 <option>Normal</option>
                 <option>Atletisk</option>
                 <option>Smal</option>
@@ -125,13 +139,17 @@
             </div>
             <div class="regOption">
               <p class="regOptionText">Ögonförg:</p>
-              <select class="regDropdown">
+              <select id="eyeColor" class="regDropdown">
                 <option>Blåa</option>
                 <option>Gröna</option>
                 <option>Bruna</option>
                 <option>Gråa</option>
                 <option>Röda/Violetta</option>
               </select>
+            </div>
+            <div class="RegOption">
+              <p class="regConfirmText">Föregående</p>
+                <button id="reg3Previous" class="regConfirm">Go back</button>
             </div>
             <div class="RegOption">
               <p class="regConfirmText">Gå vidare</p>
@@ -159,12 +177,17 @@
             <textarea rows="3" id="regTextAboutMatch"></textarea>
           </div>
           <div class="RegOption">
+            <p class="regConfirmText">Föregående</p>
+              <button id="reg4Previous" class="regConfirm">Go back</button>
+          </div>
+          <div class="RegOption">
             <p class="regConfirmText">Slutför din profil!</p>
               <button id="reg4Confirm" class="regConfirm">O</button>
           </div>
         </div>
       </div>                                    <!-- Register steg 4  SLUT !-->
   </body>
+  <script src="userDatabase.js"></script>
   <script src="reg.js"></script>
 
 </html>
