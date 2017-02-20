@@ -50,8 +50,10 @@ function bestMatch(){
     let bestMatches =[];
     
     for(let i = 0; i < userScore.length; i++){
-        bestMatches.push({"username":userDatabase.users[i].username, "score":userScore[i]});
-   }
+        if(userDatabase.users[i].compatible === true){
+            bestMatches.push({"username":userDatabase.users[i].username, "score":userScore[i]});
+        }
+    }
     bestMatches.sort((x,y)=>{
         return y.score - x.score;
     });
@@ -63,60 +65,87 @@ function bestMatch(){
 function compareProfiles(){
     addUsersToDatabase();
     let logedIn = JSON.parse(localStorage.getItem("logedIn"));
+    let logedInIsCompatible = false;
+    let userIsCompatible = false;
     
     //Fill array with 0 per user
     let counter = new Array(userDatabase.users.length).fill(0);
     
     
     for(let i = 0; i < users.length; i++){
-       
+        //district match
         if(users[i].district == logedIn.prefDistrict){
             counter[i]++;
         }
+        //Gender match
+        logedIn.lookingFor.sort();
+        users[i].lookingFor.sort();
         for(let j = 0; j < logedIn.lookingFor.length; j++){
-            
-            if((users[i].sex == logedIn.lookingFor[j]) &&
-              (users[i].lookingFor[j] == logedIn.sex)){
+            if(users[i].sex == logedIn.lookingFor[j]){
                 counter[i]++;
-            }
-            
+                logedInIsCompatible = true;
+            } 
         }
+        for(let j = 0; j < users[i].lookingFor.length; j++){
+            if(logedIn.sex == users[i].lookingFor[j]){
+                counter[i]++;
+                userIsCompatible = true;
+            }
+        }
+        if(userIsCompatible === true && logedInIsCompatible === true){
+            users[i].compatible = true;
+        }
+        else{
+            users[i].compatible = false;
+        }
+        //haircolor match
         if(users[i].hairColor == logedIn.prefHairColor){
             counter[i]++;
         }
+        //eye color match
         if(users[i].eyeColor == logedIn.prefEyeColor){
             counter[i]++;
         }
+        //bodytype match
         if(users[i].bodyType == logedIn.prefBody){
             counter[i]++;
         }
+        //smoker match
         if(users[i].smoker == logedIn.prefSmoker){
             counter[i]++;
         }
+        //animals match
         if(users[i].hasAnimals == logedIn.prefAnimals){
             counter[i]++;
         }
+        //vegetarian match
         if(users[i].vegetarian == logedIn.prefVegetarian){
             counter[i]++;
         }
+        //employed match
         if(users[i].employed == logedIn.prefEmployed){
             counter[i]++;
         }
+        // kids match
         if(users[i].hasKids == logedIn.prefHasKids){
             counter[i]++;
         }
+        //interest match
         for(let y = 0; y < users[i].interests.length; y++){
             for(let j = 0; j < logedIn.interests.length; j++){
                 if(users[i].interests[y] == logedIn.interests[j]){
                     counter[i]++;
                 }    
             }
-
         }
+        //height matches
         if(users[i].height > logedIn.prefMinHeight && users[i].height < logedIn.prefMaxHeight){
             counter[i]++;
         }
-        console.log(`${users[i].username}: ${counter[i]}`); 
+        console.log(`${users[i].username}: ${counter[i]} \n is compatible: ${users[i].compatible}`); 
+        //reset compatibillity
+        userIsCompatible = false;
+        logedInIsCompatible = false;
     }
     
     
@@ -125,19 +154,6 @@ function compareProfiles(){
     
     return counter;
 }
-
-
-/* 
-   for(let i = 0; i < matchedUsers.length; i++){
-        bestMatches.push({"username":database.users[i].username, "score":matchedUsers[i]});
-   }
-    
-    bestMatches.sort((x,y)=>{
-        return x.score - y.score;
-    });
-    
-    userDatabase.bestMatch = bestMatches;
-    localStorage.setItem("bestMatches", bestMatches);*/
 
 
 /*
