@@ -1,10 +1,15 @@
+/*Arman*/
+/*index*/
 .body{
+    background-size: cover;
+    background-attachment: fixed;
 
 }
 @font-face {
     font-family: 'Pacifico'; /*a name to be used later*/
     src: url('../resources/Pacifico.ttf'); /*URL to font*/
 }
+
 #logo{
     max-width: 400px;
     max-height: 400px;
@@ -15,15 +20,18 @@
 
 
 }
+
 .form {
     position: relative;
     z-index: 1;
-    background: transparent;
+    background: #5b5873;
     max-width: 360px;
     margin: 0 auto 100px;
     padding: 45px;
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    opacity: 0.8;
+
 }
 .form input {
     font-family: "Roboto", sans-serif;
@@ -66,4 +74,20 @@
 .form .register-form {
     display: none;
 }
+/*index slut/*
 
+ */
+.navbar-nav {
+    float:none;d
+    margin: auto;
+    display: block;
+    text-align: center;
+    clear: inherit;
+}
+
+.navbar-nav > li {
+    display: inline-block;
+    float:none;
+}
+
+/*Arman*/
