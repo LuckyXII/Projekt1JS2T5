@@ -31,9 +31,9 @@ var email = document.getElementsByClassName("regInput")[2].value;
 //Callbacks
 
 /*************TO DO*********
-- Validate fields(check for proper format, no-empty fields etc): keyup event (add green symbol once 
+- Validate fields(check for proper format, no-empty fields etc): keyup event (add green symbol once
             validated and un-disable "next")
-        
+
     OBS Validate mail and user ready but not assigned to an event
 */
 
@@ -46,11 +46,11 @@ regConfirm[6].addEventListener("click", newUserToDatabase);
 
 //add user to database
 function newUserToDatabase(){
-    
+
     let username = document.getElementsByClassName("regInput")[0].value;
     let password = document.getElementsByClassName("regInput")[1].value;
     let email = document.getElementsByClassName("regInput")[2].value;
-   
+
     let firstName = document.getElementsByName("firstName")[0].value;
     let lastName = document.getElementsByName("lastName")[0].value;
     let adress = document.getElementsByName("adress")[0].value;
@@ -65,19 +65,19 @@ function newUserToDatabase(){
     let interests = checkboxSelected(document.getElementsByName("regInterests"));
     let aboutSelf = document.getElementById("regTextAboutSelf").value;
     let aboutMatch = document.getElementById("regTextAboutMatch").value;
-    //CHANGE THIS 
+    //CHANGE THIS
     var profilePic = "https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/14232971_10207465694944968_1889056014685634462_n.jpg?oh=ea3f2fa7e1a410f7a26387cd821d5ae4&oe=5942D6A3";
 
 
-    
+
     let newUser = new UserObject(username,password,email,birthday,gender,lookingFor,
                                  firstName,lastName,adress,district,profilePic,height,
                                  hairColor,eyeColor,bodyType, interests, aboutSelf, aboutMatch,
                                  null,null,null,null,null,null,null,null,null,null,null,null,null,
                                  null,null);
-    
-   
-    
+
+
+
     localStorage.setItem(email,JSON.stringify(newUser));
     console.log("User added to database");
 }
@@ -86,9 +86,9 @@ function newUserToDatabase(){
 
 //option element attribute value
 function getSelectOptionValue(attr){
-    
+
     for(let i = 0; i < attr.length; i++){
-    
+
         if(attr.children[i].selected === true){
             return attr.children[i].textContent;
         }
@@ -97,11 +97,11 @@ function getSelectOptionValue(attr){
 
 //value of checkboxes Selected
 function checkboxSelected(inputID){
-    
+
     let outputArray = [];
-    
+
     for(let i = 0; i < inputID.length; i++){
-        
+
         if(inputID[i].checked === true){
             outputArray.push(inputID[i].value);
         }
@@ -111,38 +111,38 @@ function checkboxSelected(inputID){
 
 //setBirthdate
 function setBirthday(){
-    
+
     let bday;
     let year = 0;
     let month = 0;
     let day = 0;
-    
+
     // Vore det bättra att omvandla till en statik array och filtrera selected
     // med filter?
     year = getSelectOptionValue(selectedYear);
     month = getSelectOptionValue(selectedMonth);
     day = getSelectOptionValue(selectedDay);
-    
+
     //format string
     if(day < 10){
         day = "0"+day;
     }
     if(month < 10){
         month = "0"+month;
-    }  
+    }
     bday = year + "-" + month + "-" + day;
     //save to global var
     return bday;
-} 
+}
 
 
 //Gender selected
 function selectedSex(){
-    
+
     let sex = document.getElementsByName("gender");
-    
+
     for(let i = 0; i < sex.length; i++){
-        
+
         if(sex[i].checked === true){
             return sex[i].value;
         }
@@ -151,7 +151,7 @@ function selectedSex(){
 
 //Validate User
 function validateUser(username){
-    
+
     //User already registered
     if(localStorage.getItem(username)){
         console.log("taken");
@@ -164,13 +164,13 @@ function validateUser(username){
 
 //Validate email
 function validateEmail(){
-    
+
     //confirm mail matches
     if(email != confirmEmail){
         console.log("E-mail do not match");
         return false;
     }
-    
+
     //mailformat is correct
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
         return true;
@@ -190,9 +190,9 @@ function $$(str){
 
 //create option elements for year / month / day
 function createOptionsBirthdate(){
-    
+
     //let option = $$("option"); - only works once with appendchild
-    
+
     //create options year
     for(let i = 0; i < 100; i++){
         selectedYear.appendChild(document.createElement("option"));
@@ -221,7 +221,6 @@ function addInterestsToDocument(){
                       "Bakning", "Bilar", "Datorer", "New Age", "Städa", "PornHub",
                       "Välta Kossor", "Stoppa elakingar från välta kossor", "Övrigt"];
 
-  let addTo = $("#regInterestBoxes");
   interestList.forEach(e =>{
     let div = $$("div");
     div.style.marginRight = "30px";
@@ -300,13 +299,13 @@ document.addEventListener("DOMContentLoaded", function() {
 //---------------------------------------------
 function UserObject(_username, _password, _email, _birthday, _sex, _lookingFor,
                     _firstName, _lastName, _adress, _district, _profilePic, _height,
-                    _hairColor, _eyeColor,_bodyType,_interests, _aboutSelf, _aboutMatch, 
-                    _hasAnimals, _vegetarian, _employed, _hasKids, _smoker, _prefEyeColor, 
+                    _hairColor, _eyeColor,_bodyType,_interests, _aboutSelf, _aboutMatch,
+                    _hasAnimals, _vegetarian, _employed, _hasKids, _smoker, _prefEyeColor,
                     _prefDistrict, _prefMaxHeight, _prefMinHeight, _prefHairColor,
                     _prefSmoker, _prefAnimals, _prefVegetarian, _prefEmployed, _prefHasKids) {
 
 //---------------------------
-// private 
+// private
     //.........
 //-----------------------------
 //public
@@ -315,7 +314,7 @@ function UserObject(_username, _password, _email, _birthday, _sex, _lookingFor,
     this.email = _email; //String
     this.adress = _adress; //String
     this.birthday = _birthday; //string
-    
+
     this.sex = _sex; //String
     this.lookingFor = _lookingFor; //Array
     this.firstName = _firstName; //String
@@ -334,7 +333,7 @@ function UserObject(_username, _password, _email, _birthday, _sex, _lookingFor,
     this.interests = _interests; //Array
     this.aboutSelf = _aboutSelf; //String
     this.aboutMatch = _aboutMatch; //String
-    
+
     //Preferences
     this.prefEyeColor = _prefEyeColor; //string
     this.prefDistrict = _prefDistrict; //string
@@ -346,7 +345,7 @@ function UserObject(_username, _password, _email, _birthday, _sex, _lookingFor,
     this.prefVegetarian = _prefVegetarian; //bool
     this.prefEmployed = _prefEmployed; //bool
     this.prefHasKids = _prefHasKids; //bool
-    
+
 //-----------------------------
 //methods
     /*
@@ -356,16 +355,16 @@ function UserObject(_username, _password, _email, _birthday, _sex, _lookingFor,
     };
     //get username
     this.getUserName = function(){
-        return username;    
+        return username;
     };
     //get password
     this.getPassword = function(){
-        return password;    
+        return password;
     };
     //get email
     this.getEmail = function(){
-        return email;    
-    };  
+        return email;
+    };
     //get adress
     this.getAdress = function(){
         return adress;
@@ -373,4 +372,3 @@ function UserObject(_username, _password, _email, _birthday, _sex, _lookingFor,
     */
 }
 //END user object
-
