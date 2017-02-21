@@ -6,43 +6,43 @@
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-
+  <!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> !-->
     <title>WestDate - Register</title>
-    
+
   </head>
   <body>
 
     <div id="reg1">          <!-- Register steg 1 !-->
       <h1>Registera ny medlem, steg 1 av 4</h1>
-
       <div class="container" style="width: 80%; margin: auto;">
 
-        <div class="row col-sm-6">
-          <p class="regOptionText col-xs-12 col-sm-6">Användarnamn:</p>
+           <div class="row col-sm-6">
+          <p class="regOptionText col-xs-12 col-sm-6" style="text-align: right;">Användarnamn:</p>
+          <input class="regInput col-xs-12 col-sm-6" type="text">
+        </div>
+          
+            <div class="row col-sm-6">
+          <p class="regOptionText col-xs-12 col-sm-6" style="text-align: right;">Email:</p>
+
           <input class="regInput col-xs-12 col-sm-6">
         </div>
 
         <div class="row col-sm-6">
-          <p class="regOptionText col-xs-12 col-sm-6">Email:</p>
-          <input class="regInput col-xs-12 col-sm-6">
-        </div>
 
-        <div class="row col-sm-6">
-          <p class="regOptionText col-xs-6">Lösenord:</p>
+          <p class="regOptionText col-xs-6" style="text-align: right;">Lösenord:</p>
+
           <input class="regInput col-xs-6">
         </div>
 
         <div class="row col-sm-6">
-          <p class="regOptionText col-xs-6">Repetera email:</p>
+          <p class="regOptionText col-xs-6" style="text-align: right;">Repetera email:</p>
           <input class="regInput col-xs-6">
 
         </div>
 
         <div class="row col-xs-12">
-          <button id="reg1Confirm" class="regConfirm">Skapa konto!</button>
+          <button id="reg1Confirm" class="regConfirm btn-warning">Skapa konto!</button>
         </div>
-
 
         <div class="row col-xs-12" style="margin-top: 0px;">
          <p class="regInfo">**Genom att fortsätta bekräftar du att du har läst och godkänt våra Villkor och regler, Sekretesspolicy samt Cookiepolicy.</p>
@@ -75,9 +75,17 @@
           <input type="checkbox" name="matchgender" value="cyborg">Cyborg
         </div>
         </div>
+            
+        <div class="row col-md-4">
+            <p class="regOptionText row col-sm-3">Stadsdel:</p>
+            <div class="row col-sm-9" style="float: right;">
+            <input class="regInput">
+            </div>
+        </div>
 
         <div class="row col-md-4" style="margin-right: 20px">
             <p class="regOptionText row col-sm-3">Förnamn:</p>
+
             <div class="row col-sm-9" style="float: right;">
             <input class="regInput">
           </div>
@@ -92,21 +100,13 @@
         </div>
         </div>
 
-        <div class="row col-md-4">
-            <p class="regOptionText row col-sm-3">Stadsdel:</p>
-            <div class="row col-sm-9" style="float: right;">
-            <input class="regInput">
-          </div>
-        </div>
-
         <div class="row col-sm-12">
-          <button id="reg2Confirm" class="regConfirm">Gå vidare</button>
-          <button id="reg2Previous" class="regConfirm">Föregående</button>
+          <button id="reg2Confirm" class="regConfirm btn-warning">Gå vidare</button>
+          <button id="reg2Previous" class="regConfirm btn-warning">Föregående</button>
         </div>
 
       </div> <!-- Container !-->
       </div> <!-- Register steg 2  SLUT !-->
-
 
       <div id="reg3">      <!-- Register steg 3 !-->
         <h1>Registera ny medlem, steg 3 av 4</h1>
@@ -118,6 +118,7 @@
             <button id="regUploadPic">Spara</button>
             <div id="regProfilePic">Picture Preview</div>
           </div>
+
           <div class="row">
 
           <div class="row col-md-6" style="float: left;">
@@ -169,8 +170,10 @@
       </div>
 
           <div class="row">
-            <button id="reg3Confirm" class="regConfirm">Gå vidare</button>
-            <button id="reg3Previous" class="regConfirm">Föregående</button>
+
+            <button id="reg3Confirm" class="regConfirm btn-warning">Gå vidare</button>
+            <button id="reg3Previous" class="regConfirm btn-warning">Föregående</button>
+
           </div>
 
       </div> <!-- Container !-->
@@ -180,7 +183,7 @@
 
       <div id="reg4">      <!-- Register steg 4 !-->
         <h1>Registera ny medlem, steg 4 av 4</h1>
-        <div class="container" style="width: 70%; margin: auto;">
+        <div class="container" style="width: 60%; margin: auto;">
 
           <div class="row">
             <p class="regOptionText col-sm-2">Intressen:</p>
@@ -198,8 +201,8 @@
           </div>
 
           <div class="row">
-            <button id="reg4Confirm" class="regConfirm">Slutför din profil!</button>
-            <button id="reg4Previous" class="regConfirm">Föregående</button>
+            <button id="reg4Confirm" class="regConfirm btn-warning">Slutför din profil!</button>
+            <button id="reg4Previous" class="regConfirm btn-warning">Föregående</button>
           </div>
 
       </div> <!-- Container !-->
@@ -207,6 +210,7 @@
 
 
   </body>
-  <script src="userDatabase.js"></script>
   <script src="reg.js"></script>
+
 </html>
+
