@@ -170,8 +170,8 @@ peter.district = "Mölndal";
 peter.eyeColor = "Peachpuff";
 peter.height = "179";*/
 firstName.textContent = logedIn.username;
-height.textContent = logedIn.height;
-eyeColor.textContent = logedIn.eyeColor;
+//height.textContent = logedIn.height;
+//eyeColor.textContent = logedIn.eyeColor;
 /*Testpersonen Peter Larsson*//*
 
 profileSex.innerHTML = peter.profileSex;

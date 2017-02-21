@@ -28,7 +28,7 @@ textarea{
 }
 .container {
 }
-<<<<<<< HEAD
+
 .row{
   margin: 20px;
 }
@@ -36,6 +36,7 @@ textarea{
     text-align: left;
     margin-top: 10px;
 }
+
 .regInfo {
   font-style: italic;
   color: #92959b;
@@ -52,7 +53,8 @@ textarea{
 }
 .row {
   margin-top: 30px;
-=======
+}
+
 .regInput, select, option {
   border-radius: 5px;
   padding: 4px 12px;
@@ -68,9 +70,8 @@ textarea{
 
 button {
     border-radius: 5px;
->>>>>>> 5862af249ead20e408e1302c932fe2cb1f3e62fa
-}
 
+}
 .regDropdown {
     width:50px;
 }
