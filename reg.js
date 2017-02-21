@@ -220,8 +220,12 @@ function addInterestsToDocument(){
                       "Vin & Dryck", "Korsord", "Restaurang", "Trädgård", "Hälsa",
                       "Bakning", "Bilar", "Datorer", "New Age", "Städa", "PornHub",
                       "Välta Kossor", "Stoppa elakingar från välta kossor", "Övrigt"];
-  
-  interestList.forEach(e=>{
+
+  let addTo = $("#regInterestBoxes");
+  interestList.forEach(e =>{
+    let div = $$("div");
+    div.style.marginRight = "30px";
+    div.style.float ="left";
     let box = $$("input");
     box.type = "checkbox";
     box.name = "regInterests";
@@ -230,8 +234,9 @@ function addInterestsToDocument(){
     let label = $$("label");
     label.htmlFor = document.getElementById(e);
     label.appendChild(document.createTextNode(e));
-    addTo.appendChild(box);
-    addTo.appendChild(label);
+    div.appendChild(box);
+    div.appendChild(label);
+    addTo.appendChild(div);
   });
 }
 
@@ -279,10 +284,12 @@ function confirmButtonsActions(){
 }
 
 
+
 document.addEventListener("DOMContentLoaded", function() {
   addInterestsToDocument();
   hidePagesAtStart();
   confirmButtonsActions();
+//  addBootStrapClasses();
 });
 
 

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>API test</title>
+        <meta charset="utf-8">
+        <style>
+            #map{
+                width: 100%;
+                height:400px;
+                background-color: gray;
+
+            }
+        </style>
+        </head>
+    <body>
+       
+        <div id="map"></div>        
+
+       <!-- SCRIPT -->
+        <script>
+            
+            
+            //Globals and Namespace
+            var map;
+            var westDate = {};
+            
+             //place service request
+           westDate.placeRequest = function(title,latlng,radius,types){
+                var request = {
+                    "location":latlng,
+                    "radius": radius,
+                    "types": [types]
+                };
+
+                var callPlaces = new google.maps.places.PlacesService(map);
+
+                callPlaces.nearbySearch(request, (result, status)=>{
+                    if(status == google.maps.places.PlacesServiceStatus.OK){
+                        console.log(result);
+
+                        for(let i = 0; i < result.length; i++){
+
+                            let location = result[i].geometry.location;
+                            let newPlace = new google.maps.Marker({
+                                map:map,
+                                position: location,
+                                title: result[i].name
+                            });
+                        }
+                    }
+                });
+            }
+
+            
+            //Google maps
+            westDate.initMap = function () {
+                
+                //adress
+                var adress = "korsvägen, göteborg";
+                var lat;
+                var lng;
+                var latlng = new google.maps.LatLng(57.6965417,11.986207199999967);    //57.6965417,11.986207199999967
+                var lt2 = new google.maps.LatLng(lat,lng);
+                var lt3;
+                
+                console.log(typeof lat);
+                console.log(latlng.lng());
+                console.log(lt2.lng());
+                console.log(lt3);
+                
+                 //geocode: adress -> latlng
+                var geocoder = new google.maps.Geocoder();
+                
+                //mark adress and print coords
+                geocoder.geocode({"address":adress},(results, status)=>{
+                    if(status == google.maps.GeocoderStatus.OK){
+                        
+                        
+                        lat = results[0].geometry.location.lat();
+                        lng = results[0].geometry.location.lng();
+                        lt3 = results[0].geometry.location;
+                        console.log(`Latitud: ${lat}, Longitud: ${lng}`);
+                        map.setCenter(latlng);
+                    }
+                });
+                
+                
+                
+                //map
+                 map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 14,
+                    center: latlng
+                });
+               
+               
+                westDate.placeRequest("Resturang",latlng,1500,["restaurant"]);
+                
+            }
+        </script>
+     <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARJ9GmJJDiBUq8QyKcBh2op17EWEVf8rU&callback=westDate.initMap&libraries=places">
+    </script> 
+    </body>
+</html>
+
+
