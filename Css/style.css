@@ -163,6 +163,11 @@ body{
     text-align: center;
 }
 
+#backgroundFiller{
+    bottom: 0px;
+    width: 800px;
+}
+
 @media screen and (orientation: portrait){
     #centerContent{
         top: 80vh;
