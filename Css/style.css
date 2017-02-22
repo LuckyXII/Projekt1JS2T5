@@ -99,9 +99,6 @@ body{
     height: 1000px;
   
 }
-.whyUs{
-    display:inline-block;
-}
 
 #redHeart{
     display:inline-block;
@@ -127,6 +124,43 @@ body{
     margin-bottom: 100px;
     
     
+}
+
+#couple{
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-end;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-line-pack: end;
+    align-content: flex-end;
+    margin-bottom: 100px;
+    width:100%;
+   
+}
+
+#couple > div{
+    margin-right: 100px;
+    width: 1000px;
+}
+
+#couple img {
+    -webkit-shape-outside: polygon(141px 351px, 153px 314px, 173px 284px, 179px 252px, 170px 226px, 171px 201px, 192px 182px, 216px 182px, 212px 153px, 223px 120px, 254px 102px, 276px 82px, 280px 45px, 607px 44px, 608px 407px, 144px 405px);
+    shape-outside:polygon(141px 351px, 153px 314px, 173px 284px, 179px 252px, 170px 226px, 171px 201px, 192px 182px, 216px 182px, 212px 153px, 223px 120px, 254px 102px, 276px 82px, 280px 45px, 607px 44px, 608px 407px, 144px 405px);
+    width: auto;
+    height: 400px;
+    float: right;
+    
+}
+
+#singlar{
+    text-align: center;
 }
 
 @media screen and (orientation: portrait){

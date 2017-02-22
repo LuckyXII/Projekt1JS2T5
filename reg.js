@@ -10,14 +10,15 @@ document.head.appendChild(imported);
 //==================================================================================
 //GLOBALS
 
-var regConfirm = document.getElementsByClassName("regConfirm");
 var currentYear = new Date().getFullYear();
 var selectedYear = document.getElementById("regYear");
 var selectedMonth = document.getElementById("regMonth");
 var selectedDay = document.getElementById("regDay");
 var confirmEmail = document.getElementsByClassName("regInput")[3].value;
 var email = document.getElementsByClassName("regInput")[2].value;
-
+var reg4Confirm = document.getElementById("reg4Confirm");
+var reg2Confirm = document.getElementById("reg2Confirm");
+var reg1Confirm = document.getElementById("reg1Confirm");
 
 
 
@@ -37,9 +38,9 @@ var email = document.getElementsByClassName("regInput")[2].value;
     OBS Validate mail and user ready but not assigned to an event
 */
 
-regConfirm[0].addEventListener("click", createOptionsBirthdate);
-regConfirm[2].addEventListener("click", setBirthday);
-regConfirm[6].addEventListener("click", newUserToDatabase);
+reg1Confirm.addEventListener("click", createOptionsBirthdate);
+reg2Confirm.addEventListener("click", setBirthday);
+reg4Confirm.addEventListener("click", newUserToDatabase);
 
 //==========================================================================
 //functions

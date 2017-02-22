@@ -63,12 +63,9 @@
                 var lt2 = new google.maps.LatLng(lat,lng);
                 var lt3;
                 
-                console.log(lat);
+               
             
-                console.log(latlng.length);
-                console.log(latlng.lng());
-                console.log(lt2.lng());
-                console.log(lt3);
+    
                 
                  //geocode: adress -> latlng
                 var geocoder = new google.maps.Geocoder();
@@ -81,13 +78,13 @@
                         lat = results[0].geometry.location.lat();
                         lng = results[0].geometry.location.lng();
                         lt3 = results[0].geometry.location;
-                        console.log(`Latitud: ${lat}, Longitud: ${lng}`);
+                        //console.log(`Latitud: ${lat}, Longitud: ${lng}`);
                         map.setCenter(latlng);
                     }
                 });
                 
                 
-                
+                 console.log(geocoder);
                 //map
                  map = new google.maps.Map(document.getElementById('map'), {
                     zoom: 14,
