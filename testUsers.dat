@@ -1,7 +1,7 @@
 
 {
 
-    "users":[
+        "users":[
         {
             "username":"luckyxii",
             "password":"a123",
@@ -35,10 +35,11 @@
             "prefAnimals":"True",
             "prefVegetarian":"False",
             "prefEmployed":"True",
-            "prefHasKids":"False"
+            "prefHasKids":"False",
+            "prefBody":"Normal"
         },
         {
-             "username":"Godus",
+             "username":"Grodus",
             "password":"a123",
             "email":"grodus@mail.com",
             "adress":"Siriusgatan 24",
@@ -70,7 +71,8 @@
             "prefAnimals":"True",
             "prefVegetarian":"False",
             "prefEmployed":"True",
-            "prefHasKids":"False"
+            "prefHasKids":"False",
+            "prefBody":"Smal"
         },
         {
              "username":"Polackski",
@@ -93,7 +95,7 @@
             "vegetarian":"False",
             "employed":"True",
             "hasKids":"False",
-            "interests":["Musik","Litteratur","Resa","Film","Matlagning"],
+            "interests":["Musik","Korsord","Resa","Resturang","Städa"],
             "aboutSelf":"Gillar hästar",
             "aboutMatch":"Bör ha mycket pengar",
             "prefEyeColor":"Gröna",
@@ -105,7 +107,8 @@
             "prefAnimals":"True",
             "prefVegetarian":"False",
             "prefEmployed":"True",
-            "prefHasKids":"False"
+            "prefHasKids":"False",
+            "prefBody":"Normal"
         },
         {
              "username":"L33tKid",
@@ -113,8 +116,8 @@
             "email":"L33tKid@mail.com",
             "adress":"Positivgatan 7",
             "birthday":"1999-01-04",
-            "sex":"male",
-            "lookingFor":["female","cyborg"],
+            "sex":"cyborg",
+            "lookingFor":["female","cyborg", "male"],
             "firstName":"Winston",
             "lastName":"Duck",
             "district":"Frölunda",
@@ -128,7 +131,7 @@
             "vegetarian":"True",
             "employed":"False",
             "hasKids":"False",
-            "interests":["Musik","Litteratur","Resa","Film","Matlagning"],
+            "interests":["Musik","Datorer","New Age","Välta Kossor","PornHub"],
             "aboutSelf":"is l33t",
             "aboutMatch":"Borde va l33t",
             "prefEyeColor":"Gröna",
@@ -140,7 +143,8 @@
             "prefAnimals":"False",
             "prefVegetarian":"True",
             "prefEmployed":"True",
-            "prefHasKids":"True"
+            "prefHasKids":"True",
+            "prefBody":"Kramgo"
         },
         {
             "username":"V-dog",
@@ -163,7 +167,7 @@
             "vegetarian":"False",
             "employed":"True",
             "hasKids":"False",
-            "interests":["Musik","Litteratur","Resa","Film","Matlagning"],
+            "interests":["TV","Vin & Dryck","Resturang","Bakning","Övrigt"],
             "aboutSelf":"gillar party",
             "aboutMatch":"Bör kunna stå ut med mig",
             "prefEyeColor":"Gråa",
@@ -175,14 +179,14 @@
             "prefAnimals":"False",
             "prefVegetarian":"True",
             "prefEmployed":"True",
-            "prefHasKids":"False"
+            "prefHasKids":"False",
+            "prefBody":"Atletisk"
         },
         {
              "username":"tinyTina",
             "password":"a123",
             "email":"tinyTina@mail.com",
             "adress":"Skänningegatan 11",
-            
             "birthday":"1996-12-01",
             "sex":"female",
             "lookingFor":["female","cyborg"],
@@ -199,7 +203,7 @@
             "vegetarian":"False",
             "employed":"True",
             "hasKids":"True",
-            "interests":["Musik","Litteratur","Resa","Film","Matlagning"],
+            "interests":["Datorer","Städa","Matlagning","Trädgård","Hälsa"],
             "aboutSelf":"Gillar gosedjur",
             "aboutMatch":"Bör gilla barn och gosedjur",
             "prefEyeColor":"Röda/Violetta",
@@ -211,7 +215,8 @@
             "prefAnimals":"True",
             "prefVegetarian":"False",
             "prefEmployed":"True",
-            "prefHasKids":"False"
+            "prefHasKids":"False",
+            "prefBody":"Kramgo"
         },
         {
              "username":"trump",
@@ -234,7 +239,7 @@
             "vegetarian":"False",
             "employed":"True",
             "hasKids":"True",
-            "interests":["Musik","Litteratur","Resa","Film","Matlagning"],
+            "interests":["Övrigt","Välta Kossor","PornHub","Film","TV"],
             "aboutSelf":"Gillar att bygga väggar",
             "aboutMatch":"Bör hata mexikanare",
             "prefEyeColor":"Blåa",
@@ -246,7 +251,8 @@
             "prefAnimals":"False",
             "prefVegetarian":"False",
             "prefEmployed":"True",
-            "prefHasKids":"False"
+            "prefHasKids":"False",
+            "prefBody":"Atletisk"
         },
         {
              "username":"jesus",
@@ -269,7 +275,7 @@
             "vegetarian":"False",
             "employed":"False",
             "hasKids":"True",
-            "interests":["Musik","Litteratur","Resa","Film","Matlagning"],
+            "interests":["Bilar","Litteratur","Resa","New Age","Stoppa elakingar från välta kossor"],
             "aboutSelf":"Gillar gud",
             "aboutMatch":"Bör inte förråda mig som judas",
             "prefEyeColor":"Bruna",
@@ -281,7 +287,8 @@
             "prefAnimals":"True",
             "prefVegetarian":"True",
             "prefEmployed":"False",
-            "prefHasKids":"False"
+            "prefHasKids":"False",
+            "prefBody":"Normal"
         },
         {
              "username":"putin",
@@ -289,7 +296,7 @@
             "email":"putin@mail.com",
             "adress":"Transportgatan 23",
             "birthday":"1954-04-04",
-            "sex":"male",
+            "sex":"transgender",
             "lookingFor":["male","cyborg"],
             "firstName":"Vladimir",
             "lastName":"Putin",
@@ -304,7 +311,7 @@
             "vegetarian":"False",
             "employed":"True",
             "hasKids":"False",
-            "interests":["Musik","Litteratur","Resa","Film","Matlagning"],
+            "interests":["TV","Litteratur","Resa","Vin & Dryck","Städa"],
             "aboutSelf":"Gillar krig",
             "aboutMatch":"Bör också gilla krig",
             "prefEyeColor":"Blåa",
@@ -316,7 +323,8 @@
             "prefAnimals":"False",
             "prefVegetarian":"False",
             "prefEmployed":"True",
-            "prefHasKids":"False"
+            "prefHasKids":"False",
+            "prefBody":"Kramgo"
         },
         {
              "username":"dovakhin",
@@ -339,7 +347,7 @@
             "vegetarian":"False",
             "employed":"False",
             "hasKids":"False",
-            "interests":["Musik","Litteratur","Resa","Film","Matlagning"],
+            "interests":["Musik","Trädgård","Övrigt","PornHub","Hälsa"],
             "aboutSelf":"Gillar att loot lådor",
             "aboutMatch":"Bör gilla snö",
             "prefEyeColor":"Gråa",
@@ -351,7 +359,8 @@
             "prefAnimals":"False",
             "prefVegetarian":"False",
             "prefEmployed":"False",
-            "prefHasKids":"False"
+            "prefHasKids":"False",
+            "prefBody":"Atletisk"
         },
         {
             "username":"slimShady",
@@ -374,7 +383,7 @@
             "vegetarian":"False",
             "employed":"False",
             "hasKids":"True",
-            "interests":["Musik","Litteratur","Resa","Film","Matlagning"],
+            "interests":["Musik","TV","Datorer","Film","PornHub"],
             "aboutSelf":"Gillar dope",
             "aboutMatch":"Bör vara galen",
             "prefEyeColor":"Bruna",
@@ -386,8 +395,9 @@
             "prefAnimals":"False",
             "prefVegetarian":"False",
             "prefEmployed":"False",
-            "prefHasKids":"False"
+            "prefHasKids":"False",
+            "prefBody":"Smal"
         }
     ]
-    
+
 }

@@ -1,6 +1,4 @@
 
-/*Arman*/
-/*index*/
 body{
     padding-top: 0px !important; 
     overflow-x: hidden;
@@ -12,20 +10,11 @@ body{
 }
 
 
-#backgroundImg{
-    position: absolute;
-    height:100vh;
-    background-size: cover;
-    background-attachment: fixed;
-    overflow-x: hidden;
-
-}
 
 @font-face {
     font-family: 'Pacifico'; /*a name to be used later*/
     src: url('../resources/Pacifico.ttf'); /*URL to font*/
 }
-
 #logo{
     max-width: 400px;
     max-height: 400px;
@@ -36,19 +25,17 @@ body{
 
 
 }
-
 .form {
     top: 15vh;
     position: relative;
     z-index: 1;
-    background: #5b5873;
+    background: transparent;
     max-width: 360px;
     margin: 0 auto 100px;
     padding: 45px;
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    opacity: 0.8;
-
+    height: 100%
 }
 .form input {
     font-family: "Roboto", sans-serif;
@@ -92,51 +79,15 @@ body{
     display: none;
 }
 
+#longDiv{
+    position:relative;
+    width:100%;
+    height: 70%;  
+}
+
 #centerContent{
-    top: 60vh;
     position: relative;
     width:100%;
     height: 1000px;
-  
+    
 }
-#whyUs{
-    display:inline-block;
-}
-
-#redHeart{
-    display:inline-block;
-}
-#redHeart img{
-   
-    -webkit-shape-outside: polygon(400 500, 400 1000, 100 1000);
-    shape-outside: polygon(400 500, 400 1000, 100 1000);
-    width: auto;
-    height: 60vh;
-    margin-left: 25vh;
-    margin-bottom: 100px;
-}
-
-@media screen and (orientation: portrait){
-    #centerContent{
-        top: 80vh;
-    }
-}
-
-
-/*index slut/*
-
- */
-.navbar-nav {
-    float:none;
-    margin: auto;
-    display: block;
-    text-align: center;
-    clear: inherit;
-}
-
-.navbar-nav > li {
-    display: inline-block;
-    float:none;
-}
-
-/*Arman*/

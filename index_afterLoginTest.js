@@ -13,7 +13,6 @@ var login = document.getElementById("login");
 var logedIn = userDatabase.logedIn;
 var logInForm = document.getElementsByClassName("login-form")[0];
 var logOut;
-var backgroundImg = document.getElementById("backgroundImg");
 
 
 
@@ -50,8 +49,7 @@ function onLogin(){
     let longDiv = document.getElementById("longDiv");
     let centerContent = document.getElementById("centerContent");
     
-    //longDiv.hidden = false;
-    backgroundImg.style.height = "95vh";
+    longDiv.hidden = false;
     centerContent.hidden = false;
     logInForm.children[1].hidden = "true";
     logInForm.children[2].hidden = "true";

@@ -29,12 +29,15 @@ var logedIn = userDatabase.logedIn;
 var logout = document.getElementById("logout");
 var profileHeight = document.getElementById("profileHeight");
 //var profilePic = document.getElementById("profilePic");
+var userScore = compareProfiles();
+var profile = document.getElementById("profilePic");
 
 //=====================================================================
 //main
 
-var counter = compareProfiles();
-logoutUser(logout);
+logout.addEventListener("click", logoutUser);
+getProfileOnClick(profile);
+bestMatch();
 	
 	
 //======================================================================
@@ -45,64 +48,113 @@ logoutUser(logout);
 //=====================================================================
 //functions
 
+function bestMatch(){
+    let bestMatches =[];
+    
+    for(let i = 0; i < userScore.length; i++){
+        if(userDatabase.users[i].compatible === true){
+            bestMatches.push({"username":userDatabase.users[i].username, "score":userScore[i]});
+        }
+    }
+    bestMatches.sort((x,y)=>{
+        return y.score - x.score;
+    });
+    userDatabase.logedIn.bestMatch = bestMatches;
+    localStorage.setItem("logedIn", JSON.stringify(userDatabase.logedIn));
+}
+
 
 function compareProfiles(){
     addUsersToDatabase();
     let logedIn = JSON.parse(localStorage.getItem("logedIn"));
+    let logedInIsCompatible = false;
+    let userIsCompatible = false;
     
-    //CHANGE LATER
-    let counter = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    //Fill array with 0 per user
+    let counter = new Array(userDatabase.users.length).fill(0);
+    
     
     for(let i = 0; i < users.length; i++){
-       
+        //district match
         if(users[i].district == logedIn.prefDistrict){
             counter[i]++;
         }
-        for(let i = 0; i < logedIn.lookingFor.length; i++){
-            
-            if(users[i].sex == logedIn.lookingFor[i]){
+        //Gender match
+        logedIn.lookingFor.sort();
+        users[i].lookingFor.sort();
+        for(let j = 0; j < logedIn.lookingFor.length; j++){
+            if(users[i].sex == logedIn.lookingFor[j]){
                 counter[i]++;
-            }
-            
+                logedInIsCompatible = true;
+            } 
         }
+        for(let j = 0; j < users[i].lookingFor.length; j++){
+            if(logedIn.sex == users[i].lookingFor[j]){
+                counter[i]++;
+                userIsCompatible = true;
+            }
+        }
+        if(userIsCompatible === true && logedInIsCompatible === true){
+            users[i].compatible = true;
+        }
+        else{
+            users[i].compatible = false;
+        }
+        //haircolor match
         if(users[i].hairColor == logedIn.prefHairColor){
             counter[i]++;
         }
+        //eye color match
         if(users[i].eyeColor == logedIn.prefEyeColor){
             counter[i]++;
         }
-        /*if(users[i].bodyType == logedIn.prefBodyType){
+        //bodytype match
+        if(users[i].bodyType == logedIn.prefBody){
             counter[i]++;
-        }*/
+        }
+        //smoker match
         if(users[i].smoker == logedIn.prefSmoker){
             counter[i]++;
         }
+        //animals match
         if(users[i].hasAnimals == logedIn.prefAnimals){
             counter[i]++;
         }
+        //vegetarian match
         if(users[i].vegetarian == logedIn.prefVegetarian){
             counter[i]++;
         }
+        //employed match
         if(users[i].employed == logedIn.prefEmployed){
             counter[i]++;
         }
+        // kids match
         if(users[i].hasKids == logedIn.prefHasKids){
             counter[i]++;
         }
-        for(let i = 0; i < users[i].interests.length; i++){
-            for(let y = 0; i < logedIn.interests.length; i++){
-                if(users[i].interests[i] == logedIn.interests[y]){
+        //interest match
+        for(let y = 0; y < users[i].interests.length; y++){
+            for(let j = 0; j < logedIn.interests.length; j++){
+                if(users[i].interests[y] == logedIn.interests[j]){
                     counter[i]++;
                 }    
             }
         }
+        //height matches
         if(users[i].height > logedIn.prefMinHeight && users[i].height < logedIn.prefMaxHeight){
             counter[i]++;
         }
-     console.log(users[i].username + counter[i]);   
+        console.log(`${users[i].username}: ${counter[i]} \n is compatible: ${users[i].compatible}`); 
+        //reset compatibillity
+        userIsCompatible = false;
+        logedInIsCompatible = false;
     }
     
-     return counter;
+    
+    
+    
+    
+    return counter;
 }
 
 function getAge(dateString) {
@@ -132,6 +184,7 @@ peter.profileSex = "Man";
 peter.district = "Mölndal";
 peter.eyeColor = "Peachpuff";
 peter.height = "179";*/
+
 profileName.textContent = logedIn.username;
 fullName.textContent = logedIn.firstName + " " + logedIn.lastName;
 profileSex.textContent = logedIn.sex;
@@ -140,6 +193,7 @@ profileEyeColor.textContent = logedIn.eyeColor;
 profileDistrict.textContent = logedIn.district;
 profileInterests.innerHTML = logedIn.interests[0] + ", " + logedIn.interests[1] + ", " + logedIn.interests[2];
 profileAge.innerHTML = getAge(logedIn.birthday);
+
 
 
 /*Testpersonen Peter Larsson*//*
