@@ -15,7 +15,8 @@ imported.scr = "userDatabase.js";
 document.head.appendChild(imported);
 var users = userDatabase.users;
 
-var firstName = document.getElementById("firstName");
+var profileName = document.getElementById("profileName");
+var fullName = document.getElementById("fullName");
 var profileSex = document.getElementById("profileSex");
 var profileDistrict = document.getElementById("profileDistrict");
 var profileEyeColor = document.getElementById("profileEyeColor");
@@ -26,6 +27,7 @@ var profileFullname = document.getElementById("profileFullname");
 var logedIn = userDatabase.logedIn;
 	logedIn = (JSON.parse(localStorage.getItem("logedIn")));
 var logout = document.getElementById("logout");
+var profileHeight = document.getElementById("profileHeight");
 //var profilePic = document.getElementById("profilePic");
 var userScore = compareProfiles();
 var profile = document.getElementById("profilePic");
@@ -155,6 +157,19 @@ function compareProfiles(){
     return counter;
 }
 
+function getAge(dateString) {
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+}
+
+
+
 
 /*
 var peter = new UserObject();
@@ -169,19 +184,56 @@ peter.profileSex = "Man";
 peter.district = "Mölndal";
 peter.eyeColor = "Peachpuff";
 peter.height = "179";*/
-firstName.textContent = logedIn.username;
-//height.textContent = logedIn.height;
-//eyeColor.textContent = logedIn.eyeColor;
+
+profileName.textContent = logedIn.username;
+fullName.textContent = logedIn.firstName + " " + logedIn.lastName;
+profileSex.textContent = logedIn.sex;
+profileHeight.textContent = logedIn.height + " cm";
+profileEyeColor.textContent = logedIn.eyeColor;
+profileDistrict.textContent = logedIn.district;
+profileInterests.innerHTML = logedIn.interests[0] + ", " + logedIn.interests[1] + ", " + logedIn.interests[2];
+profileAge.innerHTML = getAge(logedIn.birthday);
+
 /*Testpersonen Peter Larsson*//*
 
 profileSex.innerHTML = peter.profileSex;
 profileDistrict.innerHTML = peter.district;
 profileEyeColor.innerHTML = peter.eyeColor;
 profileHeight.innerHTML = peter.height + " cm";
-profileAge.innerHTML = peter.birthDate + " år gammal";
-profileInterests.innerHTML = peter.interests[0] + ", " + peter.interests[1] + ", " + //peter.interests[2];
 	*/
-
+/*"username":"L33tKid",
+                "password":"a123",
+                "email":"L33tKid@mail.com",
+                "adress":"Positivgatan 7",
+                "birthday":"1999-01-04",
+                "sex":"male",
+                "lookingFor":["female","cyborg"],
+                "firstName":"Winston",
+                "lastName":"Duck",
+                "district":"Frölunda",
+                "profilePic":"https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/14232971_10207465694944968_1889056014685634462_n.jpg?oh=ea3f2fa7e1a410f7a26387cd821d5ae4&oe=5942D6A3",
+                "height":137,
+                "hairColor":"Svart",
+                "eyeColor":"Bruna",
+                "bodyType":"Kramgo",
+                "smoker":"True",
+                "hasAnimals":"False",
+                "vegetarian":"True",
+                "employed":"False",
+                "hasKids":"False",
+                "interests":["Musik","Datorer","New Age","Välta Kossor","PornHub"],
+                "aboutSelf":"is l33t",
+                "aboutMatch":"Borde va l33t",
+                "prefEyeColor":"Gröna",
+                "prefDistrict":"Frölunda",
+                "prefMaxHeight":200,
+                "prefMinHeight":140,
+                "prefHairColor":"Röda/Violetta",
+                "prefSmoker":"True",
+                "prefAnimals":"False",
+                "prefVegetarian":"True",
+                "prefEmployed":"True",
+                "prefHasKids":"True"*/
 
 /////////////////////
 
