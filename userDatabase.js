@@ -18,6 +18,7 @@ var userDatabase = {
 //===================================================================================
 //functions
 
+
 function getAge(dateString) {
     var today = new Date();
     var birthDate = new Date(dateString);
@@ -27,6 +28,13 @@ function getAge(dateString) {
         age--;
     }
     return age;
+}
+
+
+
+function getID(ID){
+    let variable = document.getElementById(ID);
+    return variable;
 }
 
 
@@ -130,7 +138,7 @@ var localTestUsers =
             "firstName":"Johan",
             "lastName":"Magnusson",
             "district":"Mölndal",
-            "profilePic":"https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/14232971_10207465694944968_1889056014685634462_n.jpg?oh=ea3f2fa7e1a410f7a26387cd821d5ae4&oe=5942D6A3",
+            "profilePic":"http://littlehouseofamericangirl.com/wp-content/uploads/2014/10/BKH28_main_2.jpg",
             "height":178,
             "hairColor":"Brunette",
             "eyeColor":"Gröna",
@@ -166,7 +174,7 @@ var localTestUsers =
             "firstName":"Emil",
             "lastName":"Eriksson",
             "district":"Bergsjön",
-            "profilePic":"https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/14232971_10207465694944968_1889056014685634462_n.jpg?oh=ea3f2fa7e1a410f7a26387cd821d5ae4&oe=5942D6A3",
+            "profilePic":"http://littlehouseofamericangirl.com/wp-content/uploads/2014/10/BKH28_main_2.jpg",
             "height":180,
             "hairColor":"Brunette",
             "eyeColor":"Gråa",

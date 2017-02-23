@@ -22,7 +22,7 @@ function addUsersToGallery() {
     for (let i = 0; i<galleryProfiles.length; i++) {
         profileChildern = profileInfo[i].children;
         user = userDatabase.users[i];
-        galleryProfiles[i].firstChild.src = userDatabase.users[i].profilePic;
+        galleryProfiles[i].children[0].src = userDatabase.users[i].profilePic;
         profileChildern[0].textContent = user.firstName;
         profileChildern[1].textContent = "Ålder: "+getAge(user.birthday);
         
