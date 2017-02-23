@@ -14,8 +14,8 @@ var currentYear = new Date().getFullYear();
 var selectedYear = document.getElementById("regYear");
 var selectedMonth = document.getElementById("regMonth");
 var selectedDay = document.getElementById("regDay");
-var confirmEmail = document.getElementsByClassName("regInput")[3].value;
-var email = document.getElementsByClassName("regInput")[2].value;
+var confirmEmail = document.getElementById("regmailconfirm").value;
+var email = document.getElementById("regmail").value;
 var reg4Confirm = document.getElementById("reg4Confirm");
 var reg2Confirm = document.getElementById("reg2Confirm");
 var reg1Confirm = document.getElementById("reg1Confirm");
@@ -48,14 +48,14 @@ reg4Confirm.addEventListener("click", newUserToDatabase);
 //add user to database
 function newUserToDatabase(){
 
-    let username = document.getElementsByClassName("regInput")[0].value;
-    let password = document.getElementsByClassName("regInput")[1].value;
-    let email = document.getElementsByClassName("regInput")[2].value;
+    let username = document.getElementById("regUser").value;
+    let password = document.getElementById("regPassword").value;
+    let email = document.getElementById("regmail").value;
 
-    let firstName = document.getElementsByName("firstName")[0].value;
-    let lastName = document.getElementsByName("lastName")[0].value;
-    let adress = document.getElementsByName("adress")[0].value;
-    let district = document.getElementsByName("stadsdel")[0].value;
+    let firstName = document.getElementById("regFirstName").value;
+    let lastName = null;
+    let adress = null;
+    let district = document.getElementById("regStadsdel").value;
     let height = document.getElementById("regHeight").value;
     let gender = selectedSex();
     let lookingFor = checkboxSelected(document.getElementsByName("matchgender"));
@@ -81,6 +81,7 @@ function newUserToDatabase(){
 
     localStorage.setItem(email,JSON.stringify(newUser));
     console.log("User added to database");
+    console.log(newUser);
 }
 
 
@@ -289,7 +290,6 @@ document.addEventListener("DOMContentLoaded", function() {
   addInterestsToDocument();
   hidePagesAtStart();
   confirmButtonsActions();
-//  addBootStrapClasses();
 });
 
 
