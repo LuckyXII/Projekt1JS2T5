@@ -52,6 +52,15 @@
         <div class="container">
 
           <div class="row">
+            <div class="row col-sm-2">
+              <p class="regOptionText">Förnamn:</p>
+            </div>
+              <div class="row col-sm-10">
+              <input class="regInput" id="regFirstName" style="float: left;">
+            </div>
+          </div>
+
+          <div class="row">
             <p class="regOptionText row col-sm-2" style="margin-right: 20px;">Kön:</p>
             <div class="row col-sm-10">
             <input type="radio" name="gender" value="male">Man
@@ -71,27 +80,24 @@
         </div>
         </div>
 
-        <div class="row col-md-4">
-            <p class="regOptionText row col-sm-3">Stadsdel:</p>
-            <div class="row col-sm-9" style="float: right;">
-            <input class="regInput" id="regStadsdel">
+        <div class="row col-md-6">
+          <div class="row col-sm-2">
+            <p class="regOptionText">Stadsdel:</p>
+          </div>
+            <div class="row col-sm-10">
+              <input class="regInput" id="regStadsdel">
             </div>
         </div>
 
-        <div class="row col-md-4" style="margin-right: 20px">
-            <p class="regOptionText row col-sm-3">Förnamn:</p>
-            <div class="row col-sm-9" style="float: right;">
-            <input class="regInput" id="regFirstName">
+        <div class="row col-md-6">
+          <div class="row col-sm-3">
+            <p class="regOptionText">Födelsedatum:</p>
           </div>
-        </div>
-
-        <div class="row col-md-4" style="margin-right: 20px">
-          <p class="regOptionText row col-sm-3">Födelsedatum:</p>
-          <div class="row col-sm-9" style="float: right;">
-          <select id="regYear" class="regDropdown "></select>
-          <select id="regMonth" class="regDropdown"></select>
-          <select id="regDay" class="regDropdown"></select>
-        </div>
+          <div class="row col-sm-9">
+            <select id="regYear" class="regDropdown "></select>
+            <select id="regMonth" class="regDropdown"></select>
+            <select id="regDay" class="regDropdown"></select>
+          </div>
         </div>
 
         <div class="row col-sm-12">
