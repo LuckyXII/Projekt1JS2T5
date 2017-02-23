@@ -4,7 +4,7 @@
 
 //Import database
 var imported = document.createElement("script");
-imported.src = "userDatabase.js";
+imported.scr = "userDatabase.js";
 document.head.appendChild(imported);
 
 //==================================================================================
@@ -34,7 +34,6 @@ var reg1Confirm = document.getElementById("reg1Confirm");
 /*************TO DO*********
 - Validate fields(check for proper format, no-empty fields etc): keyup event (add green symbol once
             validated and un-disable "next")
-
     OBS Validate mail and user ready but not assigned to an event
 */
 
