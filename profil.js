@@ -11,9 +11,10 @@
 
 //Import database
 var imported = document.createElement("script");
-imported.scr = "userDatabase.js";
+imported.src = "userDatabase.js";
 document.head.appendChild(imported);
 var users = userDatabase.users;
+console.log("dsds")
 
 var profileName = document.getElementById("profileName");
 var fullName = document.getElementById("fullName");
@@ -28,13 +29,16 @@ var logedIn = userDatabase.logedIn;
 	logedIn = (JSON.parse(localStorage.getItem("logedIn")));
 var logout = document.getElementById("logout");
 var profileHeight = document.getElementById("profileHeight");
+var dateToday = document.getElementById("dateToday");
+var editUser = document.getElementById("editUser");
+var editUserButton = document.getElementById("editUserButton");
+
 //var profilePic = document.getElementById("profilePic");
 var userScore = compareProfiles();
 var profile = document.getElementById("profilePic");
 
 //=====================================================================
 //main
-
 logout.addEventListener("click", logoutUser);
 getProfileOnClick(profile);
 bestMatch();
@@ -157,16 +161,29 @@ function compareProfiles(){
     return counter;
 }
 
-function getAge(dateString) {
-    var today = new Date();
-    var birthDate = new Date(dateString);
-    var age = today.getFullYear() - birthDate.getFullYear();
-    var m = today.getMonth() - birthDate.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
-    }
-    return age;
-}
+
+
+
+/*
+$("#reg1Confirm").addEventListener("click", function(){
+    $("#reg2").style.display = "block";
+    $("#reg1").style.display = "none";
+
+*/
+/////HIDE SHOW EDIT USER
+/*
+	object.style.display="none";
+	editUser.addEventListener("click", function(){
+		editUser.style.display="inline";
+		/*en div/container.style.display = "block"
+	});*/
+	
+	console.log(editUser);
+editUser.style.display="none";
+
+editUserButton.addEventListener("click", function(){
+	editUser.style.display="block"
+});
 
 
 
@@ -193,6 +210,9 @@ profileEyeColor.textContent = logedIn.eyeColor;
 profileDistrict.textContent = logedIn.district;
 profileInterests.innerHTML = logedIn.interests[0] + ", " + logedIn.interests[1] + ", " + logedIn.interests[2];
 profileAge.innerHTML = getAge(logedIn.birthday);
+
+//dateToday.innerHTML = dateToday();
+
 
 /*Testpersonen Peter Larsson*//*
 

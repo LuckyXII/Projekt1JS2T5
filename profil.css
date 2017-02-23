@@ -33,9 +33,24 @@
 }
 
 .abouryou {
+    padding: 20px;
     border: 1px solid black;
+    height: 150px;
 }
 
 #logout{
     
+}
+#editUser{
+	border: 2px solid #bce8f1;
+	border-radius: 5px;
+	background-color: #d9edf7;
+	
+}
+#AboutYou{
+	width: 700px;
+}
+
+#editInput{
+	height: 20px;
 }

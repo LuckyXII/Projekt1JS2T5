@@ -23,6 +23,7 @@
             //Globals and Namespace
             var map;
             var westDate = {};
+            var geocoder;
             
              //place service request
            westDate.placeRequest = function(title,latlng,radius,types){
@@ -57,34 +58,28 @@
                 
                 //adress
                 var adress = "korsvägen, göteborg";
-                var lat;
-                var lng;
+                //geocode: adress -> latlng
+                geocoder = new google.maps.Geocoder();
                 var latlng = new google.maps.LatLng(57.6965417,11.986207199999967);    //57.6965417,11.986207199999967
-                var lt2 = new google.maps.LatLng(lat,lng);
-                var lt3;
+                
                 
                
             
     
-                
-                 //geocode: adress -> latlng
-                var geocoder = new google.maps.Geocoder();
-                
                 //mark adress and print coords
                 geocoder.geocode({"address":adress},(results, status)=>{
                     if(status == google.maps.GeocoderStatus.OK){
-                        
-                        
-                        lat = results[0].geometry.location.lat();
-                        lng = results[0].geometry.location.lng();
-                        lt3 = results[0].geometry.location;
-                        //console.log(`Latitud: ${lat}, Longitud: ${lng}`);
+                        let lat = results[0].geometry.location.lat();
+                        let lng = results[0].geometry.location.lng();
+                        let latLng = new google.maps.LatLng(lat,lng);
+                        console.log(`Latitud: ${lat}, Longitud: ${lng}`);
                         map.setCenter(latlng);
+                        localStorage.setItem("adress", latLng); // <----- PUSHA TILL STORAGE
                     }
                 });
                 
                 
-                 console.log(geocoder);
+                 
                 //map
                  map = new google.maps.Map(document.getElementById('map'), {
                     zoom: 14,

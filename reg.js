@@ -4,7 +4,7 @@
 
 //Import database
 var imported = document.createElement("script");
-imported.scr = "userDatabase.js";
+imported.src = "userDatabase.js";
 document.head.appendChild(imported);
 
 //==================================================================================
