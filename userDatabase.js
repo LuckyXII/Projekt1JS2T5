@@ -19,12 +19,6 @@ var userDatabase = {
 //functions
 
 
-function getID(ID){
-    let variable = document.getElementById(ID);
-    return variable;
-}
-
-
 function getAge(dateString) {
     var today = new Date();
     var birthDate = new Date(dateString);
@@ -35,6 +29,14 @@ function getAge(dateString) {
     }
     return age;
 }
+
+
+
+function getID(ID){
+    let variable = document.getElementById(ID);
+    return variable;
+}
+
 
 
 function logoutUser(){
