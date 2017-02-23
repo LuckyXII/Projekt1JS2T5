@@ -43,8 +43,14 @@ textarea{
 
 button {
     border-radius: 5px;
+    padding: 5px 13px;
 }
 
 .regDropdown {
     width:50px;
+}
+
+.middle {
+    width: 50%;
+    margin:auto;
 }

@@ -36,7 +36,7 @@ function loadCurrentProfile(e){
     
     if(localStorage.getItem(targetProfile) !== null){
         let currentProfile = localStorage.getItem(targetProfile);
-        localStorage.setItem("currentProfile", currentProfile);
+        localStorage.setItem("currentProfile", JSON.stringify(currentProfile));
     }
     else{
         console.log("Error: profile not found");
