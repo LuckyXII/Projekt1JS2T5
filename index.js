@@ -14,15 +14,17 @@ var logedIn = userDatabase.logedIn;
 var logInForm = document.getElementsByClassName("login-form")[0];
 var logOut;
 var backgroundImg = document.getElementById("backgroundImg");
+var galleryProfiles = document.getElementsByClassName('profiles');
 
-//REMOVE LATER
-profiles = document.getElementsByClassName("profiles");
+var profileInfo = document.getElementsByClassName('profileInfo');
 
 
 
 //===========================================================================
 //Main
 isLogedIn();
+addUsersToDatabase();
+addUsersToGallery();
 
 
 //===========================================================================
@@ -84,6 +86,22 @@ function loginAuthenticatedUser(){
     else if(logInForm.children[3].textContent !== "Logga ut"){
         console.log("login unsucessful");
         alert("Fel användarnamn eller lösenord");
+    }
+}
+
+//adds profile pics and information into gallery
+function addUsersToGallery() {
+    
+    let user;
+    let profileChildern;
+    
+    for (let i = 0; i<galleryProfiles.length; i++) {
+        profileChildern = profileInfo[i].children;
+        user = userDatabase.users[i];
+        galleryProfiles[i].children[0].src = userDatabase.users[i].profilePic;
+        profileChildern[0].textContent = user.firstName;
+        profileChildern[1].textContent = "Ålder: "+getAge(user.birthday);
+        
     }
 }
 
