@@ -8,7 +8,6 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
   <!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> !-->
     <title>WestDate - Register</title>
-
   </head>
   <body>
 
@@ -16,28 +15,24 @@
       <h1>Registera ny medlem, steg 1 av 4</h1>
       <div class="container" style="width: 80%; margin: auto;">
 
-           <div class="row col-sm-6">
+        <div class="row col-sm-6">
           <p class="regOptionText col-xs-12 col-sm-6" style="text-align: right;">Användarnamn:</p>
-          <input class="regInput col-xs-12 col-sm-6" type="text">
-        </div>
-          
-            <div class="row col-sm-6">
-          <p class="regOptionText col-xs-12 col-sm-6" style="text-align: right;">Email:</p>
-
-          <input class="regInput col-xs-12 col-sm-6">
+          <input class="regInput col-xs-12 col-sm-6" id="regUser" type="text">
         </div>
 
         <div class="row col-sm-6">
+          <p class="regOptionText col-xs-12 col-sm-6" style="text-align: right;">Email:</p>
+          <input class="regInput col-xs-12 col-sm-6" id="regmail">
+        </div>
 
+        <div class="row col-sm-6">
           <p class="regOptionText col-xs-6" style="text-align: right;">Lösenord:</p>
-
-          <input class="regInput col-xs-6">
+          <input class="regInput col-xs-6" id="regPassword">
         </div>
 
         <div class="row col-sm-6">
           <p class="regOptionText col-xs-6" style="text-align: right;">Repetera email:</p>
-          <input class="regInput col-xs-6">
-
+          <input class="regInput col-xs-6" id="regmailconfirm">
         </div>
 
         <div class="row col-xs-12">
@@ -75,19 +70,18 @@
           <input type="checkbox" name="matchgender" value="cyborg">Cyborg
         </div>
         </div>
-            
+
         <div class="row col-md-4">
             <p class="regOptionText row col-sm-3">Stadsdel:</p>
             <div class="row col-sm-9" style="float: right;">
-            <input class="regInput">
+            <input class="regInput" id="regStadsdel">
             </div>
         </div>
 
         <div class="row col-md-4" style="margin-right: 20px">
             <p class="regOptionText row col-sm-3">Förnamn:</p>
-
             <div class="row col-sm-9" style="float: right;">
-            <input class="regInput">
+            <input class="regInput" id="regFirstName">
           </div>
         </div>
 
@@ -131,7 +125,7 @@
 
           <div class="row col-xs-12 col-md-6">
             <p class="regOptionText col-xs-6">Hårfärg:</p>
-            <select class="regDropdown col-xs-6">
+            <select class="regDropdown col-xs-6" id="hairColor">
               <option>Blond</option>
               <option>Brunette</option>
               <option>Svart</option>
@@ -147,7 +141,7 @@
 
           <div class="row col-xs-12 col-md-6">
             <p class="regOptionText col-xs-6">Kroppstyp:</p>
-            <select class="regDropdown col-xs-6">
+            <select class="regDropdown col-xs-6" id="bodytype">
               <option>Normal</option>
               <option>Atletisk</option>
               <option>Smal</option>
@@ -157,7 +151,7 @@
 
           <div class="row col-xs-12 col-md-6">
             <p class="regOptionText col-xs-6">Ögonförg:</p>
-            <select class="regDropdown col-xs-6">
+            <select class="regDropdown col-xs-6" id="eyeColor">
               <option>Blåa</option>
               <option>Gröna</option>
               <option>Bruna</option>
@@ -211,6 +205,4 @@
 
   </body>
   <script src="reg.js"></script>
-
 </html>
-
