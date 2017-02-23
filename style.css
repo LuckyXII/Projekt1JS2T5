@@ -28,6 +28,33 @@ textarea{
 }
 .container {
 }
+
+.row{
+  margin: 20px;
+}
+.regOptionText{
+    text-align: left;
+    margin-top: 10px;
+}
+
+.regInfo {
+  font-style: italic;
+  color: #92959b;
+  font-size: 12px;
+}
+.container {
+}
+.regInput {
+  float: right;
+}
+.regConfirm {
+  float: right;
+  margin: 10px;
+}
+.row {
+  margin-top: 30px;
+}
+
 .regInput, select, option {
   border-radius: 5px;
   padding: 4px 12px;
@@ -46,11 +73,9 @@ button {
     padding: 5px 13px;
 }
 
+
+}
 .regDropdown {
     width:50px;
 }
 
-.middle {
-    width: 50%;
-    margin:auto;
-}

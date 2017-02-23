@@ -88,12 +88,14 @@ function localAddTestUsersToStorage(){
 // LOOP THROUGH LOCALSTORAGE USING KEY()
 function addUsersToDatabase(){
     var key;
+    var JSONkey;
     userDatabase.logedIn = JSON.parse(localStorage.getItem("logedIn"));
     for(let i = 0; i < localStorage.length; i++){
         key = localStorage.key(i);
-        if(!(JSON.parse(localStorage.getItem(key)) instanceof Array) && 
-           (JSON.parse(localStorage.getItem(key)).email != userDatabase.logedIn.email)){
-            userDatabase.users.push(JSON.parse(localStorage.getItem(key)));     
+        JSONkey = JSON.parse(localStorage.getItem(key));
+        
+        if(!(JSONkey instanceof Array) && JSONkey.email != userDatabase.logedIn.email){
+            userDatabase.users.push(JSONkey);     
         }
     }
 }
@@ -219,8 +221,8 @@ var localTestUsers =
             "email":"L33tKid@mail.com",
             "adress":"Positivgatan 7",
             "birthday":"1999-01-04",
-            "sex":"male",
-            "lookingFor":["female","cyborg"],
+            "sex":"cyborg",
+            "lookingFor":["female","cyborg", "male"],
             "firstName":"Winston",
             "lastName":"Duck",
             "district":"Frölunda",
@@ -399,7 +401,7 @@ var localTestUsers =
             "email":"putin@mail.com",
             "adress":"Transportgatan 23",
             "birthday":"1954-04-04",
-            "sex":"male",
+            "sex":"transgender",
             "lookingFor":["male","cyborg"],
             "firstName":"Vladimir",
             "lastName":"Putin",

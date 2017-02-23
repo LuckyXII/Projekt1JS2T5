@@ -10,13 +10,7 @@ body{
 }
 
 
-#backgroundImg{
-    position: absolute;
-    height:100vh;
-    background-size: cover;
-    background-attachment: fixed;
 
-}
 @font-face {
     font-family: 'Pacifico'; /*a name to be used later*/
     src: url('../resources/Pacifico.ttf'); /*URL to font*/
