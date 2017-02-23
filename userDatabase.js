@@ -19,6 +19,26 @@ var userDatabase = {
 //functions
 
 
+function getAge(dateString) {
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+}
+
+
+
+function getID(ID){
+    let variable = document.getElementById(ID);
+    return variable;
+}
+
+
+
 function logoutUser(){
    
     let logedIn = JSON.parse(localStorage.getItem("logedIn"));
@@ -36,7 +56,7 @@ function loadCurrentProfile(e){
     
     if(localStorage.getItem(targetProfile) !== null){
         let currentProfile = localStorage.getItem(targetProfile);
-        localStorage.setItem("currentProfile", currentProfile);
+        localStorage.setItem("currentProfile", JSON.stringify(currentProfile));
     }
     else{
         console.log("Error: profile not found");
@@ -88,12 +108,13 @@ function localAddTestUsersToStorage(){
 // LOOP THROUGH LOCALSTORAGE USING KEY()
 function addUsersToDatabase(){
     var key;
-    var JSONkey;
     userDatabase.logedIn = JSON.parse(localStorage.getItem("logedIn"));
     for(let i = 0; i < localStorage.length; i++){
         key = localStorage.key(i);
-        JSONkey = JSON.parse(localStorage.getItem(key));
+
+//        JSONkey = JSON.parse(localStorage.getItem(key));
         
+
         if(!(JSON.parse(localStorage.getItem(key)) instanceof Array) && JSON.parse(localStorage.getItem(key)).email != userDatabase.logedIn.email){
             userDatabase.users.push(JSON.parse(localStorage.getItem(key)));     
         }

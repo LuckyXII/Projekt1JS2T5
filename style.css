@@ -70,8 +70,12 @@ textarea{
 
 button {
     border-radius: 5px;
+    padding: 5px 13px;
+}
+
 
 }
 .regDropdown {
     width:50px;
 }
+

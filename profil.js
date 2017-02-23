@@ -14,6 +14,7 @@ var imported = document.createElement("script");
 imported.src = "userDatabase.js";
 document.head.appendChild(imported);
 var users = userDatabase.users;
+console.log("dsds")
 
 var profileName = document.getElementById("profileName");
 var fullName = document.getElementById("fullName");
@@ -160,27 +161,8 @@ function compareProfiles(){
     return counter;
 }
 
-function getAge(dateString) {
-    var today = new Date();
-    var birthDate = new Date(dateString);
-    var age = today.getFullYear() - birthDate.getFullYear();
-    var m = today.getMonth() - birthDate.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
-    }
-    return age;
-}
 
-function getAge(dateString) {
-    var today = new Date();
-    var birthDate = new Date(dateString);
-    var age = today.getFullYear() - birthDate.getFullYear();
-    var m = today.getMonth() - birthDate.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
-    }
-    return age;
-}
+
 
 /*
 $("#reg1Confirm").addEventListener("click", function(){
@@ -202,7 +184,6 @@ editUser.style.display="none";
 editUserButton.addEventListener("click", function(){
 	editUser.style.display="block"
 });
-
 
 
 
