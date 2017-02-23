@@ -23,7 +23,7 @@ var profileInfo = document.getElementsByClassName('profileInfo');
 //===========================================================================
 //Main
 isLogedIn();
-addUsersToDatabase();
+addUsersToGallery();
 addUsersToGallery();
 
 
