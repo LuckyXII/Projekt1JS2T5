@@ -2,42 +2,37 @@
  <html>
   <head>
     <meta charset="utf-8">
-        <link href="style.css" rel="stylesheet" type="text/css">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
   <!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> !-->
+      <link href="style.css" rel="stylesheet" type="text/css">
     <title>WestDate - Register</title>
-
   </head>
   <body>
-
+    <img src="resources/header+logo.png" style="height: 200px;">
     <div id="reg1">          <!-- Register steg 1 !-->
       <h1>Registera ny medlem, steg 1 av 4</h1>
       <div class="container" style="width: 80%; margin: auto;">
 
-           <div class="row col-sm-6">
+        <div class="row col-sm-6">
           <p class="regOptionText col-xs-12 col-sm-6" style="text-align: right;">Användarnamn:</p>
-          <input class="regInput col-xs-12 col-sm-6" type="text">
-        </div>
-          
-            <div class="row col-sm-6">
-          <p class="regOptionText col-xs-12 col-sm-6" style="text-align: right;">Email:</p>
-
-          <input class="regInput col-xs-12 col-sm-6">
+          <input class="regInput col-xs-12 col-sm-6" id="regUser" type="text">
         </div>
 
         <div class="row col-sm-6">
+          <p class="regOptionText col-xs-12 col-sm-6" style="text-align: right;">Email:</p>
+          <input class="regInput col-xs-12 col-sm-6" id="regmail">
+        </div>
 
+        <div class="row col-sm-6">
           <p class="regOptionText col-xs-6" style="text-align: right;">Lösenord:</p>
-
-          <input class="regInput col-xs-6">
+          <input class="regInput col-xs-6" id="regPassword">
         </div>
 
         <div class="row col-sm-6">
           <p class="regOptionText col-xs-6" style="text-align: right;">Repetera email:</p>
-          <input class="regInput col-xs-6">
-
+          <input class="regInput col-xs-6" id="regmailconfirm">
         </div>
 
         <div class="row col-xs-12">
@@ -55,6 +50,15 @@
     <div id="reg2">          <!-- Register steg 2  !-->
       <h1>Registera ny medlem, steg 2 av 4</h1>
         <div class="container">
+
+          <div class="row">
+            <div class="row col-sm-2">
+              <p class="regOptionText">Förnamn:</p>
+            </div>
+              <div class="row col-sm-10">
+              <input class="regInput" id="regFirstName" style="float: left;">
+            </div>
+          </div>
 
           <div class="row">
             <p class="regOptionText row col-sm-2" style="margin-right: 20px;">Kön:</p>
@@ -75,29 +79,25 @@
           <input type="checkbox" name="matchgender" value="cyborg">Cyborg
         </div>
         </div>
-            
-        <div class="row col-md-4">
-            <p class="regOptionText row col-sm-3">Stadsdel:</p>
-            <div class="row col-sm-9" style="float: right;">
-            <input class="regInput">
+
+        <div class="row col-md-6">
+          <div class="row col-sm-2">
+            <p class="regOptionText">Stadsdel:</p>
+          </div>
+            <div class="row col-sm-10">
+              <input class="regInput" id="regStadsdel">
             </div>
         </div>
 
-        <div class="row col-md-4" style="margin-right: 20px">
-            <p class="regOptionText row col-sm-3">Förnamn:</p>
-
-            <div class="row col-sm-9" style="float: right;">
-            <input class="regInput">
+        <div class="row col-md-6">
+          <div class="row col-sm-3">
+            <p class="regOptionText">Födelsedatum:</p>
           </div>
-        </div>
-
-        <div class="row col-md-4" style="margin-right: 20px">
-          <p class="regOptionText row col-sm-3">Födelsedatum:</p>
-          <div class="row col-sm-9" style="float: right;">
-          <select id="regYear" class="regDropdown "></select>
-          <select id="regMonth" class="regDropdown"></select>
-          <select id="regDay" class="regDropdown"></select>
-        </div>
+          <div class="row col-sm-9">
+            <select id="regYear" class="regDropdown "></select>
+            <select id="regMonth" class="regDropdown"></select>
+            <select id="regDay" class="regDropdown"></select>
+          </div>
         </div>
 
         <div class="row col-sm-12">
@@ -131,7 +131,7 @@
 
           <div class="row col-xs-12 col-md-6">
             <p class="regOptionText col-xs-6">Hårfärg:</p>
-            <select class="regDropdown col-xs-6">
+            <select class="regDropdown col-xs-6" id="hairColor">
               <option>Blond</option>
               <option>Brunette</option>
               <option>Svart</option>
@@ -147,7 +147,7 @@
 
           <div class="row col-xs-12 col-md-6">
             <p class="regOptionText col-xs-6">Kroppstyp:</p>
-            <select class="regDropdown col-xs-6">
+            <select class="regDropdown col-xs-6" id="bodytype">
               <option>Normal</option>
               <option>Atletisk</option>
               <option>Smal</option>
@@ -157,7 +157,7 @@
 
           <div class="row col-xs-12 col-md-6">
             <p class="regOptionText col-xs-6">Ögonförg:</p>
-            <select class="regDropdown col-xs-6">
+            <select class="regDropdown col-xs-6" id="eyeColor">
               <option>Blåa</option>
               <option>Gröna</option>
               <option>Bruna</option>
@@ -211,6 +211,4 @@
 
   </body>
   <script src="reg.js"></script>
-
 </html>
-
