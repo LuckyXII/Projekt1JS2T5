@@ -1,0 +1,94 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Gist
+ @LuckyXII
+ Sign out
+ Unwatch 2
+  Star 1
+  Fork 0 LuckyXII/Projekt1JS2T5
+ Code  Issues 0  Pull requests 0  Projects 0  Wiki  Pulse  Graphs  Settings
+Branch: Rikard Find file Copy pathProjekt1JS2T5/style.css
+8f3a358  an hour ago
+@lunapollo lunapollo added header
+3 contributors @lunapollo @LuckyXII @MiraMai
+RawBlameHistory     
+75 lines (68 sloc)  814 Bytes
+body{
+}
+img{
+    margin: 0px;
+    height: 100vh;
+    width: 100vw;
+}
+h1 {
+  text-align: center;
+}
+textarea{
+      border-radius: 5px;
+
+}
+.row{
+  margin: 20px;
+}
+.regOptionText{
+    margin-top: 10px;
+    font-size: 13.5pt;
+}
+.regInfo {
+  font-style: italic;
+  color: #92959b;
+}
+.container {
+}
+
+.row{
+  margin: 20px;
+}
+.regOptionText{
+    text-align: left;
+    margin-top: 10px;
+}
+
+.regInfo {
+  font-style: italic;
+  color: #92959b;
+  font-size: 12px;
+}
+.container {
+}
+.regInput {
+  float: right;
+}
+.regConfirm {
+  float: right;
+  margin: 10px;
+}
+.row {
+  margin-top: 30px;
+}
+
+.regInput, select, option {
+  border-radius: 5px;
+  padding: 4px 12px;
+  font-size: 16px;
+}
+.regConfirm {
+  float: right;
+  margin: 10px;
+}
+.row {
+  margin-top: 30px;
+}
+
+button {
+    border-radius: 5px;
+
+}
+.regDropdown {
+    width:50px;
+}
+Contact GitHub API Training Shop Blog About
+© 2017 GitHub, Inc. Terms Privacy Security Status Help
