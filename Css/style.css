@@ -75,19 +75,72 @@
     display: none;
 }
 /*index slut/*
+/* header*/
+#header{
+    position: fixed;
+    top: 0;
 
- */
-.navbar-nav {
-    float:none;d
-    margin: auto;
-    display: block;
-    text-align: center;
-    clear: inherit;
 }
+#banner{
+    width: 100%;
+    padding: 0;
 
-.navbar-nav > li {
+
+}
+.navbar .navbar-nav {
     display: inline-block;
-    float:none;
+    float: none;
+    vertical-align: top;
+
+}
+.navbar-nav>li>a {
+    color: black;
+    font-family: "Roboto", sans-serif;
+    font-size: large;
+    width: 120px;
+}
+.navbar-inverse .navbar-nav>li>a:hover {
+    color: black;
+    margin-top: 1px;
+    background: #ffebae;
+    height: 105%;
+}
+.navbar-inverse .navbar-nav>li>a {
+    color: white;
+    background-color: #ef7c24;
+    margin-top: 1px;
+    margin-bottom: -1px;
+    margin-left: 10px;
+}
+.navbar .navbar-collapse {
+    text-align: center;
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+    color: black;
+    background-color: #ef7c24;
+    margin-top: 1px;
 }
 
-/*Arman*/
+#menubar{
+    background-color: black;
+    border-radius: 0;
+    color: black;
+    opacity: 0.9;
+}
+.glyphicon{
+    font-weight: 200;
+    font-size: small;
+}
+/* header end*/
+#footer{
+    background-color: black; height: 100px; width: 100%;
+}
+#footerLogo{
+    margin-left: 45%;
+    margin-right: auto;
+    width: 15%;
+    margin-bottom: 5%;
+
+}
+
+/*Arman end*/
