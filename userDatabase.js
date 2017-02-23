@@ -18,6 +18,11 @@ var userDatabase = {
 //===================================================================================
 //functions
 
+function getID(ID){
+    let variable = document.getElementById(ID);
+    return variable;
+}
+
 
 function logoutUser(){
    

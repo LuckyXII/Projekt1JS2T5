@@ -3,7 +3,7 @@
 
 //Import database
 var imported = document.createElement("script");
-imported.scr = "userDatabase.js";
+imported.src = "userDatabase.js";
 document.head.appendChild(imported);
 
 //===========================================================================
@@ -14,6 +14,9 @@ var logedIn = userDatabase.logedIn;
 var logInForm = document.getElementsByClassName("login-form")[0];
 var logOut;
 var backgroundImg = document.getElementById("backgroundImg");
+
+//REMOVE LATER
+profiles = document.getElementsByClassName("profiles");
 
 
 
@@ -47,12 +50,13 @@ function onLogin(){
     
     let logedIn = JSON.parse(localStorage.getItem("logedIn"));
     let welcome = `Välkommen ${logedIn.firstName}`;
-    let longDiv = document.getElementById("longDiv");
     let centerContent = document.getElementById("centerContent");
+    let backgroundFiller = getID("backgroundFiller");
     
     //longDiv.hidden = false;
     backgroundImg.style.height = "95vh";
     centerContent.hidden = false;
+    backgroundFiller.hidden = false;
     logInForm.children[1].hidden = "true";
     logInForm.children[2].hidden = "true";
     logInForm.children[3].id = "logOut";
