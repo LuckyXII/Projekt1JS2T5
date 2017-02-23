@@ -178,7 +178,7 @@ body{
 /*index slut/*
 /* header*/
 #header {
-    position: fixed;
+    position: absolute;
     top: 0;
 }
 
