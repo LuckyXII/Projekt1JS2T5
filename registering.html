@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+ <html>
+  <head>
+    <meta charset="utf-8">
+        <link href="style.css" rel="stylesheet" type="text/css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> !-->
+    <title>WestDate - Register</title>
+
+  </head>
+  <body>
+
+    <div id="reg1">          <!-- Register steg 1 !-->
+      <h1>Registera ny medlem, steg 1 av 4</h1>
+      <div class="container" style="width: 80%; margin: auto;">
+
+           <div class="row col-sm-6">
+          <p class="regOptionText col-xs-12 col-sm-6" style="text-align: right;">Användarnamn:</p>
+          <input class="regInput col-xs-12 col-sm-6" type="text">
+        </div>
+          
+            <div class="row col-sm-6">
+          <p class="regOptionText col-xs-12 col-sm-6" style="text-align: right;">Email:</p>
+
+          <input class="regInput col-xs-12 col-sm-6">
+        </div>
+
+        <div class="row col-sm-6">
+
+          <p class="regOptionText col-xs-6" style="text-align: right;">Lösenord:</p>
+
+          <input class="regInput col-xs-6">
+        </div>
+
+        <div class="row col-sm-6">
+          <p class="regOptionText col-xs-6" style="text-align: right;">Repetera email:</p>
+          <input class="regInput col-xs-6">
+
+        </div>
+
+        <div class="row col-xs-12">
+          <button id="reg1Confirm" class="regConfirm btn-warning">Skapa konto!</button>
+        </div>
+
+        <div class="row col-xs-12" style="margin-top: 0px;">
+         <p class="regInfo">**Genom att fortsätta bekräftar du att du har läst och godkänt våra Villkor och regler, Sekretesspolicy samt Cookiepolicy.</p>
+        </div>
+
+      </div> <!-- Container !-->
+      </div> <!-- Register steg 1  SLUT !-->
+
+
+    <div id="reg2">          <!-- Register steg 2  !-->
+      <h1>Registera ny medlem, steg 2 av 4</h1>
+        <div class="container">
+
+          <div class="row">
+            <p class="regOptionText row col-sm-2" style="margin-right: 20px;">Kön:</p>
+            <div class="row col-sm-10">
+            <input type="radio" name="gender" value="male">Man
+            <input type="radio" name="gender" value="female">Kvinna
+            <input type="radio" name="gender" value="transgender">Transgender
+            <input type="radio" name="gender" value="cyborg">Cyborg
+            </div>
+          </div>
+
+        <div class="row">
+          <p class="regOptionText row col-sm-2" style="margin-right: 20px;">Intresserad av:</p>
+          <div class="row col-sm-10">
+          <input type="checkbox" name="matchgender" value="male">Man
+          <input type="checkbox" name="matchgender" value="female">Kvinna
+          <input type="checkbox" name="matchgender" value="transgender">Transgender
+          <input type="checkbox" name="matchgender" value="cyborg">Cyborg
+        </div>
+        </div>
+            
+        <div class="row col-md-4">
+            <p class="regOptionText row col-sm-3">Stadsdel:</p>
+            <div class="row col-sm-9" style="float: right;">
+            <input class="regInput">
+            </div>
+        </div>
+
+        <div class="row col-md-4" style="margin-right: 20px">
+            <p class="regOptionText row col-sm-3">Förnamn:</p>
+
+            <div class="row col-sm-9" style="float: right;">
+            <input class="regInput">
+          </div>
+        </div>
+
+        <div class="row col-md-4" style="margin-right: 20px">
+          <p class="regOptionText row col-sm-3">Födelsedatum:</p>
+          <div class="row col-sm-9" style="float: right;">
+          <select id="regYear" class="regDropdown "></select>
+          <select id="regMonth" class="regDropdown"></select>
+          <select id="regDay" class="regDropdown"></select>
+        </div>
+        </div>
+
+        <div class="row col-sm-12">
+          <button id="reg2Confirm" class="regConfirm btn-warning">Gå vidare</button>
+          <button id="reg2Previous" class="regConfirm btn-warning">Föregående</button>
+        </div>
+
+      </div> <!-- Container !-->
+      </div> <!-- Register steg 2  SLUT !-->
+
+      <div id="reg3">      <!-- Register steg 3 !-->
+        <h1>Registera ny medlem, steg 3 av 4</h1>
+        <div class="container">
+
+          <div class="row" style="width: 50%; margin: auto; margin-top: 30px;">
+            <p class="regOptionText">Ladda upp bild:</p>
+            <input class="regInput" style="float: left;">
+            <button id="regUploadPic">Spara</button>
+            <div id="regProfilePic">Picture Preview</div>
+          </div>
+
+          <div class="row">
+
+          <div class="row col-md-6" style="float: left;">
+
+          <div class="row col-xs-12 col-md-6">
+            <p class="regOptionText col-xs-4">Längd:</p>
+            <input id="regHeight" class="regInput col-xs-4" style="width: 50px;">
+            <p class="regOptionText col-xs-4">cm</p>
+          </div>
+
+          <div class="row col-xs-12 col-md-6">
+            <p class="regOptionText col-xs-6">Hårfärg:</p>
+            <select class="regDropdown col-xs-6">
+              <option>Blond</option>
+              <option>Brunette</option>
+              <option>Svart</option>
+              <option>Rött</option>
+              <option>Grått</option>
+              <option>Vitt</option>
+              <option>Varierande</option>
+            </select>
+          </div>
+
+        </div>
+        <div class="row col-md-6" style="float: left;">
+
+          <div class="row col-xs-12 col-md-6">
+            <p class="regOptionText col-xs-6">Kroppstyp:</p>
+            <select class="regDropdown col-xs-6">
+              <option>Normal</option>
+              <option>Atletisk</option>
+              <option>Smal</option>
+              <option>Kramgo</option>
+            </select>
+          </div>
+
+          <div class="row col-xs-12 col-md-6">
+            <p class="regOptionText col-xs-6">Ögonförg:</p>
+            <select class="regDropdown col-xs-6">
+              <option>Blåa</option>
+              <option>Gröna</option>
+              <option>Bruna</option>
+              <option>Gråa</option>
+              <option>Röda/Violetta</option>
+            </select>
+          </div>
+
+        </div>
+      </div>
+
+          <div class="row">
+
+            <button id="reg3Confirm" class="regConfirm btn-warning">Gå vidare</button>
+            <button id="reg3Previous" class="regConfirm btn-warning">Föregående</button>
+
+          </div>
+
+      </div> <!-- Container !-->
+      </div> <!-- Register steg 3  SLUT !-->
+
+
+
+      <div id="reg4">      <!-- Register steg 4 !-->
+        <h1>Registera ny medlem, steg 4 av 4</h1>
+        <div class="container" style="width: 60%; margin: auto;">
+
+          <div class="row">
+            <p class="regOptionText col-sm-2">Intressen:</p>
+            <div id="regInterestBoxes" class="col-sm-10"></div>
+          </div>
+
+          <div class="row">
+            <p class="regOptionText">Berätta lite om dig själv:</p>
+            <textarea class="col-xs-12" rows="4" id="regTextAboutSelf"></textarea>
+          </div>
+
+          <div class="row">
+            <p class="regOptionText">Om den du söker:</p>
+            <textarea class="col-xs-12" rows="3" id="regTextAboutMatch"></textarea>
+          </div>
+
+          <div class="row">
+            <button id="reg4Confirm" class="regConfirm btn-warning">Slutför din profil!</button>
+            <button id="reg4Previous" class="regConfirm btn-warning">Föregående</button>
+          </div>
+
+      </div> <!-- Container !-->
+      </div> <!-- Register steg 4  SLUT !-->
+
+
+  </body>
+  <script src="reg.js"></script>
+
+</html>
+
