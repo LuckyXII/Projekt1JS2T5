@@ -94,8 +94,8 @@ function addUsersToDatabase(){
         key = localStorage.key(i);
         JSONkey = JSON.parse(localStorage.getItem(key));
         
-        if(!(JSONkey instanceof Array) && JSONkey.email != userDatabase.logedIn.email){
-            userDatabase.users.push(JSONkey);     
+        if(!(JSON.parse(localStorage.getItem(key)) instanceof Array) && JSON.parse(localStorage.getItem(key)).email != userDatabase.logedIn.email){
+            userDatabase.users.push(JSON.parse(localStorage.getItem(key)));     
         }
     }
 }
