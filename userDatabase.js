@@ -18,9 +18,22 @@ var userDatabase = {
 //===================================================================================
 //functions
 
+
 function getID(ID){
     let variable = document.getElementById(ID);
     return variable;
+}
+
+
+function getAge(dateString) {
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
 }
 
 
@@ -41,7 +54,7 @@ function loadCurrentProfile(e){
     
     if(localStorage.getItem(targetProfile) !== null){
         let currentProfile = localStorage.getItem(targetProfile);
-        localStorage.setItem("currentProfile", currentProfile);
+        localStorage.setItem("currentProfile", JSON.stringify(currentProfile));
     }
     else{
         console.log("Error: profile not found");
@@ -511,8 +524,3 @@ var localTestUsers =
     ]
 
     };
-
-
-let elelment;
-
-elelment.addEventListener("event", (event)=>{});

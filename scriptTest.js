@@ -5,38 +5,30 @@
 
 //Import database
 var imported = document.createElement("script");
-imported.scr = "userDatabase.js";
+imported.src = "userDatabase.js";
 document.head.appendChild(imported);
 
-//===========================================================================
-//Globals
+addUsersToDatabase();
 
-var users = userDatabase.users;
+var galleryProfiles = document.getElementsByClassName('profiles');
 
-//===========================================================================
-//Main
+var profileInfo = document.getElementsByClassName('profileInfo');
 
-
-
-
-//===========================================================================
-//Callbacks
-
-
-
-//===========================================================================
-//Functions
-
-function loadAllDatabaseItems(){
-    let key;
-    for(let i = 0; i < localStorage.length; i++){
-        key = localStorage.key(i);
-        users.push(JSON.parse(localStorage.getItem(key)));
+function addUsersToGallery() {
+    
+    let user;
+    let profileChildern;
+    
+    for (let i = 0; i<galleryProfiles.length; i++) {
+        profileChildern = profileInfo[i].children;
+        user = userDatabase.users[i];
+        galleryProfiles[i].firstChild.src = userDatabase.users[i].profilePic;
+        profileChildern[0].textContent = user.firstName;
+        profileChildern[1].textContent = "Ålder: "+getAge(user.birthday);
+        
     }
+    
 }
 
 
-
-//==========================================================================
-//Constructors
-
+addUsersToGallery();
