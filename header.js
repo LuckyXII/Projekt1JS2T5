@@ -1,10 +1,13 @@
+/*jshint esnext: true, moz: true*/
+/*jslint browser:true */
+
 document.write('\
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">\
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>\
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>\
-    <div class="container-fullwidth">\
+    <div class="container-fullwidth" >\
     <link href="Css/style.css" rel="stylesheet">\
-    <div id="header">\
+    <div id="header" hidden="true">\
         <div class="row">\
             <div class="col-md-12"> \
                 <img id="banner" src="resources/header+logo.png">\

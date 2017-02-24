@@ -14,17 +14,14 @@ var logedIn = userDatabase.logedIn;
 var logInForm = document.getElementsByClassName("login-form")[0];
 var logOut;
 var backgroundImg = document.getElementById("backgroundImg");
-var galleryProfiles = document.getElementsByClassName('profiles');
-
-var profileInfo = document.getElementsByClassName('profileInfo');
 
 
 
 //===========================================================================
 //Main
 isLogedIn();
-addUsersToGallery();
-addUsersToGallery();
+
+
 
 
 //===========================================================================
@@ -32,7 +29,7 @@ addUsersToGallery();
 
 //Login user on click
 login.addEventListener("click", loginAuthenticatedUser, {once:true});
-
+login.addEventListener("click", addUsersToGallery());
 //===========================================================================
 //Functions
 
@@ -50,12 +47,29 @@ function isLogedIn(){
 
 function onLogin(){
     
+    let login = document.getElementsByClassName("login")[0];
+    let background = document.getElementById("backgroundImg");
     let logedIn = JSON.parse(localStorage.getItem("logedIn"));
     let welcome = `Välkommen ${logedIn.firstName}`;
     let centerContent = document.getElementById("centerContent");
+    let header = getID("header");
+    let footer = getID("footer");
     let backgroundFiller = getID("backgroundFiller");
+    let headerBtns = document.getElementsByClassName("nav")[0];
+    let btn1 = headerBtns.children[0].firstChild;
+    let btn2 = headerBtns.children[1].firstChild;
+    let btn3 = headerBtns.children[2].firstChild;
+    let btn4 = headerBtns.children[3].firstChild;
     
     //longDiv.hidden = false;
+    header.hidden = false;
+    footer.hidden = false;
+    btn1.textContent = "Min Profil";
+    btn1.src="#";
+    btn2.textContent = "Galleri";
+    btn2.src="#";
+    btn3.textContent = "Om Oss";
+    btn3.src="#";
     backgroundImg.style.height = "95vh";
     centerContent.hidden = false;
     backgroundFiller.hidden = false;
@@ -64,6 +78,8 @@ function onLogin(){
     logInForm.children[3].id = "logOut";
     logInForm.children[3].textContent = "Logga ut";
     logInForm.children[4].textContent = welcome;
+    login.hidden=true;
+    backgroundImg.hidden=true;
     
 }
 
@@ -81,6 +97,7 @@ function loginAuthenticatedUser(){
        logedIn.password == password){
         localStorage.setItem("logedIn",JSON.stringify(logedIn));
         localStorage.removeItem(logedIn.email);
+        
         console.log("sucessful login");
     }
     else if(logInForm.children[3].textContent !== "Logga ut"){
@@ -91,14 +108,19 @@ function loginAuthenticatedUser(){
 
 //adds profile pics and information into gallery
 function addUsersToGallery() {
+    addUsersToDatabase();
     
+    let galleryProfiles = document.getElementsByClassName('profiles');
+    let profileInfo = document.getElementsByClassName('profileInfo');
+
     let user;
     let profileChildern;
     
     for (let i = 0; i<galleryProfiles.length; i++) {
         profileChildern = profileInfo[i].children;
         user = userDatabase.users[i];
-        galleryProfiles[i].children[0].src = userDatabase.users[i].profilePic;
+        profileInfo[i].title = user.email;
+        galleryProfiles[i].children[0].src = user.profilePic;
         profileChildern[0].textContent = user.firstName;
         profileChildern[1].textContent = "Ålder: "+getAge(user.birthday);
         

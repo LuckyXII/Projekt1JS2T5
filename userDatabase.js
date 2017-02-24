@@ -112,11 +112,11 @@ function addUsersToDatabase(){
     for(let i = 0; i < localStorage.length; i++){
         key = localStorage.key(i);
 
-//        JSONkey = JSON.parse(localStorage.getItem(key));
+        let JSONkey = localStorage.getItem(key);
         
 
-        if(!(JSON.parse(localStorage.getItem(key)) instanceof Array) && JSON.parse(localStorage.getItem(key)).email != userDatabase.logedIn.email){
-            userDatabase.users.push(JSON.parse(localStorage.getItem(key)));     
+        if(!(JSON.parse(JSONkey) instanceof Array) && JSON.parse(JSONkey).email != userDatabase.logedIn.email){
+            userDatabase.users.push(JSON.parse(JSONkey));     
         }
     }
 }
@@ -460,8 +460,8 @@ var localTestUsers =
             "birthday":"1930-11-11",
             "sex":"male",
             "lookingFor":["woman"],
-            "firstName":"The",
-            "lastName":"Dovakhin",
+            "firstName":"Dovakhin",
+            "lastName":"Dragonborn",
             "district":"Askim",
             "profilePic":"https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/14232971_10207465694944968_1889056014685634462_n.jpg?oh=ea3f2fa7e1a410f7a26387cd821d5ae4&oe=5942D6A3",
             "height":210,
