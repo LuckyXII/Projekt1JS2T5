@@ -44,6 +44,7 @@
         var profileAdress = `${profileStreet},${profieDistrict}`;
         var profileInterests = currentProfile.interests;
          
+        //convert to map compatible search strings
         function googleMapsInterests(userInterest){
             let interest = [];
             for(let i = 0; i < profileInterests.length; i++){
@@ -114,8 +115,8 @@
             return interest;
         }
         
+        //return random interest
         function randomInterest(){
-            
             let interest = googleMapsInterests(profileInterests)
             let index = Math.floor((Math.random()*interest.length)-0.01);
             return interest[index];
