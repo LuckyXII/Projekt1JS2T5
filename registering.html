@@ -12,7 +12,13 @@
   <body>
     <img src="resources/header+logo.png" style="height: 200px;">
     <div id="reg1">          <!-- Register steg 1 !-->
+      <div class="row" id="regControlPanel">
+        <button id="api" style="margin-top: 40px;">Skapa användare från API</button><br><br>
+        <input id="numberNewUsers" style="float: left;" placeholder="1-50 users to add">
+        <button id="addRandomUsers">Lägg till i Databas</button>
+      </div>
       <h1>Registera ny medlem, steg 1 av 4</h1>
+
       <div class="container" style="width: 80%; margin: auto;">
 
         <div class="row col-sm-6">
@@ -42,6 +48,7 @@
         <div class="row col-xs-12" style="margin-top: 0px;">
          <p class="regInfo">**Genom att fortsätta bekräftar du att du har läst och godkänt våra Villkor och regler, Sekretesspolicy samt Cookiepolicy.</p>
         </div>
+
 
       </div> <!-- Container !-->
       </div> <!-- Register steg 1  SLUT !-->
@@ -114,7 +121,7 @@
 
           <div class="row" style="width: 50%; margin: auto; margin-top: 30px;">
             <p class="regOptionText">Ladda upp bild:</p>
-            <input class="regInput" style="float: left;">
+            <input class="regInput" id="regPicLink" style="float: left;">
             <button id="regUploadPic">Spara</button>
             <div id="regProfilePic">Picture Preview</div>
           </div>
