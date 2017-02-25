@@ -32,13 +32,18 @@ var profileHeight = document.getElementById("profileHeight");
 var dateToday = document.getElementById("dateToday");
 var editUser = document.getElementsByClassName("editUser")[0];
 var editUserButton = document.getElementById("editUserButton");
+var profileMail = document.getElementById("profileMail");
+var confirmProfileMail = document.getElementById("confirmProfileMail");
+var saveSettings = document.getElementById("saveSettings");
 
 //var profilePic = document.getElementById("profilePic");
 var userScore = compareProfiles();
 var profile = document.getElementById("profilePic");
+var profileHeader = getID("header").hidden=false;
 
 //=====================================================================
 //main
+
 logout.addEventListener("click", logoutUser);
 getProfileOnClick(profile);
 bestMatch();
@@ -46,7 +51,7 @@ bestMatch();
 	
 //======================================================================
 //Callbacks
-
+saveSettings.addEventListener("click", validateUser);
 
 
 //=====================================================================
@@ -181,6 +186,7 @@ $("#reg1Confirm").addEventListener("click", function(){
 editUserButton.addEventListener("click", function(){
 	console.log('what')
 	editUser.classList.toggle('editUserShow');
+    editUser.style.border="1px solid lightgrey";
 });
 
 

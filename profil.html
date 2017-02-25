@@ -8,12 +8,15 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="profil.css">
 	<script src="profil.js"></script>
-	<script src="userDatabase.js"></script>
-	<script src="header.js"></script>
+	<script src="userDatabase.js"></script>	
 	
 </head>
 
 <body>
+<header>
+    <script src="header.js"></script>
+    
+</header>
 	<div class="container" id="typAllt">
 		<div class="row">
 			<div class="col-md-5  toppad  pull-right col-md-offset-3 "> <a href="edit.html">Edit Profile</a> | <a id="logout" href="index.html">Logga ut</a>
@@ -25,7 +28,7 @@
 					<div class="panel-heading">
 						<h3 class="panel-title" id="profileName">Sheena Shrestha</h3> </div>
 					<div class="panel-body">
-						<div class="row">
+						<div class="row" >
 							<div id="profilePic" class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div>
 					
 							<div class=" col-md-9 col-lg-9 ">
@@ -75,6 +78,7 @@
 				<!--//////////////////Edit User/////////////////-->
 				
 				<div class="editUser">
+				    <div id="contentCenter">
 					<div id="reg1" class="regContainer">
 						<div class="regHalfPage">
 							<div class="regOption">
@@ -86,11 +90,11 @@
 						</div>
 						<div class="regHalfPage">
 							<div class="regOption">
-								<p class="regOptionText">e-mail:</p>
-								<input class="regInput" type="email" /> </div>
+								<p class="regOptionText" >e-mail:</p>
+								<input class="regInput" type="email" id="profileMail" /> </div>
 							<div class="regOption">
-								<p class="regOptionText">repetera e-mail:</p>
-								<input class="regInput" type="email" /> </div>
+								<p class="regOptionText" >repetera e-mail:</p>
+								<input class="regInput" type="email" id="confirmProfileMail" /> </div>
 						</div>
 					</div>
 					<div id="reg2" class="regContainer">
@@ -203,12 +207,19 @@
 							</div>
 						</div>
 					</div>
+					<input type="button" value="Spara ändringar" id="saveSettings">
+				</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
+	
 </body>
+
+<div class="row">\
+    <div id="profileFooter"><img id="profileFooterLogo" src="resources/Logo.png"></div>\
+</div>
+
 
 <script src="profil.js"></script>
 

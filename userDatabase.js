@@ -18,6 +18,45 @@ var userDatabase = {
 //===================================================================================
 //functions
 
+function validateUser(e){
+    
+    var username=getID("profileMail").value;
+    //User already registered
+    if(localStorage.getItem(username) !== null){
+        console.log("taken");
+        return false;
+    }
+    else{
+        if (validateEmail()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+}
+
+//Validate email
+function validateEmail(e){
+    
+    //confirm mail matches
+    var email = getID("profileMail").value;
+    var confirmEmail = getID("confirmProfileMail").value;
+    if(email != confirmEmail){
+        console.log("E-mail do not match");
+        return false;
+    }
+
+    //mailformat is correct
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
+        return true;
+    }
+    else{
+        console.log("You have entered an invalid email address!");
+        return false;
+    }
+}
+
 function newElement(elm){
     let element = document.createElement(elm);
     return element;
