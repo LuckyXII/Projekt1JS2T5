@@ -56,23 +56,11 @@ function onLogin(){
     let footer = getID("footer");
     let backgroundFiller = getID("backgroundFiller");
     let headerBtns = document.getElementsByClassName("nav")[0];
-    let btn1 = headerBtns.children[0].firstChild;
-    let btn2 = headerBtns.children[1].firstChild;
-    let btn3 = headerBtns.children[2].firstChild;
-    let btn4 = headerBtns.children[3].firstChild;
+   
     
     
     //longDiv.hidden = false;
-    header.hidden = false;
     footer.hidden = false;
-    btn1.style.backgroundColor = "#000";
-    btn1.style.color = "#FFF";
-    btn2.textContent = "Galleri";
-    btn2.src="#";
-    btn3.textContent = "Om Oss";
-    btn3.src="#";
-    btn4.textContent = "Min Profil";
-    btn4.src="#";
     backgroundImg.style.height = "95vh";
     centerContent.hidden = false;
     backgroundFiller.hidden = false;
@@ -81,8 +69,8 @@ function onLogin(){
     logInForm.children[3].id = "logOut";
     logInForm.children[3].textContent = "Logga ut";
     logInForm.children[4].textContent = welcome;
-    login.hidden=true;
-    backgroundImg.hidden=true;
+    //login.hidden=true;
+    //backgroundImg.hidden=true;
     
 }
 

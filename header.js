@@ -1,5 +1,6 @@
 /*jshint esnext: true, moz: true*/
 /*jslint browser:true */
+/*jshint multistr: true */
 
 document.write('\
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">\
@@ -30,7 +31,7 @@ document.write('\
                     <li><a href="#">Page 3</a></li>\
                 </ul>\
                 <ul class="nav navbar-nav navbar-right">\
-                    <li><a href="index.html"><span class="glyphicon glyphicon-log-out"></span> Logga ut</a></li>\
+                    <li ><a id="logOut" href="index.html"><span class="glyphicon glyphicon-log-out"></span> Logga ut</a></li>\
                 </ul>\
             </div>\
         </div>\

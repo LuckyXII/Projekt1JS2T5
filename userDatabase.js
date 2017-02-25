@@ -18,6 +18,11 @@ var userDatabase = {
 //===================================================================================
 //functions
 
+function newElement(elm){
+    let element = document.createElement(elm);
+    return element;
+}
+
 
 function getAge(dateString) {
     var today = new Date();
@@ -112,11 +117,11 @@ function addUsersToDatabase(){
     for(let i = 0; i < localStorage.length; i++){
         key = localStorage.key(i);
 
-        let JSONkey = localStorage.getItem(key);
-        
+        let storageKey = localStorage.getItem(key);
+        let JSONKey = JSON.parse(storageKey);
 
-        if(!(JSON.parse(JSONkey) instanceof Array) && JSON.parse(JSONkey).email != userDatabase.logedIn.email){
-            userDatabase.users.push(JSON.parse(JSONkey));     
+        if(!(JSONKey instanceof Array) && JSONKey.email != userDatabase.logedIn.email){
+            userDatabase.users.push(JSONKey);     
         }
     }
 }

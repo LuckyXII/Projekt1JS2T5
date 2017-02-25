@@ -14,7 +14,7 @@ var imported = document.createElement("script");
 imported.src = "userDatabase.js";
 document.head.appendChild(imported);
 var users = userDatabase.users;
-console.log("dsds")
+
 
 var profileName = document.getElementById("profileName");
 var fullName = document.getElementById("fullName");
