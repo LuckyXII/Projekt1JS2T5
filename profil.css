@@ -41,11 +41,22 @@
 #logout{
     
 }
-#editUser{
-	border: 2px solid #bce8f1;
+.editUser{
 	border-radius: 5px;
 	background-color: #d9edf7;
-	
+	position: fixed;
+	top: 200px;
+	left: 25%;
+	width: 0;
+	overflow-x: hidden;
+	transition: 0.5s;
+	z-index: 1000000;
+	right: 30px;
+	bottom: 5px;
+}
+
+.editUserShow {
+	width: 50%;
 }
 #AboutYou{
 	width: 700px;
@@ -53,4 +64,8 @@
 
 #editInput{
 	height: 20px;
+}
+#typAllt{
+	position: relative;
+	top: 200px;
 }

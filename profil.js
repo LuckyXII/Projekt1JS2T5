@@ -30,7 +30,7 @@ var logedIn = userDatabase.logedIn;
 var logout = document.getElementById("logout");
 var profileHeight = document.getElementById("profileHeight");
 var dateToday = document.getElementById("dateToday");
-var editUser = document.getElementById("editUser");
+var editUser = document.getElementsByClassName("editUser")[0];
 var editUserButton = document.getElementById("editUserButton");
 
 //var profilePic = document.getElementById("profilePic");
@@ -178,11 +178,9 @@ $("#reg1Confirm").addEventListener("click", function(){
 		/*en div/container.style.display = "block"
 	});*/
 	
-	console.log(editUser);
-editUser.style.display="none";
-
 editUserButton.addEventListener("click", function(){
-	editUser.style.display="block"
+	console.log('what')
+	editUser.classList.toggle('editUserShow');
 });
 
 
