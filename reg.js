@@ -377,7 +377,7 @@ function createRandomUser(){
       let updateValues = function(id, value) {
         document.getElementById(id).value = value;
         document.getElementById(id).innerHTML = value;
-      }
+      };
       updateValues("regUser", xhrObject.login.username);
       updateValues("regPassword", xhrObject.login.password);
       updateValues("regmail", xhrObject.email);
@@ -392,7 +392,7 @@ function createRandomUser(){
       $("#hairColor").selectedIndex = getRandomInt(1, 7);
       $("#bodytype").selectedIndex = getRandomInt(1, 4);
       $("#eyeColor").selectedIndex = getRandomInt(1, 5);
-      if (addToDB == true) {
+      if (addToDB === true) {
         newUserToDatabase();
         addToDB = false;
       }
@@ -423,9 +423,9 @@ document.addEventListener("DOMContentLoaded", function() {
   });
   $("#addRandomUsers").addEventListener("click", function(){
     let nr = Number($("#numberNewUsers").value);
-    if (Number.isInteger(nr) == true){
+    if (Number.isInteger(nr) === true){
       nr = Math.min(50, nr);
-      for (i=0;i<nr;i++){
+      for (let i=0;i<nr;i++){
         addToDB = true;
         createRandomUser();
       }
