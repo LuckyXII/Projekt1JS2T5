@@ -18,6 +18,51 @@ var userDatabase = {
 //===================================================================================
 //functions
 
+//option element attribute value
+function getSelectOptionValue(attr){
+    for(let i = 0; i < attr.length; i++){
+        if(attr.children[i].selected === true){
+            return attr.children[i].textContent;
+        }
+    }
+}
+
+//value of checkboxes Selected
+function checkboxSelected(inputID){
+    let outputArray = [];
+    for(let i = 0; i < inputID.length; i++){
+        if(inputID[i].checked === true){
+            outputArray.push(inputID[i].value);
+        }
+    }
+    return outputArray;
+}
+
+//setBirthdate
+function setBirthday(){
+
+    let bday;
+    let year = 0;
+    let month = 0;
+    let day = 0;
+
+    year = getSelectOptionValue(selectedYear);
+    month = getSelectOptionValue(selectedMonth);
+    day = getSelectOptionValue(selectedDay);
+
+    //format string
+    if(day < 10){
+        day = "0"+day;
+    }
+    if(month < 10){
+        month = "0"+month;
+    }
+    bday = year + "-" + month + "-" + day;
+    //save to global var
+    return bday;
+}
+
+
 function validateUser(e){
     
     var username=getID("profileMail").value;
@@ -422,7 +467,8 @@ var localTestUsers =
             "prefVegetarian":"False",
             "prefEmployed":"True",
             "prefHasKids":"False",
-            "prefBody":"Atletisk"
+            "prefBody":"Atletisk",
+            "friendsList":[],
         },
         {
              "username":"jesus",
