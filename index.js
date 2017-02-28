@@ -13,7 +13,6 @@ var login = document.getElementById("login");
 var logedIn = userDatabase.logedIn;
 var logInForm = document.getElementsByClassName("login-form")[0];
 var logOut;
-var backgroundImg = document.getElementById("backgroundImg");
 
 
 
@@ -48,7 +47,7 @@ function isLogedIn(){
 function onLogin(){
     
     let login = document.getElementsByClassName("login")[0];
-    let background = document.getElementById("backgroundImg");
+    let backgroundImg = document.getElementById("backgroundImg");
     let logedIn = JSON.parse(localStorage.getItem("logedIn"));
     let welcome = `Välkommen ${logedIn.firstName}`;
     let centerContent = document.getElementById("centerContent");

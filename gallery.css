@@ -4,13 +4,12 @@
     position: relative;
     top: 0;
 }
-#footer{
+#galleryFooter{
     bottom: 0px;
     position: relative;
     background-color: black; 
     height: 132px; 
     width: 100%;
-    margin-top: 100px;
 }
 #footerLogo{
     
@@ -20,11 +19,14 @@
     
 
 }
+.row{
+    height: auto;
+}
 
 #flexContainer{
     margin: 10vw;
     position: relative;
-    top:200px;
+    top: -20vh;
     display: -webkit-box;
     display: -ms-flexbox;
     display: -webkit-box;
@@ -79,6 +81,7 @@
 #galleryBackgroundFiller{
     position: fixed;
     bottom:0px;
+    top: 35vh;
     overflow: hidden;
     z-index: -10;
     width: 600px;
@@ -88,6 +91,8 @@
 
 #filterOptions{
     position:relative;
-    width:100%;
+    display: block;
+    width: 400px;
     height: 100px;
+    margin:auto;
 }

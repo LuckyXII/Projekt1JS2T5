@@ -18,6 +18,77 @@ var userDatabase = {
 //===================================================================================
 //functions
 
+
+//create option elements for year / month / day
+function createOptionsBirthdate(year, month, day){
+    
+    let currentYear = new Date().getFullYear();
+    //let option = $$("option"); - only works once with appendchild
+
+    //create options year
+    for(let i = 0; i < 100; i++){
+        year.appendChild(document.createElement("option"));
+        year.children[i].value = currentYear-i;
+        year.children[i].textContent = year.children[i].value;
+    }
+    //create options month
+    for(let i = 0; i < 12; i++){
+        month.appendChild(document.createElement("option"));
+        month.children[i].value = 1+i;
+        month.children[i].textContent = month.children[i].value;
+    }
+    //create options day
+    for(let i = 0; i < 31; i++){
+        day.appendChild(document.createElement("option"));
+        day.children[i].value = 1+i;
+         day.children[i].textContent =  day.children[i].value;
+    }
+}
+
+
+//======================
+
+//Snabbfunktion för skapa element
+function $$(str){
+    return document.createElement(str);
+}
+//Snabbfunktion för hämta element
+function $(str) {
+  if (document.querySelectorAll(str).length <= 1) {
+    return document.querySelector(str);
+  }
+  else {
+        return document.querySelectorAll(str);
+  }
+}
+function addInterestsToDocument(){
+    let addTo = $("#regInterestBoxes");
+    let interestList = ["Musik", "Litteratur", "Resa", "Film/TV", "Matlagning", "Party",
+                      "Vin & Dryck", "Korsord", "Restaurang", "Trädgård", "Hälsa",
+                      "Bakning", "Bilar", "Datorer", "New Age", "Städa", "PornHub",
+                      "Välta Kossor", "Stoppa elakingar från välta kossor", "Övrigt"];
+
+  interestList.forEach(e =>{
+    let div = $$("div");
+    div.style.marginRight = "30px";
+    div.style.float ="left";
+    let box = $$("input");
+    box.type = "checkbox";
+    box.name = "regInterests";
+    box.value = e;
+    box.id = e;
+    let label = $$("label");
+    label.htmlFor = document.getElementById(e);
+    label.appendChild(document.createTextNode(e));
+    div.appendChild(box);
+    div.appendChild(label);
+    addTo.appendChild(div);
+  });
+}
+
+
+//=======================
+
 //option element attribute value
 function getSelectOptionValue(attr){
     for(let i = 0; i < attr.length; i++){
@@ -39,7 +110,7 @@ function checkboxSelected(inputID){
 }
 
 //setBirthdate
-function setBirthday(){
+function setBirthday(selectedYear,selectedMonth,selectedDay){
 
     let bday;
     let year = 0;
@@ -62,7 +133,7 @@ function setBirthday(){
     return bday;
 }
 
-
+//Validate username
 function validateUser(e){
     
     var username=getID("profileMail").value;
@@ -120,14 +191,14 @@ function getAge(dateString) {
 }
 
 
-
+//get element by id
 function getID(ID){
     let variable = document.getElementById(ID);
     return variable;
 }
 
 
-
+// logout user
 function logoutUser(){
    
     let logedIn = JSON.parse(localStorage.getItem("logedIn"));

@@ -7,7 +7,7 @@
     <title>Profilsida</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="profil.css">
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css"> comment -->
     <script src="profil.js"></script>
     <script src="userDatabase.js"></script>
 
@@ -124,16 +124,16 @@
                                     <input type="text" name="lastName" placeholder="Efternamn" id="editLastname"/> </div>
                                 <div class="regOption">
                                     <p class="regOptionText">Födelsedatum:</p>
-                                    <select id="regYear" class="regDropdown"></select>
-                                    <select id="regMonth" class="regDropdown"></select>
-                                    <select id="regDay" class="regDropdown"></select>
+                                    <select id="regYear" class="regDropdown" style="width:50px"></select>
+                                    <select id="regMonth" class="regDropdown" style="width:50px"></select>
+                                    <select id="regDay" class="regDropdown" style="width:50px"></select>
                                 </div>
                             </div>
                             <div class="regHalfPage">
                                 <div class="regOption">
                                     <p class="regOptionText">Stadsdel och Adress (adress kommer inte visas)</p>
-                                    <input type="text" name="stadsdel" class="regInput" placeholder="Stadsdel" />
-                                    <input type="text" name="adress" class="regInput" placeholder="Adress" /> </div>
+                                    <input type="text" name="stadsdel" class="regInput" placeholder="Stadsdel" id="editDistrict"/>
+                                    <input type="text" name="adress" class="regInput" placeholder="Adress" id="editAdress" /> </div>
 
 
                             </div>
@@ -149,7 +149,7 @@
                                 <br>
                                 <div class="regOption">
                                     <span>Längd:</span>
-                                    <input id="editInput regHeight " class="regInput" />
+                                    <input id="regHeight" class="regInput" />
                                     <span>cm</span>
                                 </div>
                                 <br>
@@ -201,10 +201,10 @@
                                 <div class="RegOption">
                                     <p class="regOptionText">Intressen:</p>
                                     <div id="regInterestBoxes"></div>
-                                </div>
+                                </div><br>
                                 <div class="RegOption">
                                     <p class="regOptionText">Berätta lite om dig själv:</p>
-                                    <textarea rows="8" cols="50" id="regTextAboutSelf AboutYou"></textarea>
+                                    <textarea rows="8" cols="50" id="AboutYou"></textarea>
                                 </div>
                                 <div class="RegOption">
                                     <p class="regOptionText">Om den du söker:</p>

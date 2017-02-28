@@ -9,11 +9,11 @@ document.write('\
     <div class="container-fullwidth" >\
     <link href="Css/style.css" rel="stylesheet">\
     <div id="header" hidden="true">\
-        <div class="row">\
-            <div class="col-md-12"> \
-                <img id="banner" src="resources/header+logo.png">\
-            </div>\
-        </div>\
+        \
+            \
+              <img id="banner" src="resources/header+logo4.png">\
+            \
+        \
     <nav class="navbar navbar-inverse navbar-static-top"">\
         <div class="container-fluid" id="menubar">\
             <div class="navbar-header">\

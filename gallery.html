@@ -6,20 +6,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="gallery.css">
         <script src="userDatabase.js"></script>
-        <script src="header.js"></script>
+        
     </head>
+    <header><script src="header.js"></script></header>
     <body>
        
         <div id="filterOptions">
-            <select id="selectDistrict">Stadsdel</select>
-            <select id="selectGender">Kön
+            <select id="selectDistrict">
+                <option selected disabled>Stadsdel</option>
+            </select>
+            <select id="selectGender">
+               <option selected disabled>Kön</option>
                 <option value="Man">Man</option>
                 <option value="Kvinna">Kvinna</option>
                 <option value="Cyborg">Cyborg</option>
                 <option value="Transgender">Transgender</option>
             </select>
-            <select id="selectAge">Ålder</select>
-            <select id="selectMisc">Övrigt
+            <select id="selectAge">
+                <option selected disabled>Ålder</option>
+            </select>
+            <select id="selectMisc">
+               <option selected disabled>Övrigt</option>
                 <option value="Vegetarian">Vegetarian</option>
                 <option value="Barn">Barn</option>
                 <option value="Rökare">Rökare</option>
@@ -36,7 +43,7 @@
       <img id="galleryBackgroundFiller" src="resources/index_filler_background.png"/>      
     <footer>
         <div class="row">
-            <div id="footer">
+            <div id="galleryFooter">
                 <img id="footerLogo" src="resources/Logo.png">
             </div>
         </div>

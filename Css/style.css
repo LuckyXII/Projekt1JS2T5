@@ -95,7 +95,7 @@ body{
 }
 
 #centerContent{
-    top: 60vh;
+    top: 10vh;
     position: relative;
     width:100%;
     height: 1000px;
@@ -181,10 +181,13 @@ body{
 /*index slut/*
 /* header*/
 #header {
-    position: absolute;
+    position: relative;
     top: 0;
+    width: 100%;
+    clear:both;
 }
- 
+
+
 .navbar-nav {
     float:none;
     margin: auto;
@@ -193,10 +196,16 @@ body{
     clear: inherit;
 
 }
-#banner{
-    width: 100%;
-    padding: 0;
 
+nav {
+    position: relative;
+}
+#banner{
+    width: 100vw;
+    padding: 0;
+    height:auto;
+    position: static;
+   
 
 }
 .navbar .navbar-nav {
@@ -233,9 +242,15 @@ body{
     margin-top: 1px;
 }
 
+.navbar-inverse{
+    top: -50px;
+    background-color: rgba(0,0,0,0.4);
+    background-blend-mode: darken;
+    border-color: rgba(0,0,0,0.2);
+}
+
 #menubar{
     z-index: -10;
-    background-color: rgba(0,0,0,0);
     border-radius: 0;
     color: black;
     

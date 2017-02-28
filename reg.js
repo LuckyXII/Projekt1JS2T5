@@ -10,7 +10,7 @@ document.head.appendChild(imported);
 //==================================================================================
 //GLOBALS
 
-var currentYear = new Date().getFullYear();
+
 var selectedYear = document.getElementById("regYear");
 var selectedMonth = document.getElementById("regMonth");
 var selectedDay = document.getElementById("regDay");
@@ -38,7 +38,7 @@ var reg1Confirm = document.getElementById("reg1Confirm");
     OBS Validate mail and user ready but not assigned to an event
 */
 
-reg1Confirm.addEventListener("click", createOptionsBirthdate);
+reg1Confirm.addEventListener("click", createOptionsBirthdate(selectedYear,selectedMonth,selectedDay));
 reg2Confirm.addEventListener("click", setBirthday);
 reg4Confirm.addEventListener("click", newUserToDatabase);
 
@@ -61,7 +61,7 @@ function newUserToDatabase(){
     let height = document.getElementById("regHeight").value;
     let gender = selectedSex();
     let lookingFor = checkboxSelected(document.getElementsByName("matchgender"));
-    let birthday = setBirthday();
+    let birthday = setBirthday(selectedYear,selectedMonth,selectedDay);
     let hairColor = getSelectOptionValue(document.getElementById("hairColor"));
     let bodyType = getSelectOptionValue(document.getElementById("bodytype"));
     let eyeColor = getSelectOptionValue(document.getElementById("eyeColor"));
@@ -168,30 +168,33 @@ function validateEmail(){
     }
 }
 
-//create option elements for year / month / day
-function createOptionsBirthdate(){
 
+//create option elements for year / month / day
+function createOptionsBirthdate(year, month, day){
+    
+    let currentYear = new Date().getFullYear();
     //let option = $$("option"); - only works once with appendchild
 
     //create options year
     for(let i = 0; i < 100; i++){
-        selectedYear.appendChild(document.createElement("option"));
-        selectedYear.children[i].value = currentYear-i;
-        selectedYear.children[i].textContent = selectedYear.children[i].value;
+        year.appendChild(document.createElement("option"));
+        year.children[i].value = currentYear-i;
+        year.children[i].textContent = year.children[i].value;
     }
     //create options month
     for(let i = 0; i < 12; i++){
-        selectedMonth.appendChild(document.createElement("option"));
-        selectedMonth.children[i].value = 1+i;
-        selectedMonth.children[i].textContent = selectedMonth.children[i].value;
+        month.appendChild(document.createElement("option"));
+        month.children[i].value = 1+i;
+        month.children[i].textContent = month.children[i].value;
     }
     //create options day
     for(let i = 0; i < 31; i++){
-        selectedDay.appendChild(document.createElement("option"));
-        selectedDay.children[i].value = 1+i;
-         selectedDay.children[i].textContent =  selectedDay.children[i].value;
+        day.appendChild(document.createElement("option"));
+        day.children[i].value = 1+i;
+         day.children[i].textContent =  day.children[i].value;
     }
 }
+
 
 
 //==========================================================================

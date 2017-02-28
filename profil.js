@@ -11,7 +11,6 @@ imported.src = "userDatabase.js";
 document.head.appendChild(imported);
 var users = userDatabase.users;
 
-
 var profileName = getID("profileName"),
     fullName = getID("fullName"),
     profileSex = getID("profileSex"),
@@ -41,12 +40,26 @@ var matchgender = document.getElementsByName("matchgender");
 //___________________________________________________________________
 
 var edit = {
-    username: getID("editUserName").value,
-    password: getID("editPassword").value,
-    email: getID("editEmail").value,
-    confirmEmail: getID("confirmEditEmail").value,
-    editFirstname: getID("editFirstname").value,
-    editLastname: getID("editLastname").value,
+    username: getID("editUserName"),
+    password: getID("editPassword"),
+    email: getID("editEmail"),
+    confirmEmail: getID("confirmEditEmail"),
+    firstname: getID("editFirstname"),
+    lastname: getID("editLastname"),
+    birthday: setBirthday(getID("regYear"),getID("regMonth"),getID("regDay")),
+    district: getID("editDistrict"),
+    adress: getID("editAdress"),
+    length: getID("regHeight"),
+    haircolor: getSelectOptionValue(getID("hairColor")),
+    bodyType: getSelectOptionValue(getID("bodytype")),
+    eyeColor: getSelectOptionValue(getID("eyeColor")),
+    interest: checkboxSelected(document.getElementsByName("regInterests")),
+    aboutSelf: getID("AboutYou"),
+    aboutMatch: getID("regTextAboutMatch"),
+    profilePic: getID("editInput"),
+    
+    //-------------------------------------
+    //Methods
     getGender: function() {
         let gender = document.getElementsByName("gender");
         for (let i = 0; gender.length; i++) {
@@ -66,7 +79,7 @@ var edit = {
         return potentialMate;
     }
 };
-    
+//end Edit
 
 
 //=====================================================================
@@ -76,15 +89,162 @@ getProfileOnClick(profile);
 bestMatch();
 
 
+
 //======================================================================
 //Callbacks
 saveSettings.addEventListener("click", validateUser);
+
+/////HIDE SHOW EDIT USER
+editUserButton.addEventListener("click", function() {
+    createOptionsBirthdate(getID("regYear"),getID("regMonth"),getID("regDay"));
+    addInterestsToDocument();
+    fillOutEditForm();
+    editUser.classList.toggle('editUserShow');
+    editUser.style.border = "1px solid lightgrey";
+     
+});
+saveSettings.addEventListener("click", function() {
+    updateUser();
+    editUser.classList.toggle('editUserShow');
+    editUser.style.border = "0px solid lightgrey";
+});
+
 
 
 
 //=====================================================================
 //functions
 
+function updateUser(){
+    logIn.username = edit.username;
+    logIn.password = edit.password;
+    logIn.email = edit.email;
+    logIn.confirmEmail = edit.confirmEmail;
+    logIn.firstName = edit.firstname;
+    logIn.lastname = edit.lastname;
+    logIn.birthday = edit.birthday;
+    logIn.district = edit.district;
+    logIn.adress = edit.adress;
+    logIn.height = edit.length;
+    logIn.hairColor = edit.haircolor;
+    logIn.bodyType = edit.bodyType;
+    logIn.eyeColor = edit.eyeColor;
+    logIn.interest = edit.interest;
+    logIn.aboutSelf = edit.aboutSelf;
+    logIn.aboutMatch = edit.aboutMatch;
+    logIn.profilePic = edit.profilePic;
+    
+    localStorage.setItem("logedIn", logedIn);
+}
+
+function fillOutEditForm(){
+    addUsersToDatabase();
+    edit.username.placeholder = logedIn.username;
+    edit.password.placeholder = logedIn.password;
+    edit.email.placeholder = logedIn.email;
+    edit.confirmEmail.placeholder = logedIn.email;
+    edit.firstname.placeholder = logedIn.firstName;
+    edit.lastname.placeholder = logedIn.lastName;
+    edit.profilePic.placeholder = logedIn.profilePic;
+    edit.district.placeholder = logedIn.district;
+    edit.adress.placeholder = logedIn.adress;
+    edit.length.placeholder = logedIn.height;
+    edit.aboutSelf.placeholder = logedIn.aboutSelf;
+    edit.aboutMatch.placeholder = logedIn.aboutMatch;
+    
+    //check gender
+    let gender = document.getElementsByName("gender");
+    for (let i = 0; i < gender.length; i++) {
+        if (logedIn.sex == gender[i].value) {
+            gender[i].checked = true;
+            break;
+        }
+    }
+    
+    //check matched gender
+    let matchgender = document.getElementsByName("matchgender");
+    checkSelectedCheckbox("lookingFor",matchgender);
+    
+    //default date values
+    let birthdate = convertBirthdate();
+    let birthday =[getID("regYear"),getID("regMonth"),getID("regDay")];
+    for(let i = 0; i < 2; i++){
+        setDefaultDate(birthday[i],i,birthdate);
+    }
+    
+    //default haircolor
+    checkSelectedOption(logedIn.hairColor, getID("hairColor"));
+    //Default bodyType
+    checkSelectedOption(logedIn.bodyType, getID("bodytype"));
+    //default eyeColor
+    checkSelectedOption(logedIn.eyeColor, getID("eyeColor"));
+    //checked interests
+    let interest = document.getElementsByName("regInterests");
+    checkSelectedCheckbox("interests",interest);
+    
+}//END fillOutEditForm
+
+//convert birthday to separate dates
+function convertBirthdate(){
+    let birthday = logedIn.birthday;
+    let key = "-";
+    let year ="", month="", day="";
+    let date = [];
+    for(let i = 0; i < birthday.length; i++){
+        if(birthday[i] != key && i < 4){
+            year += birthday[i];
+        }
+        else if(birthday[i] != key && i < 7){
+            month += birthday[i];
+        }
+        else if(birthday[i] != key && i > 7){
+            day += birthday[i];       
+        }
+    }
+    
+    if(month[0] == "0"){
+        month = month[1];
+    }
+    if(day[0] == "0"){
+        day = month[1];
+    }
+    
+    date.push(year, month, day);
+    return date;
+}
+
+// find logedIn's age and set to default value
+function setDefaultDate(attr, dateIndex, date){
+    
+    for(let i = 0; i < attr.length; i++){
+        if(attr.children[i].value == date[dateIndex]){
+            attr.children[i].selected = "selected";
+            break;
+        }
+    }
+}
+
+//find logIn's selected value and set as default
+function checkSelectedOption(logedIn, edit){
+    for(let i = 0; i < logedIn.length; i++){
+        if(logedIn == edit.children[i].value){
+            edit.children[i].selected = "selected";
+            break;
+        }
+    }
+}
+//check logIn's selected boxes and set as default
+function checkSelectedCheckbox(attr,elm){
+    for(let i = 0; i < elm.length; i++){
+        for(let j = 0; j < elm.length; j++){
+            if(logedIn[attr][i] == elm[j].value){
+                elm[j].checked = true;
+            }
+        }
+    }
+}
+
+//best matches
 function bestMatch() {
     let bestMatches = [];
 
@@ -103,7 +263,7 @@ function bestMatch() {
     localStorage.setItem("logedIn", JSON.stringify(userDatabase.logedIn));
 }
 
-
+//compare profiles for match
 function compareProfiles() {
     addUsersToDatabase();
     let logedIn = JSON.parse(localStorage.getItem("logedIn"));
@@ -213,17 +373,9 @@ function checkTime(i) {
 }
 
 
-/////HIDE SHOW EDIT USER
 
 
-editUserButton.addEventListener("click", function() {
-    editUser.classList.toggle('editUserShow');
-    editUser.style.border = "1px solid lightgrey";
-});
-saveSettings.addEventListener("click", function() {
-    editUser.classList.toggle('editUserShow');
-    editUser.style.border = "0px solid lightgrey";
-});
+
 
 
 ///// SAVE FRIENDS
@@ -239,7 +391,6 @@ saveFriend.addEventListener("click", function() {
 
 
 ///// USER PROFILE PROPERTIES
-
 profileName.textContent = logedIn.username;
 fullName.textContent = logedIn.firstName + " " + logedIn.lastName;
 profileSex.textContent = logedIn.sex;
@@ -252,36 +403,3 @@ profilePic.src = logedIn.profilePic;
 aboutSelf.innerHTML = logedIn.aboutSelf;
 aboutMatch.textContent = logedIn.aboutMatch;
 
-/*"username":"L33tKid",
-                "password":"a123",
-                "email":"L33tKid@mail.com",
-                "adress":"Positivgatan 7",
-                "birthday":"1999-01-04",
-                "sex":"male",
-                "lookingFor":["female","cyborg"],
-                "firstName":"Winston",
-                "lastName":"Duck",
-                "district":"Frölunda",
-                "profilePic":"https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/14232971_10207465694944968_1889056014685634462_n.jpg?oh=ea3f2fa7e1a410f7a26387cd821d5ae4&oe=5942D6A3",
-                "height":137,
-                "hairColor":"Svart",
-                "eyeColor":"Bruna",
-                "bodyType":"Kramgo",
-                "smoker":"True",
-                "hasAnimals":"False",
-                "vegetarian":"True",
-                "employed":"False",
-                "hasKids":"False",
-                "interests":["Musik","Datorer","New Age","Välta Kossor","PornHub"],
-                "aboutSelf":"is l33t",
-                "aboutMatch":"Borde va l33t",
-                "prefEyeColor":"Gröna",
-                "prefDistrict":"Frölunda",
-                "prefMaxHeight":200,
-                "prefMinHeight":140,
-                "prefHairColor":"Röda/Violetta",
-                "prefSmoker":"True",
-                "prefAnimals":"False",
-                "prefVegetarian":"True",
-                "prefEmployed":"True",
-                "prefHasKids":"True"*/

@@ -43,21 +43,22 @@ function filterOptions(){
         
         
         for(let j = 0; j < districts.length; j++){
-            if(users[i].district === districts[j]){
+            if(users[i].district == districts[j]){
                foundTwice = true;
-            }
-            if(!foundTwice){
-                districts.push(users[i].district);
-            }
+            } 
         }
-        
+        if(!foundTwice){
+                districts.push(users[i].district);
+                
+        }
+        foundTwice = false;          
     }
     //create options elements per district
-    for(let i = 0; i < districts.length; i++){
+    for(let i = 1; i < districts.length; i++){
     
-        age.appendChild(newElement("option"));
-        age.children[i].value = districts[i];
-        age.children[i].textContent = districts[i];
+        selectDistrict.appendChild(newElement("option"));
+        selectDistrict.children[i].value = districts[i];
+        selectDistrict.children[i].textContent = districts[i];
     }
     
     //--------------------------------------------
@@ -72,10 +73,10 @@ function filterOptions(){
     
     //create options for ages between smallest - highest
     let ageSpan = maxAge-minAge;
-    for(let i = 0, j = minAge; i < ageSpan; i++, j++){
-        selectDistrict.appendChild(newElement("option"));
-        selectDistrict.children[i].value = "År:"+j;
-        selectDistrict.children[i].textContent = "År: "+j;
+    for(let i = 1, j = minAge; i <= ageSpan; i++, j++){
+        age.appendChild(newElement("option"));
+        age.children[i].value = "År:"+j;
+        age.children[i].textContent = "År: "+j;
         
     }
 }
