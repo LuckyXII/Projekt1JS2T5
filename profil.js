@@ -11,9 +11,10 @@
 
 //Import database
 var imported = document.createElement("script");
-imported.scr = "userDatabase.js";
+imported.src = "userDatabase.js";
 document.head.appendChild(imported);
 var users = userDatabase.users;
+
 
 var profileName = document.getElementById("profileName");
 var fullName = document.getElementById("fullName");
@@ -28,9 +29,17 @@ var logedIn = userDatabase.logedIn;
 	logedIn = (JSON.parse(localStorage.getItem("logedIn")));
 var logout = document.getElementById("logout");
 var profileHeight = document.getElementById("profileHeight");
+var dateToday = document.getElementById("dateToday");
+var editUser = document.getElementsByClassName("editUser")[0];
+var editUserButton = document.getElementById("editUserButton");
+var profileMail = document.getElementById("profileMail");
+var confirmProfileMail = document.getElementById("confirmProfileMail");
+var saveSettings = document.getElementById("saveSettings");
+
 //var profilePic = document.getElementById("profilePic");
 var userScore = compareProfiles();
 var profile = document.getElementById("profilePic");
+var profileHeader = getID("header").hidden=false;
 
 //=====================================================================
 //main
@@ -42,7 +51,7 @@ bestMatch();
 	
 //======================================================================
 //Callbacks
-
+saveSettings.addEventListener("click", validateUser);
 
 
 //=====================================================================
@@ -157,16 +166,28 @@ function compareProfiles(){
     return counter;
 }
 
-function getAge(dateString) {
-    var today = new Date();
-    var birthDate = new Date(dateString);
-    var age = today.getFullYear() - birthDate.getFullYear();
-    var m = today.getMonth() - birthDate.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
-    }
-    return age;
-}
+
+
+
+/*
+$("#reg1Confirm").addEventListener("click", function(){
+    $("#reg2").style.display = "block";
+    $("#reg1").style.display = "none";
+
+*/
+/////HIDE SHOW EDIT USER
+/*
+	object.style.display="none";
+	editUser.addEventListener("click", function(){
+		editUser.style.display="inline";
+		/*en div/container.style.display = "block"
+	});*/
+	
+editUserButton.addEventListener("click", function(){
+	console.log('what')
+	editUser.classList.toggle('editUserShow');
+    editUser.style.border="1px solid lightgrey";
+});
 
 
 
@@ -193,6 +214,9 @@ profileEyeColor.textContent = logedIn.eyeColor;
 profileDistrict.textContent = logedIn.district;
 profileInterests.innerHTML = logedIn.interests[0] + ", " + logedIn.interests[1] + ", " + logedIn.interests[2];
 profileAge.innerHTML = getAge(logedIn.birthday);
+
+//dateToday.innerHTML = dateToday();
+
 
 /*Testpersonen Peter Larsson*//*
 

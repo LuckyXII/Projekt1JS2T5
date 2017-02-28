@@ -1,3 +1,9 @@
+html{
+}
+body{
+
+}
+
 .user-row {
     margin-bottom: 14px;
 }
@@ -33,9 +39,71 @@
 }
 
 .abouryou {
+    padding: 20px;
     border: 1px solid black;
+    height: 150px;
 }
 
 #logout{
     
 }
+.editUser{
+	border-radius: 5px;
+	background-color: #d9edf7;
+	position: fixed;
+	top: 100px;
+	left: 25%;
+	width: 0;
+	overflow-x: hidden;
+	transition: 0.5s;
+	z-index: 1000000;
+	right: 30px;
+	bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-bottom: 50px;
+    box-shadow: 7px 7px 10px rgba(100,100,100,0.4);
+}
+
+.editUserShow {
+	width: 50%;
+}
+#AboutYou{
+	width: 700px;
+}
+
+#editInput{
+	height: 20px;
+}
+#typAllt{
+	position: relative;
+	top: 400px;
+    clear: both;
+    margin-bottom: 230px;
+}
+#profileFooter{
+    bottom: 0px;
+    position: relative;
+    background-color: black; 
+    height: 132px; 
+    width: 100%;
+    margin-top: 300px;
+    left: 0;
+    bottom: -32px;
+}
+#profileFooterLogo{
+    position: relative;
+    display: block;
+    margin: auto;
+    width: auto;
+    height: 100%;
+}
+#contentCenter{
+    width: auto;
+    height: 100;
+    margin: auto;
+    justify-content: center;
+    
+}
+#father{}

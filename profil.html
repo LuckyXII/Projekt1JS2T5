@@ -2,109 +2,225 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Profilsida</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="profil.css">
-    <script src="userDatabase.js"></script>
+
+	<meta charset="UTF-8">
+	<title>Profilsida</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="profil.css">
+	<script src="profil.js"></script>
+	<script src="userDatabase.js"></script>	
+	
 </head>
 
 <body>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
-                <a id="editProfile" >Edit Profile</a>
-
-                <a id="logout" href="index.html">Logout</a>
-                <br>
-                <p class=" text-info">May 05,2014,03:00 pm </p>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
-
-
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h3 class="panel-title" id="profileName">Sheena Shrestha</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div id="profilePic" class="col-md-3 col-lg-3 " align="center" title="logedIn"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive" title="logedIn"> </div>
-
-                            <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
-                  <dl>
-                    <dt>DEPARTMENT:</dt>
-                    <dd>Administrator</dd>
-                    <dt>HIRE DATE</dt>
-                    <dd>11/12/2013</dd>
-                    <dt>DATE OF BIRTH</dt>
-                       <dd>11/12/2013</dd>
-                    <dt>GENDER</dt>
-                    <dd>Male</dd>
-                  </dl>
-                </div>-->
-                            <div class=" col-md-9 col-lg-9 ">
-                                <table class="table table-user-information" id="table table-user-information">
-                                    <tbody>
-                                        <tr>
-                                            <td >Namn</td>
-                                            <td id="fullName">Peter Larsson</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ålder</td>
-                                            <td id="profileAge">Unborn</td>
-                                        </tr>
-                                        <tr>
-                                            <tr>
-                                                <td>Genus</td>
-                                                <td id="profileSex">Könlös</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Område</td>
-                                                <td id="profileDistrict">Kathmandu,Nepal</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Ögonfärg</td>
-                                                <td id="profileEyeColor">Ögonlös</td>
-                                            </tr>
-                                                <td>Längd</td>
-                                                <td id="profileHeight">Elastisk</td>
-                                        </tr>
-                                        <tr>
-                                        <td>Intressen:</td>
-                                        <td id="profileInterests">Inget intresse angivet</td>
-
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-
-                                <!--
-                  <a href="#" class="btn btn-primary">My Sales Performance</a>
-                  <a href="#" class="btn btn-primary">Team Sales Performance</a>
-                  -->
-                            </div>
-                            <div class="table table-user-information">
-                                <div class="abouryou col-sm-12">Jag är ... </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="panel-footer">
-                        <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
-                        <span class="pull-right">
-                            <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+<header>
+    <script src="header.js"></script>
+    
+</header>
+	<div class="container" id="typAllt">
+		<div class="row">
+			<div class="col-md-5  toppad  pull-right col-md-offset-3 "> <a href="edit.html">Edit Profile</a> | <a id="logout" href="index.html">Logga ut</a>
+				<br>
+				<p class=" text-info" id="dateToday">Dagens datum</p>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" id="father">
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<h3 class="panel-title" id="profileName">Sheena Shrestha</h3> </div>
+					<div class="panel-body">
+						<div class="row" >
+							<div id="profilePic" class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div>
+					
+							<div class=" col-md-9 col-lg-9 ">
+								<table class="table table-user-information" id="table table-user-information">
+									<tbody>
+										<tr>
+											<td>Namn</td>
+											<td id="fullName">Peter Larsson</td>
+										</tr>
+										<tr>
+											<td>Ålder</td>
+											<td id="profileAge">Unborn</td>
+										</tr>
+										<tr>
+											<tr>
+												<td>Genus</td>
+												<td id="profileSex">Könlös</td>
+											</tr>
+											<tr>
+												<td>Område</td>
+												<td id="profileDistrict">Kathmandu,Nepal</td>
+											</tr>
+											<tr>
+												<td>Ögonfärg</td>
+												<td id="profileEyeColor">Ögonlös</td>
+											</tr>
+											<td>Längd</td>
+											<td id="profileHeight">Elastisk</td>
+										</tr>
+										<tr>
+											<td>Intressen:</td>
+											<td id="profileInterests">Inget intresse angivet</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="table table-user-information">
+								<div class="abouryou col-sm-12">Om mig</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel-footer"> <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a> <span class="pull-right">
+                            <a  data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning" id="editUserButton"><i class="glyphicon glyphicon-edit"></i></a>
                             <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
-                        </span>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
+                        </span> </div>
+				</div> 
+				<!--//////////////////Edit User/////////////////-->
+				
+				<div class="editUser">
+				    <div id="contentCenter">
+					<div id="reg1" class="regContainer">
+						<div class="regHalfPage">
+							<div class="regOption">
+								<p class="regOptionText">Användarnamn:</p>
+								<input class="regInput" type="text" /> </div>
+							<div class="regOption">
+								<p class="regOptionText">Lösenord:</p>
+								<input class="regInput" type="password" /> </div>
+						</div>
+						<div class="regHalfPage">
+							<div class="regOption">
+								<p class="regOptionText" >e-mail:</p>
+								<input class="regInput" type="email" id="profileMail" /> </div>
+							<div class="regOption">
+								<p class="regOptionText" >repetera e-mail:</p>
+								<input class="regInput" type="email" id="confirmProfileMail" /> </div>
+						</div>
+					</div>
+					<div id="reg2" class="regContainer">
+						<div class="regWholePage">
+							<div class="regOption">
+								<p class="regOptionText">Kön:</p>
+								<input type="radio" name="gender" value="male">Man
+								<input type="radio" name="gender" value="female">Kvinna
+								<input type="radio" name="gender" value="transgender">Transgender
+								<input type="radio" name="gender" value="cyborg">Cyborg </div>
+							<div class="regOption">
+								<p class="regOptionText">Intresserad av:</p>
+								<input type="checkbox" name="matchgender" value="male">Man
+								<input type="checkbox" name="matchgender" value="female">Kvinna
+								<input type="checkbox" name="matchgender" value="transgender">Transgender
+								<input type="checkbox" name="matchgender" value="cyborg">Cyborg </div>
+						</div>
+						<div class="regHalfPage">
+							<div class="regOption">
+								<p class="regOptionText">Förnamn och Efternamn (efternamn kommer inte att visas)</p>
+								<input type="text" name="firstName" placeholder="Förnamn" />
+								<input type="text" name="lastName" placeholder="Efternamn" /> </div>
+							<div class="regOption">
+								<p class="regOptionText">Födelsedatum:</p>
+								<select id="regYear" class="regDropdown"></select>
+								<select id="regMonth" class="regDropdown"></select>
+								<select id="regDay" class="regDropdown"></select>
+							</div>
+						</div>
+						<div class="regHalfPage">
+							<div class="regOption">
+								<p class="regOptionText">Stadsdel och Adress (adress kommer inte visas)</p>
+								<input type="text" name="stadsdel" class="regInput" placeholder="Stadsdel" />
+								<input type="text" name="adress" class="regInput" placeholder="Adress" /> </div>
+								
+							
+						</div>
+				<br>	
+					</div>
+					<div id="reg3" class="regContainer">
+						<div class="regHalfPage">
+							
+							<div class="regOption">
+								<span class="regOptionText">Uppdatera bild:</span>
+								<input type="text" id="editInput">
+							</div>
+						<br>
+							<div class="regOption">
+								<span>Längd:</span>
+								<input id="editInput regHeight " class="regInput" />
+								<span>cm</span>
+							</div>
+						<br>
+							<div class="regOption">
+								<span class="regOptionText">Hårfärg:</span>
+								<select id="hairColor" class="regDropdown">
+									<option>Blond</option>
+									<option>Brunette</option>
+									<option>Svart</option>
+									<option>Rött</option>
+									<option>Grått</option>
+									<option>Vitt</option>
+									<option>Varierande</option>
+								</select>
+							</div>
+						</div>
+					<br>
+						<div class="regHalfPage">
+							<div class="regOption">
+								<div id="regProfilePic"> </div>
+								<div class="regHalfPage">
+									<div class="regOption">
+										<span class="regOptionText">Kroppstyp:</span>
+										<select id="bodytype" class="regDropdown">
+											<option>Normal</option>
+											<option>Atletisk</option>
+											<option>Smal</option>
+											<option>Kramgo</option>
+										</select>
+									</div>
+								<br>
+									<div class="regOption">
+										<span class="regOptionText">Ögonförg:</span>
+										<select id="eyeColor" class="regDropdown">
+											<option>Blåa</option>
+											<option>Gröna</option>
+											<option>Bruna</option>
+											<option>Gråa</option>
+											<option>Röda/Violetta</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				<br>
+					<div id="reg4" class="regContainer">
+						<div class="regWholePage">
+							<div class="RegOption">
+								<p class="regOptionText">Intressen:</p>
+								<div id="regInterestBoxes"></div>
+							</div>
+							<div class="RegOption">
+								<p class="regOptionText">Berätta lite om dig själv:</p>
+								<textarea rows="8" cols="50" id="regTextAboutSelf AboutYou"></textarea>
+							</div>
+							<div class="RegOption">
+								<p class="regOptionText" >Om den du söker:</p>
+								<textarea rows="8" cols="50" id="regTextAboutMatch"></textarea>
+							</div>
+						</div>
+					</div>
+					<input type="button" value="Spara ändringar" id="saveSettings">
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 </body>
+
+<div class="row">\
+    <div id="profileFooter"><img id="profileFooterLogo" src="resources/Logo.png"></div>\
+</div>
+
 
 <script src="profil.js"></script>
 
 </html>
-

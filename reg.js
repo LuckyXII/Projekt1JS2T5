@@ -16,7 +16,34 @@ var selectedMonth = document.getElementById("regMonth");
 var selectedDay = document.getElementById("regDay");
 var confirmEmail = document.getElementById("regmailconfirm").value;
 var email = document.getElementById("regmail").value;
+
+var reg4Confirm = document.getElementById("reg4Confirm");
+var reg2Confirm = document.getElementById("reg2Confirm");
+var reg1Confirm = document.getElementById("reg1Confirm");
+
+
+
+
+//==================================================================================
+//main
+
+
+
+//==========================================================================
+//Callbacks
+
+/*************TO DO*********
+- Validate fields(check for proper format, no-empty fields etc): keyup event (add green symbol once
+            validated and un-disable "next")
+    OBS Validate mail and user ready but not assigned to an event
+*/
+
+reg1Confirm.addEventListener("click", createOptionsBirthdate);
+reg2Confirm.addEventListener("click", setBirthday);
+reg4Confirm.addEventListener("click", newUserToDatabase);
+
 var addToDB = false;
+
 
 //==========================================================================
 //functions
@@ -246,6 +273,7 @@ function UserObject(_username, _password, _email, _birthday, _sex, _lookingFor,
     };
     */
 }
+
 //END user object
 
 
@@ -349,7 +377,7 @@ function createRandomUser(){
       let updateValues = function(id, value) {
         document.getElementById(id).value = value;
         document.getElementById(id).innerHTML = value;
-      }
+      };
       updateValues("regUser", xhrObject.login.username);
       updateValues("regPassword", xhrObject.login.password);
       updateValues("regmail", xhrObject.email);
@@ -364,7 +392,7 @@ function createRandomUser(){
       $("#hairColor").selectedIndex = getRandomInt(1, 7);
       $("#bodytype").selectedIndex = getRandomInt(1, 4);
       $("#eyeColor").selectedIndex = getRandomInt(1, 5);
-      if (addToDB == true) {
+      if (addToDB === true) {
         newUserToDatabase();
         addToDB = false;
       }
@@ -395,12 +423,28 @@ document.addEventListener("DOMContentLoaded", function() {
   });
   $("#addRandomUsers").addEventListener("click", function(){
     let nr = Number($("#numberNewUsers").value);
-    if (Number.isInteger(nr) == true){
+    if (Number.isInteger(nr) === true){
       nr = Math.min(50, nr);
-      for (i=0;i<nr;i++){
+      for (let i=0;i<nr;i++){
         addToDB = true;
         createRandomUser();
       }
     }
   });
+  $("#event").addEventListener("click", function(){
+    eventCal();
+  });
 });
+function eventCal(){
+  let xh = new XMLHttpRequest();
+  xh.onreadystatechange = function(event) {
+    console.log("readyState:" + xh.readyState);
+    console.log("status:" + xh.status);
+    if( xh.readyState == 4 ) {
+      let xhObject = JSON.parse(xh.responseText);
+      console.log(xhObject);
+    }
+  }
+  xh.open('GET', 'http://esb.goteborg.se/TEIK/001/Kalendarie/?startDate=2017-02-01&type=category&searchstring=Kultur&date=month');
+  xh.send();
+}

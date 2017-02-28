@@ -18,6 +18,70 @@ var userDatabase = {
 //===================================================================================
 //functions
 
+function validateUser(e){
+    
+    var username=getID("profileMail").value;
+    //User already registered
+    if(localStorage.getItem(username) !== null){
+        console.log("taken");
+        return false;
+    }
+    else{
+        if (validateEmail()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+}
+
+//Validate email
+function validateEmail(e){
+    
+    //confirm mail matches
+    var email = getID("profileMail").value;
+    var confirmEmail = getID("confirmProfileMail").value;
+    if(email != confirmEmail){
+        console.log("E-mail do not match");
+        return false;
+    }
+
+    //mailformat is correct
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
+        return true;
+    }
+    else{
+        console.log("You have entered an invalid email address!");
+        return false;
+    }
+}
+
+function newElement(elm){
+    let element = document.createElement(elm);
+    return element;
+}
+
+
+function getAge(dateString) {
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+}
+
+
+
+function getID(ID){
+    let variable = document.getElementById(ID);
+    return variable;
+}
+
+
 
 function logoutUser(){
    
@@ -36,7 +100,7 @@ function loadCurrentProfile(e){
     
     if(localStorage.getItem(targetProfile) !== null){
         let currentProfile = localStorage.getItem(targetProfile);
-        localStorage.setItem("currentProfile", currentProfile);
+        localStorage.setItem("currentProfile", JSON.stringify(currentProfile));
     }
     else{
         console.log("Error: profile not found");
@@ -88,14 +152,15 @@ function localAddTestUsersToStorage(){
 // LOOP THROUGH LOCALSTORAGE USING KEY()
 function addUsersToDatabase(){
     var key;
-    var JSONkey;
     userDatabase.logedIn = JSON.parse(localStorage.getItem("logedIn"));
     for(let i = 0; i < localStorage.length; i++){
         key = localStorage.key(i);
-        JSONkey = JSON.parse(localStorage.getItem(key));
-        
-        if(!(JSONkey instanceof Array) && JSONkey.email != userDatabase.logedIn.email){
-            userDatabase.users.push(JSONkey);     
+
+        let storageKey = localStorage.getItem(key);
+        let JSONKey = JSON.parse(storageKey);
+
+        if(!(JSONKey instanceof Array) && JSONKey.email != userDatabase.logedIn.email){
+            userDatabase.users.push(JSONKey);     
         }
     }
 }
@@ -118,7 +183,7 @@ var localTestUsers =
             "firstName":"Johan",
             "lastName":"Magnusson",
             "district":"Mölndal",
-            "profilePic":"https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/14232971_10207465694944968_1889056014685634462_n.jpg?oh=ea3f2fa7e1a410f7a26387cd821d5ae4&oe=5942D6A3",
+            "profilePic":"http://littlehouseofamericangirl.com/wp-content/uploads/2014/10/BKH28_main_2.jpg",
             "height":178,
             "hairColor":"Brunette",
             "eyeColor":"Gröna",
@@ -154,7 +219,7 @@ var localTestUsers =
             "firstName":"Emil",
             "lastName":"Eriksson",
             "district":"Bergsjön",
-            "profilePic":"https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/14232971_10207465694944968_1889056014685634462_n.jpg?oh=ea3f2fa7e1a410f7a26387cd821d5ae4&oe=5942D6A3",
+            "profilePic":"http://littlehouseofamericangirl.com/wp-content/uploads/2014/10/BKH28_main_2.jpg",
             "height":180,
             "hairColor":"Brunette",
             "eyeColor":"Gråa",
@@ -439,8 +504,8 @@ var localTestUsers =
             "birthday":"1930-11-11",
             "sex":"male",
             "lookingFor":["woman"],
-            "firstName":"The",
-            "lastName":"Dovakhin",
+            "firstName":"Dovakhin",
+            "lastName":"Dragonborn",
             "district":"Askim",
             "profilePic":"https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/14232971_10207465694944968_1889056014685634462_n.jpg?oh=ea3f2fa7e1a410f7a26387cd821d5ae4&oe=5942D6A3",
             "height":210,
