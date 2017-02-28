@@ -431,5 +431,20 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     }
   });
+  $("#event").addEventListener("click", function(){
+    eventCal();
+  });
 });
-
+function eventCal(){
+  let xh = new XMLHttpRequest();
+  xh.onreadystatechange = function(event) {
+    console.log("readyState:" + xh.readyState);
+    console.log("status:" + xh.status);
+    if( xh.readyState == 4 ) {
+      let xhObject = JSON.parse(xh.responseText);
+      console.log(xhObject);
+    }
+  }
+  xh.open('GET', 'http://esb.goteborg.se/TEIK/001/Kalendarie/?startDate=2017-02-01&type=category&searchstring=Kultur&date=month');
+  xh.send();
+}
