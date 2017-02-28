@@ -229,7 +229,7 @@
     <script>
         /*jshint esnext: true, moz: true*/
         /*jslint browser:true */
-
+       
         //Import database
         var imported = document.createElement("script");
         imported.src = "userDatabase.js";
@@ -238,6 +238,7 @@
         //Globals and Namespace
         var map;
         var westDate = {};
+        
         
         //switch to currentProfile instead of logedIn
         userDatabase.currentProfile = JSON.parse(localStorage.getItem("currentProfile"));

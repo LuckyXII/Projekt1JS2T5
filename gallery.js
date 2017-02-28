@@ -28,12 +28,13 @@ filterOptions();
 
 function addUsersToGallery(){
     addUsersToDatabase();
+    localStorage.removeItem("currentProfile");
     
     let galleryProfiles = document.getElementsByClassName('profile');
     let profileInfo = document.getElementsByClassName('GalleryProfileInfo');
-
     let user;
     let profileChildern;
+    
     
     for (let i = 0; i<galleryProfiles.length; i++) {
         profileChildern = profileInfo[i].children;
@@ -46,8 +47,8 @@ function addUsersToGallery(){
         galleryProfiles[i].children[0].href = "profil.html";
         profileChildern[0].textContent = user.firstName;
         profileChildern[1].textContent = "Ålder: "+getAge(user.birthday);
-          
-    }
+        }  
+    
      goToProfile(profileInfo);
 }
 

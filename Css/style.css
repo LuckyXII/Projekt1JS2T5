@@ -109,15 +109,6 @@ body{
 }
 #redHeart img{
    float: left;
-    /*
-    shape-outside: polygon(14.85vw 12.5vw, 12.85vw 11.5vw, 10.85vw 9.95vw, 10.2vw 8.15vw, 9.9vw 7.15vw, 10.45vw 5.55vw, 12.6vw 4.1vw, 14.8vw 3.9vw, 17.2vw 4.75vw, 18.95vw 7.1vw, 20.35vw 4vw, 23.35vw 1.3vw, 26.3vw 1.05vw, 27.6vw 2.35vw, 28.3vw 3.15vw, 28.55vw 5.15vw, 28.15vw 7.25vw, 25.4vw 11vw, 23.85vw 13.6vw, 23.9vw 14.55vw, 23.35vw 14.9vw, 21.8vw 17.6vw, 21.3vw 16.45vw, 20.2vw 15.4vw, 18.65vw 14.15vw);"
-    
-    
-    
-    polygon(318px 267px, 276px 246px, 233px 213px, 218px 174px, 212px 153px, 223px 120px, 270px 89px, 317px 84px, 367px 102px, 405px 153px, 436px 86px, 500px 29px, 563px 24px, 600px 36px, 613px 66px, 622px 100px, 617px 136px, 602px 172px, 584px 201px, 555px 238px, 522px 287px, 523px 313px, 500px 324px, 467px 377px, 456px 351px, 431px 329px, 398px 302px);
-    */
-    
-    
     -webkit-shape-outside: polygon(318px 267px, 276px 246px, 233px 213px, 218px 174px, 212px 153px, 223px 120px, 270px 89px, 317px 84px, 367px 102px, 405px 153px, 436px 86px, 500px 29px, 563px 24px, 600px 36px, 613px 66px, 622px 100px, 617px 136px, 602px 172px, 584px 201px, 555px 238px, 522px 287px, 523px 313px, 500px 324px, 467px 377px, 456px 351px, 431px 329px, 398px 302px);
     shape-outside: polygon(318px 267px, 276px 246px, 233px 213px, 218px 174px, 212px 153px, 223px 120px, 270px 89px, 317px 84px, 367px 102px, 405px 153px, 436px 86px, 500px 29px, 563px 24px, 600px 36px, 613px 66px, 622px 100px, 617px 136px, 602px 172px, 584px 201px, 555px 238px, 522px 287px, 523px 313px, 500px 324px, 467px 377px, 456px 351px, 431px 329px, 398px 302px);
     width: auto;
@@ -259,6 +250,10 @@ nav {
 .glyphicon{
     font-weight: 200;
     font-size: small;
+}
+
+#myNavbar{
+    background-color: #202020;
 }
 /* header end*/
 /* footer*/

@@ -126,10 +126,10 @@ cancelEdit.addEventListener("click", ()=>{
 //functions
 function ifLogedIn(){
     let panel = document.getElementsByClassName("panel-footer")[0];
+    
     if(logedIn.email != realLogedIn.email){
         editUserButton.style.display = "none";
         panel.style.height ="50px";
-        
     }
 }
 
