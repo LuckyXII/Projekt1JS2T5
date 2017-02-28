@@ -32,6 +32,9 @@ login.addEventListener("click", addUsersToGallery());
 //===========================================================================
 //Functions
 
+
+
+
 function isLogedIn(){
    
     if(localStorage.getItem("logedIn") !== null){
@@ -64,14 +67,17 @@ function onLogin(){
     //longDiv.hidden = false;
     header.hidden = false;
     footer.hidden = false;
+	btn1.href="index.html";
     btn1.style.backgroundColor = "#000";
     btn1.style.color = "#FFF";
     btn2.textContent = "Galleri";
-    btn2.src="#";
+    btn2.href="gallery.html";
     btn3.textContent = "Om Oss";
-    btn3.src="#";
+    btn3.href="aboutus.html";
     btn4.textContent = "Min Profil";
-    btn4.src="#";
+    btn4.href="profil.html";
+	btn4.title="logedIn"
+	btn4.addEventListener("click", findCurrentProfile);
     backgroundImg.style.height = "95vh";
     centerContent.hidden = false;
     backgroundFiller.hidden = false;

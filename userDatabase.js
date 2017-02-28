@@ -18,6 +18,13 @@ var userDatabase = {
 //===================================================================================
 //functions
 
+function findCurrentProfile(e){
+	let current = e.target.title;
+	let storageItem = localStorage.getItem(currentProfile);
+	if (storageItem !== null){
+		localStorage.setItem("currentProfile", storageItem);
+	}
+}
 
 //create option elements for year / month / day
 function createOptionsBirthdate(year, month, day){
@@ -134,16 +141,16 @@ function setBirthday(selectedYear,selectedMonth,selectedDay){
 }
 
 //Validate username
-function validateUser(e){
+function validateUser(username, email){
     
-    var username=getID("profileMail").value;
+   // var username=getID("profileMail").value;
     //User already registered
     if(localStorage.getItem(username) !== null){
         console.log("taken");
         return false;
     }
     else{
-        if (validateEmail()) {
+        if (validateEmail(username, email)) {
             return true;
         }
         else {
@@ -153,11 +160,11 @@ function validateUser(e){
 }
 
 //Validate email
-function validateEmail(e){
+function validateEmail(email, confirmEmail){
     
     //confirm mail matches
-    var email = getID("profileMail").value;
-    var confirmEmail = getID("confirmProfileMail").value;
+   // var email = getID("profileMail").value;
+  //  var confirmEmail = getID("confirmProfileMail").value;
     if(email != confirmEmail){
         console.log("E-mail do not match");
         return false;
@@ -514,8 +521,8 @@ var localTestUsers =
             "lookingFor":["transgender","cyborg"],
             "firstName":"Donald",
             "lastName":"Trump",
-            "district":"Frölunda",
-            "profilePic":"https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/14232971_10207465694944968_1889056014685634462_n.jpg?oh=ea3f2fa7e1a410f7a26387cd821d5ae4&oe=5942D6A3",
+            "district":"Frölunda", 
+			"profilePic":"resources/trumpwillwin.jpg",
             "height":150,
             "hairColor":"Blond",
             "eyeColor":"Röda/Violetta",
@@ -526,7 +533,7 @@ var localTestUsers =
             "employed":"True",
             "hasKids":"True",
             "interests":["Övrigt","Välta Kossor","PornHub","Film","TV"],
-            "aboutSelf":"Gillar att bygga väggar",
+            "aboutSelf":"Gillar att bygga murar",
             "aboutMatch":"Bör hata mexikanare",
             "prefEyeColor":"Blåa",
             "prefDistrict":"Frölunda",

@@ -89,15 +89,17 @@ function styleHeader(){
     let btn4 = headerBtns.children[3].firstChild;
     let header = document.getElementById("header");
     header.hidden = false;
-    
+  
+	btn1.textContent = "Home";
+    btn1.href="index.html";
     btn2.style.backgroundColor = "#000";
     btn2.style.color = "#FFF";
     btn2.textContent = "Galleri";
-    btn2.src="#";
+    btn2.href="gallery.html";
     btn3.textContent = "Om Oss";
-    btn3.src="#";
+    btn3.href="aboutus.html";
     btn4.textContent = "Min Profil";
-    btn4.src="#";
+    btn4.href="profil.html";
 
 }
 

@@ -10,6 +10,8 @@ var imported = document.createElement("script");
 imported.src = "userDatabase.js";
 document.head.appendChild(imported);
 var users = userDatabase.users;
+userDatabase.currentProfile = JSON.parse(localStorage.getItem("currentProfile"));
+
 
 var profileName = getID("profileName"),
     fullName = getID("fullName"),
@@ -19,7 +21,7 @@ var profileName = getID("profileName"),
     profileHeight = getID("profileHeight"),
     profileAge = getID("profileAge"),
     profileInterests = getID("profileInterests"),
-    logedIn = userDatabase.logedIn,
+    logedIn = userDatabase.currentProfile,
     logedIn = (JSON.parse(localStorage.getItem("logedIn"))),
     logout = getID("logout"),
     profileHeight = getID("profileHeight"),
@@ -84,7 +86,7 @@ var edit = {
 
 //=====================================================================
 //main
-
+styleHeader();
 getProfileOnClick(profile);
 bestMatch();
 
@@ -92,9 +94,9 @@ bestMatch();
 
 //======================================================================
 //Callbacks
-saveSettings.addEventListener("click", validateUser);
+saveSettings.addEventListener("click", validateUser(getID("editEmail"),getID("confirmEditEmail")));
 
-/////HIDE SHOW EDIT USER
+/////HIDE SHOW EDIT USER 	
 editUserButton.addEventListener("click", function() {
     createOptionsBirthdate(getID("regYear"),getID("regMonth"),getID("regDay"));
     addInterestsToDocument();
@@ -114,6 +116,28 @@ saveSettings.addEventListener("click", function() {
 
 //=====================================================================
 //functions
+function styleHeader(){
+    let headerBtns = document.getElementsByClassName("nav")[0];
+    let btn1 = headerBtns.children[0].firstChild;
+    let btn2 = headerBtns.children[1].firstChild;
+    let btn3 = headerBtns.children[2].firstChild;
+    let btn4 = headerBtns.children[3].firstChild;
+    let header = document.getElementById("header");
+    header.hidden = false;
+  
+	btn1.textContent = "Home";
+    btn1.href="index.html";
+    btn2.style.color = "#FFF";
+    btn2.textContent = "Galleri";
+    btn2.href="gallery.html";
+    btn3.textContent = "Om Oss";
+    btn3.href="aboutus.html";
+    btn4.textContent = "Min Profil";
+	btn4.style.color="#FFF";
+    btn4.href="profil.html";
+	btn4.style.backgroundColor = "#000";
+
+}
 
 function updateUser(){
     logIn.username = edit.username;
@@ -139,18 +163,19 @@ function updateUser(){
 
 function fillOutEditForm(){
     addUsersToDatabase();
-    edit.username.placeholder = logedIn.username;
-    edit.password.placeholder = logedIn.password;
-    edit.email.placeholder = logedIn.email;
-    edit.confirmEmail.placeholder = logedIn.email;
-    edit.firstname.placeholder = logedIn.firstName;
-    edit.lastname.placeholder = logedIn.lastName;
-    edit.profilePic.placeholder = logedIn.profilePic;
-    edit.district.placeholder = logedIn.district;
-    edit.adress.placeholder = logedIn.adress;
-    edit.length.placeholder = logedIn.height;
-    edit.aboutSelf.placeholder = logedIn.aboutSelf;
-    edit.aboutMatch.placeholder = logedIn.aboutMatch;
+   // edit.username.placeholder = logedIn.username;
+	edit.username.value = logedIn.username;
+	edit.password.value = logedIn.password;
+	edit.email.value = logedIn.email;
+	edit.confirmEmail.value = logedIn.email;
+	edit.firstname.value = logedIn.firstName;
+	edit.lastname.value = logedIn.lastName;
+	edit.profilePic.value = logedIn.profilePic;
+	edit.district.value = logedIn.district;
+	edit.adress.value = logedIn.adress;
+	edit.length.value = logedIn.height;
+	edit.aboutSelf.value = logedIn.aboutSelf;
+	edit.aboutMatch.value = logedIn.aboutMatch;
     
     //check gender
     let gender = document.getElementsByName("gender");

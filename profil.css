@@ -76,9 +76,7 @@ body {}
 
 #typAllt {
     position: relative;
-    top: 400px;
     clear: both;
-    margin-bottom: 230px;
 }
 
 #profileFooter {
@@ -112,13 +110,14 @@ body {}
     width: auto;
 }
 
+
 #txt {
     position: absolute;
     right: 30px;
 }
 
 #backgroundFiller {
-    top: 350px;
+    top: 200px;
     width: 800px;
     position: absolute;
 }
