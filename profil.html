@@ -237,7 +237,7 @@
         var westDate = {};
         
         //switch to currentProfile instead of logedIn
-        userDatabase.currentProfile = JSON.parse(localStorage.getItem("logedIn"));
+        userDatabase.currentProfile = JSON.parse(localStorage.getItem("currentProfile"));
         var currentProfile = userDatabase.currentProfile;
         var profileStreet = currentProfile.adress;
         var profieDistrict = currentProfile.district;

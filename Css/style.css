@@ -173,13 +173,11 @@ body{
     width: 800px;
 }
 
-/*
-@media screen and (orientation: portrait){
-    #centerContent{
-        top: 80vh;
-    }
+.profileInfo a{
+    text-decoration: none;
+    font-size: 1.7em;
+    color: #FFF;
 }
-*/
 
 /*index slut/*
 /* header*/

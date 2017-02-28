@@ -22,7 +22,7 @@ var profileName = getID("profileName"),
     profileAge = getID("profileAge"),
     profileInterests = getID("profileInterests"),
     logedIn = userDatabase.currentProfile,
-    logedIn = (JSON.parse(localStorage.getItem("logedIn"))),
+    //logedIn = (JSON.parse(localStorage.getItem("logedIn"))),
     logout = getID("logout"),
     profileHeight = getID("profileHeight"),
     dateToday = getID("dateToday"),
@@ -134,6 +134,8 @@ function styleHeader(){
     btn3.textContent = "Om Oss";
     btn3.href="aboutus.html";
     btn4.textContent = "Min Profil";
+    btn4.title = "logedIn";
+    btn4.addEventListener("click", findCurrentProfile);
 	btn4.style.color="#FFF";
     btn4.href="profil.html";
 	btn4.style.backgroundColor = "#000";

@@ -28,11 +28,17 @@ isLogedIn();
 
 //Login user on click
 login.addEventListener("click", loginAuthenticatedUser, {once:true});
-login.addEventListener("click", addUsersToGallery); ////ERROR
 //===========================================================================
 //Functions
 
-
+function goToProfile(){
+    let profileInfo = document.getElementsByClassName("profileInfo");
+    
+    for(let i = 0; i < profileInfo.length; i++){
+    
+        profileInfo[i].children[0].addEventListener("click", findCurrentProfile);
+    }
+}
 
 
 function isLogedIn(){
@@ -48,7 +54,7 @@ function isLogedIn(){
 }
 
 function onLogin(){
-    
+    addUsersToGallery();
     let login = document.getElementsByClassName("login")[0];
     let backgroundImg = document.getElementById("backgroundImg");
     let logedIn = JSON.parse(localStorage.getItem("logedIn"));
@@ -93,7 +99,6 @@ function onLogin(){
 
 //Log in authenticated user
 function loginAuthenticatedUser(){
-
     let userName = document.getElementById("inputEmail").value;
     let password = document.getElementById("inputPassword").value;
     
@@ -128,11 +133,15 @@ function addUsersToGallery() {
         profileChildern = profileInfo[i].children;
         user = userDatabase.users[i];
         profileInfo[i].title = user.email;
+        profileInfo[i].children[0].title = user.email;
+        profileInfo[i].children[0].href = "profil.html";
+        profileInfo[i].children[0].style.cursor = "pointer";
         galleryProfiles[i].children[0].src = user.profilePic;
         profileChildern[0].textContent = user.firstName;
         profileChildern[1].textContent = "Ålder: "+getAge(user.birthday);
-        
+          
     }
+    goToProfile();
 }
 
 

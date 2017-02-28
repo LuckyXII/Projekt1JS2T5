@@ -376,7 +376,7 @@ function changePreviewPic() {
   let imglink = $("#regPicLink").value;
     console.log($("#regProfilePic"));
     console.log(imglink);
-  $("#regProfilePic").innerHTML = '<img src="'+imglink+ '" style="height: 150px; width: 150px;">'
+  $("#regProfilePic").innerHTML = '<img src="'+imglink+ '" style="height: 150px; width: 150px;">';
   console.log($("#regProfilePic"));
 
 }
