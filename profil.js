@@ -140,23 +140,23 @@ function styleHeader(){
 }
 
 function updateUser(){
-    logIn.username = edit.username;
-    logIn.password = edit.password;
-    logIn.email = edit.email;
-    logIn.confirmEmail = edit.confirmEmail;
-    logIn.firstName = edit.firstname;
-    logIn.lastname = edit.lastname;
-    logIn.birthday = edit.birthday;
-    logIn.district = edit.district;
-    logIn.adress = edit.adress;
-    logIn.height = edit.length;
-    logIn.hairColor = edit.haircolor;
-    logIn.bodyType = edit.bodyType;
-    logIn.eyeColor = edit.eyeColor;
-    logIn.interest = edit.interest;
-    logIn.aboutSelf = edit.aboutSelf;
-    logIn.aboutMatch = edit.aboutMatch;
-    logIn.profilePic = edit.profilePic;
+    logedIn.username = edit.username;
+    logedIn.password = edit.password;
+    logedIn.email = edit.email;
+    logedIn.confirmEmail = edit.confirmEmail;
+    logedIn.firstName = edit.firstname;
+    logedIn.lastname = edit.lastname;
+    logedIn.birthday = edit.birthday;
+    logedIn.district = edit.district;
+    logedIn.adress = edit.adress;
+    logedIn.height = edit.length;
+    logedIn.hairColor = edit.haircolor;
+    logedIn.bodyType = edit.bodyType;
+    logedIn.eyeColor = edit.eyeColor;
+    logedIn.interest = edit.interest;
+    logedIn.aboutSelf = edit.aboutSelf;
+    logedIn.aboutMatch = edit.aboutMatch;
+    logedIn.profilePic = edit.profilePic;
     
     localStorage.setItem("logedIn", logedIn);
 }

@@ -76,7 +76,7 @@ function onLogin(){
     btn3.href="aboutus.html";
     btn4.textContent = "Min Profil";
     btn4.href="profil.html";
-	btn4.title="logedIn"
+	btn4.title="logedIn";
 	btn4.addEventListener("click", findCurrentProfile);
     backgroundImg.style.height = "95vh";
     centerContent.hidden = false;
