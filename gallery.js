@@ -40,8 +40,6 @@ function filterOptions(){
     //get unique districts
     districts.push(users[0].district);
     for(let i = 1; i < users.length; i++){
-        
-        
         for(let j = 0; j < districts.length; j++){
             if(users[i].district == districts[j]){
                foundTwice = true;
@@ -55,7 +53,6 @@ function filterOptions(){
     }
     //create options elements per district
     for(let i = 1; i < districts.length; i++){
-    
         selectDistrict.appendChild(newElement("option"));
         selectDistrict.children[i].value = districts[i];
         selectDistrict.children[i].textContent = districts[i];

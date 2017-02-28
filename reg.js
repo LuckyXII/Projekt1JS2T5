@@ -10,40 +10,11 @@ document.head.appendChild(imported);
 //==================================================================================
 //GLOBALS
 
-
+var currentYear = new Date().getFullYear();
 var selectedYear = document.getElementById("regYear");
 var selectedMonth = document.getElementById("regMonth");
 var selectedDay = document.getElementById("regDay");
-var confirmEmail = document.getElementById("regmailconfirm").value;
-var email = document.getElementById("regmail").value;
-
-var reg4Confirm = document.getElementById("reg4Confirm");
-var reg2Confirm = document.getElementById("reg2Confirm");
-var reg1Confirm = document.getElementById("reg1Confirm");
-
-
-
-
-//==================================================================================
-//main
-
-
-
-//==========================================================================
-//Callbacks
-
-/*************TO DO*********
-- Validate fields(check for proper format, no-empty fields etc): keyup event (add green symbol once
-            validated and un-disable "next")
-    OBS Validate mail and user ready but not assigned to an event
-*/
-
-reg1Confirm.addEventListener("click", createOptionsBirthdate(selectedYear,selectedMonth,selectedDay));
-reg2Confirm.addEventListener("click", setBirthday);
-reg4Confirm.addEventListener("click", newUserToDatabase);
-
 var addToDB = false;
-
 
 //==========================================================================
 //functions
@@ -61,7 +32,7 @@ function newUserToDatabase(){
     let height = document.getElementById("regHeight").value;
     let gender = selectedSex();
     let lookingFor = checkboxSelected(document.getElementsByName("matchgender"));
-    let birthday = setBirthday(selectedYear,selectedMonth,selectedDay);
+    let birthday = setBirthday();
     let hairColor = getSelectOptionValue(document.getElementById("hairColor"));
     let bodyType = getSelectOptionValue(document.getElementById("bodytype"));
     let eyeColor = getSelectOptionValue(document.getElementById("eyeColor"));
@@ -136,65 +107,31 @@ function selectedSex(){
     }
 }
 
-//Validate User
-function validateUser(username){
-
-    //User already registered
-    if(localStorage.getItem(username)){
-        console.log("taken");
-        return false;
-    }
-    else{
-        return true;
-    }
-}
-
-//Validate email
-function validateEmail(){
-
-    //confirm mail matches
-    if(email != confirmEmail){
-        console.log("E-mail do not match");
-        return false;
-    }
-
-    //mailformat is correct
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
-        return true;
-    }
-    else{
-        console.log("You have entered an invalid email address!");
-        return false;
-    }
-}
-
 
 //create option elements for year / month / day
-function createOptionsBirthdate(year, month, day){
-    
-    let currentYear = new Date().getFullYear();
+function createOptionsBirthdate(){
+
     //let option = $$("option"); - only works once with appendchild
 
     //create options year
     for(let i = 0; i < 100; i++){
-        year.appendChild(document.createElement("option"));
-        year.children[i].value = currentYear-i;
-        year.children[i].textContent = year.children[i].value;
+        selectedYear.appendChild(document.createElement("option"));
+        selectedYear.children[i].value = currentYear-i;
+        selectedYear.children[i].textContent = selectedYear.children[i].value;
     }
     //create options month
     for(let i = 0; i < 12; i++){
-        month.appendChild(document.createElement("option"));
-        month.children[i].value = 1+i;
-        month.children[i].textContent = month.children[i].value;
+        selectedMonth.appendChild(document.createElement("option"));
+        selectedMonth.children[i].value = 1+i;
+        selectedMonth.children[i].textContent = selectedMonth.children[i].value;
     }
     //create options day
     for(let i = 0; i < 31; i++){
-        day.appendChild(document.createElement("option"));
-        day.children[i].value = 1+i;
-         day.children[i].textContent =  day.children[i].value;
+        selectedDay.appendChild(document.createElement("option"));
+        selectedDay.children[i].value = 1+i;
+         selectedDay.children[i].textContent =  selectedDay.children[i].value;
     }
 }
-
 
 
 //==========================================================================
@@ -276,7 +213,6 @@ function UserObject(_username, _password, _email, _birthday, _sex, _lookingFor,
     };
     */
 }
-
 //END user object
 
 
@@ -397,7 +333,6 @@ function createRandomUser(){
       $("#eyeColor").selectedIndex = getRandomInt(1, 5);
       if (addToDB === true) {
         newUserToDatabase();
-        addToDB = false;
       }
     }
   };
@@ -422,17 +357,35 @@ document.addEventListener("DOMContentLoaded", function() {
   hidePagesAtStart();
   confirmButtonsActions();
   $("#api").addEventListener("click", function(){
+    addToDB = false;
     createRandomUser();
   });
   $("#addRandomUsers").addEventListener("click", function(){
+    addToDB = true;
     let nr = Number($("#numberNewUsers").value);
     if (Number.isInteger(nr) === true){
       nr = Math.min(50, nr);
       for (let i=0;i<nr;i++){
-        addToDB = true;
         createRandomUser();
       }
     }
+      
   });
+    $("#event").addEventListener("click", function(){
+        eventCal();
+    });
 });
+function eventCal(){
+  let xh = new XMLHttpRequest();
+  xh.onreadystatechange = function(event) {
+    console.log("readyState:" + xh.readyState);
+    console.log("status:" + xh.status);
+    if( xh.readyState == 4 ) {
+      let xhObject = JSON.parse(xh.responseText);
+      console.log(xhObject);
+    }
+  };
+  xh.open('GET', 'http://esb.goteborg.se/TEIK/001/Kalendarie/?startDate=2017-02-01&type=category&searchstring=Kultur&date=month');
+  xh.send();
+}
 
