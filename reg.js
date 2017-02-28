@@ -14,6 +14,8 @@ var currentYear = new Date().getFullYear();
 var selectedYear = document.getElementById("regYear");
 var selectedMonth = document.getElementById("regMonth");
 var selectedDay = document.getElementById("regDay");
+var confirmEmail = document.getElementById("regmailconfirm").value;
+var email = document.getElementById("regmail").value;
 var addToDB = false;
 
 //==========================================================================
@@ -107,7 +109,6 @@ function selectedSex(){
     }
 }
 
-
 //create option elements for year / month / day
 function createOptionsBirthdate(){
 
@@ -187,31 +188,6 @@ function UserObject(_username, _password, _email, _birthday, _sex, _lookingFor,
     this.prefVegetarian = _prefVegetarian; //bool
     this.prefEmployed = _prefEmployed; //bool
     this.prefHasKids = _prefHasKids; //bool
-
-//-----------------------------
-//methods
-    /*
-    //date object
-    this.getBirthday = function() {
-        return birthday;
-    };
-    //get username
-    this.getUserName = function(){
-        return username;
-    };
-    //get password
-    this.getPassword = function(){
-        return password;
-    };
-    //get email
-    this.getEmail = function(){
-        return email;
-    };
-    //get adress
-    this.getAdress = function(){
-        return adress;
-    };
-    */
 }
 //END user object
 
@@ -266,7 +242,7 @@ function hidePagesAtStart(){
 
 function confirmButtonsActions(){
   $("#reg1Confirm").addEventListener("click", function(){
-    if ($("#regUser").value == "I am your master") {
+    if ($("#regUser").value == "admin") {
       console.log("You are my master");
       $("#reg2").style.display = "block";
       $("#reg3").style.display = "block";
@@ -278,6 +254,11 @@ function confirmButtonsActions(){
       $("#reg2Previous").style.display = "none";
       $("#reg3Previous").style.display = "none";
       $("#reg4Previous").style.display = "none";
+      $(".regInfo").style.display = "none";
+      let headers = $("h1");
+      headers.forEach(e=>{
+        e.style.display = "none";
+      });
     }
     else{
       $("#reg2").style.display = "block";
@@ -305,6 +286,8 @@ function confirmButtonsActions(){
     $("#reg4").style.display = "none";
   });
 }
+
+// API Knapp
 function createRandomUser(){
   let xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function(event) {
@@ -331,6 +314,10 @@ function createRandomUser(){
       $("#hairColor").selectedIndex = getRandomInt(1, 7);
       $("#bodytype").selectedIndex = getRandomInt(1, 4);
       $("#eyeColor").selectedIndex = getRandomInt(1, 5);
+      let sex = getRandomInt(1, 4);
+      document.getElementsByName("gender")[sex].checked = true;
+      document.getElementsByName("matchgender")[sex].checked = true;
+      changePreviewPic();
       if (addToDB === true) {
         newUserToDatabase();
       }
@@ -339,10 +326,6 @@ function createRandomUser(){
   xhr.open('GET', 'https://randomuser.me/api/');
   xhr.send();
 }
-
-
-// API KNAPP
-
 
 function getRandomInt(min, max) {  // returnerar ett random heltal mellan min och max
   min = Math.ceil(min);
@@ -371,11 +354,10 @@ document.addEventListener("DOMContentLoaded", function() {
     }
       
   });
-  $("#event").addEventListener("click", function(){
-    eventCal();
-  });
   $("#footer").style.visibility = "visible";
+  $("#regUploadPic").addEventListener("click", changePreviewPic);
 });
+
 function eventCal(){
   let xh = new XMLHttpRequest();
   xh.onreadystatechange = function(event) {
@@ -388,5 +370,14 @@ function eventCal(){
   };
   xh.open('GET', 'http://esb.goteborg.se/TEIK/001/Kalendarie/?startDate=2017-02-01&type=category&searchstring=Kultur&date=month');
   xh.send();
+}
+
+function changePreviewPic() {
+  let imglink = $("#regPicLink").value;
+    console.log($("#regProfilePic"));
+    console.log(imglink);
+  $("#regProfilePic").innerHTML = '<img src="'+imglink+ '" style="height: 150px; width: 150px;">'
+  console.log($("#regProfilePic"));
+
 }
 
