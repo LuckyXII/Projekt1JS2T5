@@ -260,6 +260,7 @@ nav {
     font-size: small;
 }
 /* header end*/
+/* footer*/
 #footer{
     bottom: 0px;
     position: relative;
@@ -276,6 +277,50 @@ nav {
     height: 100%;
     
 
+    background-color: black;
+    height: 100%;
+    color:#ffebae;
+}
+.footerLinks{
+    color:#ffebae;
+    display: inline-block;
+    margin-left: 10px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+.footerLinks:hover{
+    color: #ef7c24;
+    text-decoration: none;
 }
 
+#footerLogo{
+    width: 200px;
+    margin-left: -5px;
+}
+
+#socMedia>a{
+    margin-left: 15px;
+
+}
+.fa-facebook-square{
+    font-size: large;
+    color:#ffebae;
+}
+.fa-facebook-square:hover{
+    color: #ef7c24;
+}
+.fa-twitter{
+    color:#ffebae;
+}
+.fa-twitter:hover{
+    color: #ef7c24;
+}
+.fa-instagram{
+    color:#ffebae;
+}
+.fa-instagram:hover{
+    color: #ef7c24;
+}
+/* footer end*/
 /*Arman end*/
