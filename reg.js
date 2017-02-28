@@ -394,7 +394,6 @@ function createRandomUser(){
       $("#eyeColor").selectedIndex = getRandomInt(1, 5);
       if (addToDB === true) {
         newUserToDatabase();
-        addToDB = false;
       }
     }
   };
@@ -419,14 +418,15 @@ document.addEventListener("DOMContentLoaded", function() {
   hidePagesAtStart();
   confirmButtonsActions();
   $("#api").addEventListener("click", function(){
+    addToDB = false;
     createRandomUser();
   });
   $("#addRandomUsers").addEventListener("click", function(){
+    addToDB = true;
     let nr = Number($("#numberNewUsers").value);
     if (Number.isInteger(nr) === true){
       nr = Math.min(50, nr);
       for (let i=0;i<nr;i++){
-        addToDB = true;
         createRandomUser();
       }
     }
