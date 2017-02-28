@@ -19,7 +19,7 @@ var userDatabase = {
 //functions
 
 function findCurrentProfile(e){
-	let current = e.target.title;
+	let currentProfile = e.target.title;
 	let storageItem = localStorage.getItem(currentProfile);
 	if (storageItem !== null){
 		localStorage.setItem("currentProfile", storageItem);
