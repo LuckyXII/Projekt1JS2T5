@@ -434,6 +434,7 @@ document.addEventListener("DOMContentLoaded", function() {
   $("#event").addEventListener("click", function(){
     eventCal();
   });
+  $("#footer").style.visibility = "visible";
 });
 function eventCal(){
   let xh = new XMLHttpRequest();
