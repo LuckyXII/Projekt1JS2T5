@@ -166,8 +166,10 @@ body{
 }
 
 #backgroundFiller{
-    top: 500px;
-    bottom: 500px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     width: 800px;
 }
 

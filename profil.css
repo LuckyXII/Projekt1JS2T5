@@ -130,3 +130,9 @@ body {}
     width: 800px;
     position: absolute;
 }
+ #map{
+    margin:auto;
+    width: 60%;
+    height: 400px;
+    background-color: gray;
+}
