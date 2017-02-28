@@ -99,14 +99,15 @@ saveSettings.addEventListener("click", validateUser(getID("editEmail"),getID("co
 /////HIDE SHOW EDIT USER 	
 editUserButton.addEventListener("click", function() {
     createOptionsBirthdate(getID("regYear"),getID("regMonth"),getID("regDay"));
-    addInterestsToDocument();
+    
     fillOutEditForm();
     editUser.classList.toggle('editUserShow');
     editUser.style.border = "1px solid lightgrey";
      
 });
+editUserButton.addEventListener("click", addInterestsToDocument, {once:true});
 saveSettings.addEventListener("click", function() {
-    updateUser();
+    //updateUser();
     editUser.classList.toggle('editUserShow');
     editUser.style.border = "0px solid lightgrey";
 });
@@ -140,25 +141,25 @@ function styleHeader(){
 }
 
 function updateUser(){
-    logedIn.username = edit.username;
-    logedIn.password = edit.password;
-    logedIn.email = edit.email;
-    logedIn.confirmEmail = edit.confirmEmail;
-    logedIn.firstName = edit.firstname;
-    logedIn.lastname = edit.lastname;
+    logedIn.username = edit.username.value;
+    logedIn.password = edit.password.value;
+    logedIn.email = edit.email.value;
+    logedIn.confirmEmail = edit.confirmEmail.value;
+    logedIn.firstName = edit.firstname.value;
+    logedIn.lastName = edit.lastname.value;
     logedIn.birthday = edit.birthday;
-    logedIn.district = edit.district;
-    logedIn.adress = edit.adress;
-    logedIn.height = edit.length;
+    logedIn.district = edit.district.value;
+    logedIn.adress = edit.adress.value;
+    logedIn.height = edit.length.value;
     logedIn.hairColor = edit.haircolor;
     logedIn.bodyType = edit.bodyType;
     logedIn.eyeColor = edit.eyeColor;
     logedIn.interest = edit.interest;
-    logedIn.aboutSelf = edit.aboutSelf;
-    logedIn.aboutMatch = edit.aboutMatch;
-    logedIn.profilePic = edit.profilePic;
+    logedIn.aboutSelf = edit.aboutSelf.value;
+    logedIn.aboutMatch = edit.aboutMatch.value;
+    logedIn.profilePic = edit.profilePic.value;
     
-    localStorage.setItem("logedIn", logedIn);
+    localStorage.setItem("logedIn", JSON.stringify(logedIn));
 }
 
 function fillOutEditForm(){

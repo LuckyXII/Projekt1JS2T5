@@ -28,7 +28,7 @@ isLogedIn();
 
 //Login user on click
 login.addEventListener("click", loginAuthenticatedUser, {once:true});
-login.addEventListener("click", addUsersToGallery());
+login.addEventListener("click", addUsersToGallery); ////ERROR
 //===========================================================================
 //Functions
 
