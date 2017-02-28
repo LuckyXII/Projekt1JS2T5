@@ -18,6 +18,16 @@ var userDatabase = {
 //===================================================================================
 //functions
 
+function goToProfile(profileInfo){
+    //let profileInfo = document.getElementsByClassName("profileInfo");
+    
+    for(let i = 0; i < profileInfo.length; i++){
+    
+        profileInfo[i].children[0].addEventListener("click", findCurrentProfile);
+    }
+}
+
+
 function findCurrentProfile(e){
 	let currentProfile = e.target.title;
 	let storageItem = localStorage.getItem(currentProfile);

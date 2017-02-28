@@ -16,6 +16,7 @@ document.head.appendChild(imported);
 //main
 
 createGallery();
+addUsersToGallery();
 styleHeader();
 filterOptions();
 
@@ -24,6 +25,31 @@ filterOptions();
 
 //===================================================================
 //functions
+
+function addUsersToGallery(){
+    addUsersToDatabase();
+    
+    let galleryProfiles = document.getElementsByClassName('profile');
+    let profileInfo = document.getElementsByClassName('GalleryProfileInfo');
+
+    let user;
+    let profileChildern;
+    
+    for (let i = 0; i<galleryProfiles.length; i++) {
+        profileChildern = profileInfo[i].children;
+        user = userDatabase.users[i];
+        profileInfo[i].title = user.email;
+        profileInfo[i].children[0].title = user.email;
+        profileInfo[i].children[0].href = "profil.html";
+        profileInfo[i].children[0].style.cursor = "pointer";
+        galleryProfiles[i].children[0].src = user.profilePic;
+        galleryProfiles[i].children[0].href = "profil.html";
+        profileChildern[0].textContent = user.firstName;
+        profileChildern[1].textContent = "Ålder: "+getAge(user.birthday);
+          
+    }
+     goToProfile(profileInfo);
+}
 
 function filterOptions(){
     let selectDistrict = getID("selectDistrict");
@@ -122,8 +148,8 @@ function createGallery(){
         profile[i].appendChild(newElement("img"));
         profile[i].appendChild(newElement("div"));
         profile[i].children[0].src="https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/14232971_10207465694944968_1889056014685634462_n.jpg?oh=ea3f2fa7e1a410f7a26387cd821d5ae4&oe=5942D6A3";
-        profile[i].children[1].className = "profileInfo";
-        profile[i].children[1].appendChild(newElement("h3"));
+        profile[i].children[1].className = "GalleryProfileInfo";
+        profile[i].children[1].appendChild(newElement("a"));
         profile[i].children[1].appendChild(newElement("h4"));
         
         profileInfo = profile[i].children[1];

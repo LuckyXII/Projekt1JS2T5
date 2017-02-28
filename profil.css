@@ -119,6 +119,16 @@ body {}
     width: auto;
 }
 
+#profileAbout, #profileMatch{
+    margin: 15px;
+    display: inline-block;
+    font-weight: bold;
+    
+}
+#infoTable tr td:nth-child(1){
+    font-weight: bold;
+}
+
 
 #txt {
     position: absolute;
@@ -135,4 +145,10 @@ body {}
     width: 60%;
     height: 400px;
     background-color: gray;
+}
+
+#tellUs{
+    display: block;
+    margin-top: 120px;
+    
 }

@@ -33,7 +33,7 @@
 
                             <div class=" col-md-9 col-lg-9 ">
                                 <table class="table table-user-information" id="table table-user-information">
-                                    <tbody>
+                                    <tbody id="infoTable">
                                         <tr>
                                             <td>Namn</td>
                                             <td id="fullName">Peter Larsson</td>
@@ -66,9 +66,11 @@
                                 </table>
                             </div>
                             <div class="table table-user-information">
+                                <p id="profileAbout"></p>
                                 <div class="abouryou col-sm-12" id="aboutSelf">Om mig</div>
                             </div>
                             <div class="table table-user-information">
+                                <p id="profileMatch"></p>
                                 <div class="abouryou col-sm-12" id="aboutMatch">Om den jag söker</div>
                             </div>
                         </div>
@@ -200,10 +202,10 @@
                             <div class="regWholePage">
                                 <div class="RegOption">
                                     <p class="regOptionText">Intressen:</p>
-                                    <div id="regInterestBoxes"></div>
-                                </div><br>
+                                   <div id="regInterestBoxes"></div>
+                                </div>
                                 <div class="RegOption">
-                                    <p class="regOptionText">Berätta lite om dig själv:</p>
+                                    <p id="tellUs" class="regOptionText">Berätta lite om dig själv:</p>
                                     <textarea rows="8" cols="50" id="AboutYou"></textarea>
                                 </div>
                                 <div class="RegOption">
@@ -212,7 +214,8 @@
                                 </div>
                             </div>
                         </div>
-                        <input type="submit" value="Spara ändringar" id="saveSettings" href="profil.html">
+                        <input type="button" value="Spara ändringar" id="saveSettings" href="profil.html">
+                        <input type="button" value="Avbryt" id="cancelEdit">
                     </div>
                 </div>
             </div>

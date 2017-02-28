@@ -22,6 +22,11 @@
 .row{
     height: auto;
 }
+.GalleryProfileInfo a{
+    text-decoration: none;
+    font-size: 1.7em;
+    color: #000;
+}
 
 #flexContainer{
     margin: 10vw;
@@ -80,6 +85,10 @@
 
 #galleryBackgroundFiller{
     position: fixed;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     bottom:0px;
     top: 35vh;
     overflow: hidden;

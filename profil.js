@@ -22,7 +22,7 @@ var profileName = getID("profileName"),
     profileAge = getID("profileAge"),
     profileInterests = getID("profileInterests"),
     logedIn = userDatabase.currentProfile,
-    //logedIn = (JSON.parse(localStorage.getItem("logedIn"))),
+    realLogedIn = (JSON.parse(localStorage.getItem("logedIn"))),
     logout = getID("logout"),
     profileHeight = getID("profileHeight"),
     dateToday = getID("dateToday"),
@@ -38,6 +38,7 @@ var profileName = getID("profileName"),
     aboutSelf = getID("aboutSelf"),
     aboutMatch = getID("aboutMatch"),
     saveFriend = getID("saveFriend");
+var cancelEdit = getID("cancelEdit");
 var matchgender = document.getElementsByName("matchgender");
 //___________________________________________________________________
 
@@ -86,7 +87,9 @@ var edit = {
 
 //=====================================================================
 //main
+
 styleHeader();
+ifLogedIn();
 getProfileOnClick(profile);
 bestMatch();
 
@@ -96,7 +99,8 @@ bestMatch();
 //Callbacks
 saveSettings.addEventListener("click", validateUser(getID("editEmail"),getID("confirmEditEmail")));
 
-/////HIDE SHOW EDIT USER 	
+/////HIDE SHOW EDIT USER 
+editUserButton.addEventListener("click", addInterestsToDocument, {once:true});
 editUserButton.addEventListener("click", function() {
     createOptionsBirthdate(getID("regYear"),getID("regMonth"),getID("regDay"));
     
@@ -105,18 +109,30 @@ editUserButton.addEventListener("click", function() {
     editUser.style.border = "1px solid lightgrey";
      
 });
-editUserButton.addEventListener("click", addInterestsToDocument, {once:true});
+
 saveSettings.addEventListener("click", function() {
-    //updateUser();
+    updateUser();
+    editUser.style.border = "0px solid lightgrey";
+    location.reload();
+});
+cancelEdit.addEventListener("click", ()=>{
     editUser.classList.toggle('editUserShow');
     editUser.style.border = "0px solid lightgrey";
 });
 
 
 
-
 //=====================================================================
 //functions
+function ifLogedIn(){
+    let panel = document.getElementsByClassName("panel-footer")[0];
+    if(logedIn.email != realLogedIn.email){
+        editUserButton.style.display = "none";
+        panel.style.height ="50px";
+        
+    }
+}
+
 function styleHeader(){
     let headerBtns = document.getElementsByClassName("nav")[0];
     let btn1 = headerBtns.children[0].firstChild;
@@ -145,23 +161,25 @@ function styleHeader(){
 function updateUser(){
     logedIn.username = edit.username.value;
     logedIn.password = edit.password.value;
-    logedIn.email = edit.email.value;
+    //logedIn.email = edit.email.value;
     logedIn.confirmEmail = edit.confirmEmail.value;
     logedIn.firstName = edit.firstname.value;
     logedIn.lastName = edit.lastname.value;
-    logedIn.birthday = edit.birthday;
+    //logedIn.birthday = edit.birthday;
     logedIn.district = edit.district.value;
     logedIn.adress = edit.adress.value;
     logedIn.height = edit.length.value;
-    logedIn.hairColor = edit.haircolor;
-    logedIn.bodyType = edit.bodyType;
-    logedIn.eyeColor = edit.eyeColor;
-    logedIn.interest = edit.interest;
+    //logedIn.hairColor = edit.haircolor;
+    //logedIn.bodyType = edit.bodyType;
+    //logedIn.eyeColor = edit.eyeColor;
+    //logedIn.interest = edit.interest;
     logedIn.aboutSelf = edit.aboutSelf.value;
     logedIn.aboutMatch = edit.aboutMatch.value;
     logedIn.profilePic = edit.profilePic.value;
     
     localStorage.setItem("logedIn", JSON.stringify(logedIn));
+    localStorage.setItem("currentProfile", JSON.stringify(logedIn));
+    
 }
 
 function fillOutEditForm(){
@@ -254,8 +272,8 @@ function setDefaultDate(attr, dateIndex, date){
 
 //find logIn's selected value and set as default
 function checkSelectedOption(logedIn, edit){
-    for(let i = 0; i < logedIn.length; i++){
-        if(logedIn == edit.children[i].value){
+    for(let i = 0; i < realLogedIn.length; i++){
+        if(realLogedIn == edit.children[i].value){
             edit.children[i].selected = "selected";
             break;
         }
@@ -265,7 +283,7 @@ function checkSelectedOption(logedIn, edit){
 function checkSelectedCheckbox(attr,elm){
     for(let i = 0; i < elm.length; i++){
         for(let j = 0; j < elm.length; j++){
-            if(logedIn[attr][i] == elm[j].value){
+            if(realLogedIn[attr][i] == elm[j].value){
                 elm[j].checked = true;
             }
         }
@@ -430,4 +448,9 @@ profileAge.innerHTML = getAge(logedIn.birthday);
 profilePic.src = logedIn.profilePic;
 aboutSelf.innerHTML = logedIn.aboutSelf;
 aboutMatch.textContent = logedIn.aboutMatch;
+var profileAboutParagraph = getID("profileAbout");
+var profileMatchParagraph = getID("profileMatch");
+
+profileAboutParagraph.textContent = `Om ${logedIn.firstName}:`;
+profileMatchParagraph.textContent = `${logedIn.firstName} söker:`;
 

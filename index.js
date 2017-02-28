@@ -31,14 +31,6 @@ login.addEventListener("click", loginAuthenticatedUser, {once:true});
 //===========================================================================
 //Functions
 
-function goToProfile(){
-    let profileInfo = document.getElementsByClassName("profileInfo");
-    
-    for(let i = 0; i < profileInfo.length; i++){
-    
-        profileInfo[i].children[0].addEventListener("click", findCurrentProfile);
-    }
-}
 
 
 function isLogedIn(){
@@ -122,7 +114,7 @@ function loginAuthenticatedUser(){
 //adds profile pics and information into gallery
 function addUsersToGallery() {
     addUsersToDatabase();
-    
+   
     let galleryProfiles = document.getElementsByClassName('profiles');
     let profileInfo = document.getElementsByClassName('profileInfo');
 
@@ -141,7 +133,7 @@ function addUsersToGallery() {
         profileChildern[1].textContent = "Ålder: "+getAge(user.birthday);
           
     }
-    goToProfile();
+    goToProfile(profileInfo);
 }
 
 
