@@ -18,7 +18,7 @@
     <header>
         <script src="header.js"></script>
     </header>
-    <img id="backgroundFiller" src="resources/index_filler_background3.png" />
+    <img id="backgroundFiller" alt="I" src="resources/index_filler_background3.png" />
     <div class="container" id="typAllt">
         <div class="row">
 
@@ -29,10 +29,10 @@
                         <span class="panel-title" id="profileName">Okänd</span> <span class="text-info" id="txt">Klockan är</span> </div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-3 col-lg-3 " align="center"> <img id="profilePic" alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div>
+                            <div class="col-md-3 col-lg-3 "> <img id="profilePic" alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div>
 
                             <div class=" col-md-9 col-lg-9 ">
-                                <table class="table table-user-information" id="table table-user-information">
+                                <table class="table table-user-information" id="table">
                                     <tbody id="infoTable">
                                         <tr>
                                             <td>Namn</td>
@@ -43,18 +43,19 @@
                                             <td id="profileAge">Unborn</td>
                                         </tr>
                                         <tr>
-                                            <tr>
-                                                <td>Genus</td>
-                                                <td id="profileSex">Könlös</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Område</td>
-                                                <td id="profileDistrict">Kathmandu,Nepal</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Ögonfärg</td>
-                                                <td id="profileEyeColor">Ögonlös</td>
-                                            </tr>
+
+                                            <td>Genus</td>
+                                            <td id="profileSex">Könlös</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Område</td>
+                                            <td id="profileDistrict">Kathmandu,Nepal</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ögonfärg</td>
+                                            <td id="profileEyeColor">Ögonlös</td>
+                                        </tr>
+                                        <tr>
                                             <td>Längd</td>
                                             <td id="profileHeight">Elastisk</td>
                                         </tr>
@@ -76,9 +77,9 @@
                         </div>
                     </div>
                     <div class="panel-footer">
-                        <a data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning" id="editUserButton"><i class="glyphicon glyphicon-edit"></i></a>
+                        <a data-original-title="Edit this user" data-toggle="tooltip"  class="btn btn-sm btn-warning" id="editUserButton"><i class="glyphicon glyphicon-edit"></i></a>
                         <span class="pull-right">
-                            <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger" id="saveFriend"><i class="fa fa-heartbeat"></i></a>
+                            <a data-original-title="Remove this user" data-toggle="tooltip"  class="btn btn-sm btn-danger" id="saveFriend"><i class="fa fa-heartbeat"></i></a>
                         </span>
                     </div>
                 </div>
@@ -89,15 +90,15 @@
                         <div id="reg1" class="regContainer">
                             <div class="regHalfPage">
                                 <div class="regOption">
-                                    <p class="regOptionText" >Användarnamn:</p>
-                                    <input class="regInput" type="text" id="editUserName"/> </div>
+                                    <p class="regOptionText">Användarnamn:</p>
+                                    <input class="regInput" type="text" id="editUserName" /> </div>
                                 <div class="regOption">
-                                    <p class="regOptionText" >Lösenord:</p>
+                                    <p class="regOptionText">Lösenord:</p>
                                     <input class="regInput" type="password" id="editPassword" /> </div>
                             </div>
                             <div class="regHalfPage">
                                 <div class="regOption">
-                                    <p class="regOptionText" >e-mail:</p>
+                                    <p class="regOptionText">e-mail:</p>
                                     <input class="regInput" type="email" id="editEmail" /> </div>
                                 <div class="regOption">
                                     <p class="regOptionText">repetera e-mail:</p>
@@ -123,7 +124,7 @@
                                 <div class="regOption">
                                     <p class="regOptionText">Förnamn och Efternamn (efternamn kommer inte att visas)</p>
                                     <input type="text" name="firstName" placeholder="Förnamn" id="editFirstname" />
-                                    <input type="text" name="lastName" placeholder="Efternamn" id="editLastname"/> </div>
+                                    <input type="text" name="lastName" placeholder="Efternamn" id="editLastname" /> </div>
                                 <div class="regOption">
                                     <p class="regOptionText">Födelsedatum:</p>
                                     <select id="regYear" class="regDropdown" style="width:70px"></select>
@@ -134,7 +135,7 @@
                             <div class="regHalfPage">
                                 <div class="regOption">
                                     <p class="regOptionText">Stadsdel och Adress (adress kommer inte visas)</p>
-                                    <input type="text" name="stadsdel" class="regInput" placeholder="Stadsdel" id="editDistrict"/>
+                                    <input type="text" name="stadsdel" class="regInput" placeholder="Stadsdel" id="editDistrict" />
                                     <input type="text" name="adress" class="regInput" placeholder="Adress" id="editAdress" /> </div>
 
 
@@ -202,7 +203,7 @@
                             <div class="regWholePage">
                                 <div class="RegOption">
                                     <p class="regOptionText">Intressen:</p>
-                                   <div id="regInterestBoxes"></div>
+                                    <div id="regInterestBoxes"></div>
                                 </div>
                                 <div class="RegOption">
                                     <p id="tellUs" class="regOptionText">Berätta lite om dig själv:</p>
@@ -214,34 +215,37 @@
                                 </div>
                             </div>
                         </div>
-                        <input type="button" value="Spara ändringar" id="saveSettings" href="profil.html">
+                        <input type="button" value="Spara ändringar" id="saveSettings">
                         <input type="button" value="Avbryt" id="cancelEdit">
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div id="profilBestMatchContainer">
+    <h2 >Dina bäst matchade singlar</h2>
+
     <div id="profilBestMatchList">
-        
     </div>
-     <!-- google maps div -->
+    </div>
+    <!-- google maps div -->
     <div id="map"></div>
-    
-     <!-- MAPS SCRIPT -->
+
+    <!-- MAPS SCRIPT -->
     <script>
         /*jshint esnext: true, moz: true*/
         /*jslint browser:true */
-       
+
         //Import database
         var imported = document.createElement("script");
         imported.src = "userDatabase.js";
         document.head.appendChild(imported);
-        
+
         //Globals and Namespace
         var map;
         var westDate = {};
-        
-        
+
+
         //switch to currentProfile instead of logedIn
         userDatabase.currentProfile = JSON.parse(localStorage.getItem("currentProfile"));
         var currentProfile = userDatabase.currentProfile;
@@ -249,132 +253,132 @@
         var profieDistrict = currentProfile.district;
         var profileAdress = `${profileStreet},${profieDistrict}`;
         var profileInterests = currentProfile.interests;
-         
+
         //convert to map compatible search strings
-        function googleMapsInterests(userInterest){
+        function googleMapsInterests(userInterest) {
             let interest = [];
-            for(let i = 0; i < profileInterests.length; i++){
-            
-                
-                if(userInterest[i] == "Music"){
+            for (let i = 0; i < profileInterests.length; i++) {
+
+
+                if (userInterest[i] == "Music") {
                     interest.push(["night_club", "stadium"]);
 
                 }
-                if(userInterest[i] == "Litteratur"){
-                    interest.push([ "book_store", "library", "art_gallery"]);
+                if (userInterest[i] == "Litteratur") {
+                    interest.push(["book_store", "library", "art_gallery"]);
                 }
-                if(userInterest[i] == "Resa"){
+                if (userInterest[i] == "Resa") {
                     interest.push(["airport", "aquarium", "museum", "travel_agency"]);
                 }
-                if(userInterest[i] == "Film/Tv"){
-                    interest.push(["movie_rental","movie_theater"]);
+                if (userInterest[i] == "Film/Tv") {
+                    interest.push(["movie_rental", "movie_theater"]);
                 }
-                if(userInterest[i] == "Matlagning"){
+                if (userInterest[i] == "Matlagning") {
                     interest.push(["convenience_store", "store"]);
                 }
-                if(userInterest[i] == "Party"){
-                    interest.push([ "bar", "night_club"]);
+                if (userInterest[i] == "Party") {
+                    interest.push(["bar", "night_club"]);
                 }
-                if(userInterest[i] == "Vin & Dryck"){
+                if (userInterest[i] == "Vin & Dryck") {
                     interest.push(["bar", "liquor_store", "cafe"]);
                 }
-                if(userInterest[i] == "Korsord"){
+                if (userInterest[i] == "Korsord") {
                     interest.push(["accounting", "art_gallery", "library", "museum", "post_office"]);
                 }
-                if(userInterest[i] == "Resturang"){
+                if (userInterest[i] == "Resturang") {
                     interest.push(["cafe", "meal_delivery", "meal_takeaway", "restaurant"]);
                 }
-                if(userInterest[i] == "Trädgård"){
+                if (userInterest[i] == "Trädgård") {
                     interest.push(["cemetery", "florist", "home_goods_store", "park", "zoo", "campground"]);
                 }
-                if(userInterest[i] == "Hälsa"){
+                if (userInterest[i] == "Hälsa") {
                     interest.push(["beauty_salon", "hair_care", "pharmacy", "physiotherapist", "spa"]);
                 }
-                if(userInterest[i] == "Bakning"){
-                    interest.push(["cafe", "convenience_store","store"]);
+                if (userInterest[i] == "Bakning") {
+                    interest.push(["cafe", "convenience_store", "store"]);
                 }
-                if(userInterest[i] == "Bilar"){
-                    interest.push(["car_dealer", "car_rental", "car_repair", "car_wash", "gas_station","parking"]);
+                if (userInterest[i] == "Bilar") {
+                    interest.push(["car_dealer", "car_rental", "car_repair", "car_wash", "gas_station", "parking"]);
                 }
-                if(userInterest[i] == "Datorer"){
-                    interest.push([ "electronics_store", "convenience_store", "movie_rental", "zoo"]);
+                if (userInterest[i] == "Datorer") {
+                    interest.push(["electronics_store", "convenience_store", "movie_rental", "zoo"]);
                 }
-                if(userInterest[i] == "New Age"){
-                   interest.push(["amusement_park", "aquarium", "art_gallery", "bowling_alley", "gym", "museum"]);
+                if (userInterest[i] == "New Age") {
+                    interest.push(["amusement_park", "aquarium", "art_gallery", "bowling_alley", "gym", "museum"]);
                 }
-                if(userInterest[i] == "Städa"){
-                    interest.push(["convenience_store", "home_goods_store", "laundry","lodging", "plumber"]);
+                if (userInterest[i] == "Städa") {
+                    interest.push(["convenience_store", "home_goods_store", "laundry", "lodging", "plumber"]);
                 }
-                if(userInterest[i] == "PornHub"){
-                    interest.push([ "atm", "city_hall","lawyer","university","cemetery", "funeral_home"]);
+                if (userInterest[i] == "PornHub") {
+                    interest.push(["atm", "city_hall", "lawyer", "university", "cemetery", "funeral_home"]);
                 }
-                if(userInterest[i] == "Välta Kossor"){
+                if (userInterest[i] == "Välta Kossor") {
                     interest.push(["zoo", "veterinary_care", "hindu_temple", "pet_store"]);
                 }
-                if(userInterest[i] == "Stoppa elakingar från välta kossor"){
+                if (userInterest[i] == "Stoppa elakingar från välta kossor") {
                     interest.push(["zoo", "veterinary_care", "hindu_temple", "pet_store"]);
                 }
-                if(userInterest[i] == "Övrigt"){
+                if (userInterest[i] == "Övrigt") {
                     interest.push(["bowling_alley", "casino", "cemetery", "post_office", "church", "hospital"]);
                 }
             }
             return interest;
         }
-        
+
         //return random interest
-        function randomInterest(){
+        function randomInterest() {
             let interest = googleMapsInterests(profileInterests)
-            let index = Math.floor((Math.random()*interest.length)-0.01);
+            let index = Math.floor((Math.random() * interest.length) - 0.01);
             return interest[index];
         }
-            
+
         console.log(randomInterest());
-        
-        
+
+
         //place service request
-        westDate.placeRequest = function (title, latlng, radius, types) {
-            var request = {
-                "location": latlng
-                , "radius": radius
-                , "types": types
-            };
-            var callPlaces = new google.maps.places.PlacesService(map);
-            callPlaces.nearbySearch(request, (result, status) => {
-                if (status == google.maps.places.PlacesServiceStatus.OK) {
-                    console.log(result);
-                    for (let i = 0; i < result.length; i++) {
-                        let location = result[i].geometry.location;
-                        let newPlace = new google.maps.Marker({
-                            map: map, 
-                            position: location, 
-                            title: result[i].name
-                        });
+        westDate.placeRequest = function(title, latlng, radius, types) {
+                var request = {
+                    "location": latlng,
+                    "radius": radius,
+                    "types": types
+                };
+                var callPlaces = new google.maps.places.PlacesService(map);
+                callPlaces.nearbySearch(request, (result, status) => {
+                    if (status == google.maps.places.PlacesServiceStatus.OK) {
+                        console.log(result);
+                        for (let i = 0; i < result.length; i++) {
+                            let location = result[i].geometry.location;
+                            let newPlace = new google.maps.Marker({
+                                map: map,
+                                position: location,
+                                title: result[i].name
+                            });
+                        }
                     }
+                });
+            }
+            //Turn Adress in to Coordinates
+        westDate.convertAdress = function(adress) {
+            var geocoder = new google.maps.Geocoder(map);
+            //mark adress and print coords
+            geocoder.geocode({
+                "address": adress
+            }, (results, status) => {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    map.setCenter(results[0].geometry.location);
+                    westDate.placeRequest("POI", results[0].geometry.location, 1500, randomInterest());
                 }
             });
         }
-        //Turn Adress in to Coordinates
-        westDate.convertAdress = function (adress) {
-                var geocoder = new google.maps.Geocoder(map);
-                //mark adress and print coords
-                geocoder.geocode({
-                    "address": adress
-                }, (results, status) => {
-                    if (status == google.maps.GeocoderStatus.OK) {
-                        map.setCenter(results[0].geometry.location);
-                        westDate.placeRequest("POI", results[0].geometry.location, 1500, randomInterest());
-                    }
-                });
-        }
-        
+
         //Google maps
-        westDate.initMap = function () {
+        westDate.initMap = function() {
             //adress
             var adress = profileAdress;
             westDate.convertAdress(adress);
             var latlng;
             map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 14, 
+                zoom: 14,
                 center: latlng,
                 scrollwheel: false,
             });
@@ -382,17 +386,18 @@
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARJ9GmJJDiBUq8QyKcBh2op17EWEVf8rU&callback=westDate.initMap&libraries=places">
     </script>
-    
+
+
+    <footer>
+        <script src="footer.js"></script>
+    </footer>
+
+    <div class="row">\
+        <div id="profileFooter"><img alt="I" id="profileFooterLogo" src="resources/Logo.png"></div>
+    </div>
+
+
+    <script src="profil.js"></script>
 </body>
-<footer>
-    <script src="footer.js"></script>
-</footer>
-
-<div class="row">\
-    <div id="profileFooter"><img id="profileFooterLogo" src="resources/Logo.png"></div>
-</div>
-
-
-<script src="profil.js"></script>
 
 </html>

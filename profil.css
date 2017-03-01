@@ -119,16 +119,16 @@ body {}
     width: auto;
 }
 
-#profileAbout, #profileMatch{
+#profileAbout,
+#profileMatch {
     margin: 15px;
     display: inline-block;
     font-weight: bold;
-    
-}
-#infoTable tr td:nth-child(1){
-    font-weight: bold;
 }
 
+#infoTable tr td:nth-child(1) {
+    font-weight: bold;
+}
 
 #txt {
     position: absolute;
@@ -140,28 +140,43 @@ body {}
     width: 800px;
     position: absolute;
 }
- #map{
-    margin:auto;
+
+#map {
+    margin: auto;
     margin-top: 100px;
     width: 60%;
     height: 400px;
     background-color: gray;
 }
 
-#tellUs{
+#tellUs {
     display: block;
     margin-top: 120px;
-    
 }
-#profilBestMatchList{
-    display: block;
-    position: relative;
-    height: 50px;
-    width: 60%;
-}
+
 #profilBestMatchList {
     display: block;
     position: relative;
     height: 50px;
     width: 60%;
+}
+
+#profilBestMatchContainer {
+    text-align: center;
+    margin: auto;
+    margin-top: 50px;
+    display: block;
+    position: relative;
+    height: 50px;
+    width: 60%;
+}
+
+#profilBestMatchList {
+    text-align: center;
+    margin: auto;
+    position: relative;
+    height: 50px;
+    width: 60%;
+    font-size: 2em;
+    text-decoration: underline;
 }
