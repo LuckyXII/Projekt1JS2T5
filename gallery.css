@@ -25,7 +25,7 @@
 .GalleryProfileInfo a{
     text-decoration: none;
     font-size: 1.7em;
-    color: #000;
+    color: black;
 }
 
 #flexContainer{
@@ -65,9 +65,12 @@
 .profile{
     display:inline-block;
     height:auto;
-    border: 1px solid black;
     margin: 2px;
+    border: 1px solid lightgray;
     background-color: white;
+    color: black;
+    border-radius: 2px;
+    text-align: center;
 }
 
 .profile img{
@@ -104,4 +107,14 @@
     width: 400px;
     height: 100px;
     margin:auto;
+}
+
+select {
+    border-radius: 5px;
+    padding: 5px;
+}
+
+div a:hover {
+    color:   #ef7c24;
+    text-decoration: none;
 }
