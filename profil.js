@@ -36,6 +36,7 @@ var profileName = getID("profileName"),
     profile = getID("profilePic"),
     profileHeader = getID("header").hidden = false,
     aboutSelf = getID("aboutSelf"),
+    profilBestMatchContainer = getID("profilBestMatchContainer");
     aboutMatch = getID("aboutMatch"),
     saveFriend = getID("saveFriend");
 var cancelEdit = getID("cancelEdit");
@@ -49,7 +50,7 @@ var edit = {
     confirmEmail: getID("confirmEditEmail"),
     firstname: getID("editFirstname"),
     lastname: getID("editLastname"),
-    birthday: setBirthday(getID("regYear"),getID("regMonth"),getID("regDay")),
+    birthday: setBirthday(getID("regYear"), getID("regMonth"), getID("regDay")),
     district: getID("editDistrict"),
     adress: getID("editAdress"),
     length: getID("regHeight"),
@@ -60,7 +61,7 @@ var edit = {
     aboutSelf: getID("AboutYou"),
     aboutMatch: getID("regTextAboutMatch"),
     profilePic: getID("editInput"),
-    
+
     //-------------------------------------
     //Methods
     getGender: function() {
@@ -74,8 +75,8 @@ var edit = {
     getPotetialMate: function() {
         let matchgender = document.getElementsByName("matchgender");
         var potentialMate = [];
-        for (let i = 0 ; matchgender.length ; i++){
-            if (matchgender[i].checked === true){
+        for (let i = 0; matchgender.length; i++) {
+            if (matchgender[i].checked === true) {
                 potentialMate.push(matchgender[i].value);
             }
         }
@@ -99,17 +100,19 @@ getProfileOnClick(profile);
 
 //======================================================================
 //Callbacks
-saveSettings.addEventListener("click", validateUser(getID("editEmail"),getID("confirmEditEmail")));
+saveSettings.addEventListener("click", validateUser(getID("editEmail"), getID("confirmEditEmail")));
 
 /////HIDE SHOW EDIT USER 
-editUserButton.addEventListener("click", addInterestsToDocument, {once:true});
+editUserButton.addEventListener("click", addInterestsToDocument, {
+    once: true
+});
 editUserButton.addEventListener("click", function() {
-    createOptionsBirthdate(getID("regYear"),getID("regMonth"),getID("regDay"));
-    
+    createOptionsBirthdate(getID("regYear"), getID("regMonth"), getID("regDay"));
+
     fillOutEditForm();
-    editUser.classList.toggle('editUserShow');
+    editUser.classList.toggle("editUserShow");
     editUser.style.border = "1px solid lightgrey";
-     
+
 });
 
 saveSettings.addEventListener("click", function() {
@@ -117,8 +120,8 @@ saveSettings.addEventListener("click", function() {
     editUser.style.border = "0px solid lightgrey";
     location.reload();
 });
-cancelEdit.addEventListener("click", ()=>{
-    editUser.classList.toggle('editUserShow');
+cancelEdit.addEventListener("click", () => {
+    editUser.classList.toggle("editUserShow");
     editUser.style.border = "0px solid lightgrey";
 });
 
@@ -127,32 +130,37 @@ cancelEdit.addEventListener("click", ()=>{
 //=====================================================================
 //functions
 
+
 function printBestMatch(){
     let logedIn = JSON.parse(localStorage.getItem("logedIn"));
     var profilBestMatchList = getID("profilBestMatchList");
-    for ( let i = 0; i < logedIn.bestMatch.length; i++ ){
+    for (let i = 0; i < logedIn.bestMatch.length; i++) {
         profilBestMatchList.appendChild(newElement("a"));
-        profilBestMatchList.children[i].href="profil.html";
-        profilBestMatchList.children[i].textContent=logedIn.bestMatch[i].username;
-        profilBestMatchList.children[i].title=logedIn.bestMatch[i].email;
+        profilBestMatchList.children[i].href = "profil.html";
+        profilBestMatchList.children[i].style.marginRight = "1em";
+        profilBestMatchList.children[i].textContent = logedIn.bestMatch[i].username;
+        profilBestMatchList.children[i].title = logedIn.bestMatch[i].email;
         profilBestMatchList.children[i].addEventListener("click", findCurrentProfile);
-        
     }
 }
 
-function ifLogedIn(){
+function ifLogedIn() {
     let panel = document.getElementsByClassName("panel-footer")[0];
-    
-    if(logedIn.email != realLogedIn.email){
+
+    if (logedIn.email != realLogedIn.email) {
         editUserButton.style.display = "none";
-        panel.style.height ="50px";
+        panel.style.height = "50px";
+        profilBestMatchContainer.style.display="none";
+        let headerBtns = document.getElementsByClassName("nav")[0];
+        let btn4 = headerBtns.children[3].firstChild;
+        btn4.style.backgroundColor = "#EF7C24";
     } else {
         printBestMatch();
     }
 }
 
+
 function styleHeader(){
-    
     let headerBtns = document.getElementsByClassName("nav")[0];
     let btn1 = headerBtns.children[0].firstChild;
     let btn2 = headerBtns.children[1].firstChild;
@@ -161,26 +169,26 @@ function styleHeader(){
     let logOut = getID("logOut");
     let header = document.getElementById("header");
     header.hidden = false;
-    
+
     logOut.addEventListener("click", logoutUser);
-	btn1.textContent = "Home";
-    btn1.href="index.html";
+    btn1.textContent = "Home";
+    btn1.href = "index.html";
     btn2.style.color = "#FFF";
     btn2.textContent = "Galleri";
-    btn2.href="gallery.html";
+    btn2.href = "gallery.html";
     btn3.textContent = "Om Oss";
-    btn3.href="aboutus.html";
+    btn3.href = "aboutus.html";
     btn4.textContent = "Min Profil";
     btn4.title = "logedIn";
     btn4.addEventListener("click", findCurrentProfile);
-	btn4.style.color="#FFF";
-    btn4.href="profil.html";
-	btn4.style.backgroundColor = "#000";
-    
+    btn4.style.color = "#FFF";
+    btn4.href = "profil.html";
+    btn4.style.backgroundColor = "#000";
+
 
 }
 
-function updateUser(){
+function updateUser() {
     logedIn.username = edit.username.value;
     logedIn.password = edit.password.value;
     //logedIn.email = edit.email.value;
@@ -198,28 +206,28 @@ function updateUser(){
     logedIn.aboutSelf = edit.aboutSelf.value;
     logedIn.aboutMatch = edit.aboutMatch.value;
     logedIn.profilePic = edit.profilePic.value;
-    
+
     localStorage.setItem("logedIn", JSON.stringify(logedIn));
     localStorage.setItem("currentProfile", JSON.stringify(logedIn));
-    
+
 }
 
-function fillOutEditForm(){
+function fillOutEditForm() {
     addUsersToDatabase();
-   // edit.username.placeholder = logedIn.username;
-	edit.username.value = logedIn.username;
-	edit.password.value = logedIn.password;
-	edit.email.value = logedIn.email;
-	edit.confirmEmail.value = logedIn.email;
-	edit.firstname.value = logedIn.firstName;
-	edit.lastname.value = logedIn.lastName;
-	edit.profilePic.value = logedIn.profilePic;
-	edit.district.value = logedIn.district;
-	edit.adress.value = logedIn.adress;
-	edit.length.value = logedIn.height;
-	edit.aboutSelf.value = logedIn.aboutSelf;
-	edit.aboutMatch.value = logedIn.aboutMatch;
-    
+    // edit.username.placeholder = logedIn.username;
+    edit.username.value = logedIn.username;
+    edit.password.value = logedIn.password;
+    edit.email.value = logedIn.email;
+    edit.confirmEmail.value = logedIn.email;
+    edit.firstname.value = logedIn.firstName;
+    edit.lastname.value = logedIn.lastName;
+    edit.profilePic.value = logedIn.profilePic;
+    edit.district.value = logedIn.district;
+    edit.adress.value = logedIn.adress;
+    edit.length.value = logedIn.height;
+    edit.aboutSelf.value = logedIn.aboutSelf;
+    edit.aboutMatch.value = logedIn.aboutMatch;
+
     //check gender
     let gender = document.getElementsByName("gender");
     for (let i = 0; i < gender.length; i++) {
@@ -228,18 +236,18 @@ function fillOutEditForm(){
             break;
         }
     }
-    
+
     //check matched gender
     let matchgender = document.getElementsByName("matchgender");
-    checkSelectedCheckbox("lookingFor",matchgender);
-    
+    checkSelectedCheckbox("lookingFor", matchgender);
+
     //default date values
     let birthdate = convertBirthdate();
-    let birthday =[getID("regYear"),getID("regMonth"),getID("regDay")];
-    for(let i = 0; i < 2; i++){
-        setDefaultDate(birthday[i],i,birthdate);
+    let birthday = [getID("regYear"), getID("regMonth"), getID("regDay")];
+    for (let i = 0; i < 2; i++) {
+        setDefaultDate(birthday[i], i, birthdate);
     }
-    
+
     //default haircolor
     checkSelectedOption(logedIn.hairColor, getID("hairColor"));
     //Default bodyType
@@ -248,44 +256,44 @@ function fillOutEditForm(){
     checkSelectedOption(logedIn.eyeColor, getID("eyeColor"));
     //checked interests
     let interest = document.getElementsByName("regInterests");
-    checkSelectedCheckbox("interests",interest);
-    
-}//END fillOutEditForm
+    checkSelectedCheckbox("interests", interest);
+
+} //END fillOutEditForm
 
 //convert birthday to separate dates
-function convertBirthdate(){
+function convertBirthdate() {
     let birthday = logedIn.birthday;
     let key = "-";
-    let year ="", month="", day="";
+    let year = "",
+        month = "",
+        day = "";
     let date = [];
-    for(let i = 0; i < birthday.length; i++){
-        if(birthday[i] != key && i < 4){
+    for (let i = 0; i < birthday.length; i++) {
+        if (birthday[i] != key && i < 4) {
             year += birthday[i];
-        }
-        else if(birthday[i] != key && i < 7){
+        } else if (birthday[i] != key && i < 7) {
             month += birthday[i];
-        }
-        else if(birthday[i] != key && i > 7){
-            day += birthday[i];       
+        } else if (birthday[i] != key && i > 7) {
+            day += birthday[i];
         }
     }
-    
-    if(month[0] == "0"){
+
+    if (month[0] == "0") {
         month = month[1];
     }
-    if(day[0] == "0"){
+    if (day[0] == "0") {
         day = month[1];
     }
-    
+
     date.push(year, month, day);
     return date;
 }
 
 // find logedIn's age and set to default value
-function setDefaultDate(attr, dateIndex, date){
-    
-    for(let i = 0; i < attr.length; i++){
-        if(attr.children[i].value == date[dateIndex]){
+function setDefaultDate(attr, dateIndex, date) {
+
+    for (let i = 0; i < attr.length; i++) {
+        if (attr.children[i].value == date[dateIndex]) {
             attr.children[i].selected = "selected";
             break;
         }
@@ -293,19 +301,19 @@ function setDefaultDate(attr, dateIndex, date){
 }
 
 //find logIn's selected value and set as default
-function checkSelectedOption(logedIn, edit){
-    for(let i = 0; i < realLogedIn.length; i++){
-        if(realLogedIn == edit.children[i].value){
+function checkSelectedOption(logedIn, edit) {
+    for (let i = 0; i < realLogedIn.length; i++) {
+        if (realLogedIn == edit.children[i].value) {
             edit.children[i].selected = "selected";
             break;
         }
     }
 }
 //check logIn's selected boxes and set as default
-function checkSelectedCheckbox(attr,elm){
-    for(let i = 0; i < elm.length; i++){
-        for(let j = 0; j < elm.length; j++){
-            if(realLogedIn[attr][i] == elm[j].value){
+function checkSelectedCheckbox(attr, elm) {
+    for (let i = 0; i < elm.length; i++) {
+        for (let j = 0; j < elm.length; j++) {
+            if (realLogedIn[attr][i] == elm[j].value) {
                 elm[j].checked = true;
             }
         }
@@ -330,6 +338,7 @@ function bestMatch() {
     });
     userDatabase.logedIn.bestMatch = bestMatches;
     localStorage.setItem("logedIn", JSON.stringify(userDatabase.logedIn));
+    localStorage.setItem("currentProfile", JSON.stringify(userDatabase.currentProfile));
 }
 
 //compare profiles for match
@@ -476,4 +485,3 @@ var profileMatchParagraph = getID("profileMatch");
 
 profileAboutParagraph.textContent = `Om ${logedIn.firstName}:`;
 profileMatchParagraph.textContent = `${logedIn.firstName} söker:`;
-
