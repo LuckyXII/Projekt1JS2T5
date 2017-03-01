@@ -357,9 +357,7 @@ document.addEventListener("DOMContentLoaded", function() {
         createRandomUser();
       }
     }
-      
   });
-  $("#footer").style.visibility = "visible";
   $("#regUploadPic").addEventListener("click", changePreviewPic);
 });
 
@@ -385,4 +383,3 @@ function changePreviewPic() {
   console.log($("#regProfilePic"));
 
 }
-
