@@ -133,7 +133,7 @@
                             </div>
                             <div class="regHalfPage">
                                 <div class="regOption">
-                                    <p class="regOptionText">Stadsdel och Adress (adress kommer inte visas)</p>
+                                    <p class="regOptionText">Adress:</p>
                                     <input type="text" name="stadsdel" class="regInput" placeholder="Stadsdel" id="editDistrict"/>
                                     <input type="text" name="adress" class="regInput" placeholder="Adress" id="editAdress" /> </div>
 
@@ -222,26 +222,26 @@
         </div>
     </div>
     <div id="profilBestMatchList">
-        
+
     </div>
      <!-- google maps div -->
     <div id="map"></div>
-    
+
      <!-- MAPS SCRIPT -->
     <script>
         /*jshint esnext: true, moz: true*/
         /*jslint browser:true */
-       
+
         //Import database
         var imported = document.createElement("script");
         imported.src = "userDatabase.js";
         document.head.appendChild(imported);
-        
+
         //Globals and Namespace
         var map;
         var westDate = {};
-        
-        
+
+
         //switch to currentProfile instead of logedIn
         userDatabase.currentProfile = JSON.parse(localStorage.getItem("currentProfile"));
         var currentProfile = userDatabase.currentProfile;
@@ -249,13 +249,13 @@
         var profieDistrict = currentProfile.district;
         var profileAdress = `${profileStreet},${profieDistrict}`;
         var profileInterests = currentProfile.interests;
-         
+
         //convert to map compatible search strings
         function googleMapsInterests(userInterest){
             let interest = [];
             for(let i = 0; i < profileInterests.length; i++){
-            
-                
+
+
                 if(userInterest[i] == "Music"){
                     interest.push(["night_club", "stadium"]);
 
@@ -320,17 +320,17 @@
             }
             return interest;
         }
-        
+
         //return random interest
         function randomInterest(){
             let interest = googleMapsInterests(profileInterests)
             let index = Math.floor((Math.random()*interest.length)-0.01);
             return interest[index];
         }
-            
+
         console.log(randomInterest());
-        
-        
+
+
         //place service request
         westDate.placeRequest = function (title, latlng, radius, types) {
             var request = {
@@ -345,8 +345,8 @@
                     for (let i = 0; i < result.length; i++) {
                         let location = result[i].geometry.location;
                         let newPlace = new google.maps.Marker({
-                            map: map, 
-                            position: location, 
+                            map: map,
+                            position: location,
                             title: result[i].name
                         });
                     }
@@ -366,7 +366,7 @@
                     }
                 });
         }
-        
+
         //Google maps
         westDate.initMap = function () {
             //adress
@@ -374,7 +374,7 @@
             westDate.convertAdress(adress);
             var latlng;
             map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 14, 
+                zoom: 14,
                 center: latlng,
                 scrollwheel: false,
             });
@@ -382,7 +382,7 @@
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARJ9GmJJDiBUq8QyKcBh2op17EWEVf8rU&callback=westDate.initMap&libraries=places">
     </script>
-    
+
 </body>
 <footer>
     <script src="footer.js"></script>
