@@ -123,7 +123,9 @@ function styleHeader(){
     btn3.textContent = "Om Oss";
     btn3.href="aboutus.html";
     btn4.textContent = "Min Profil";
+    btn4.title = "logedIn";
     btn4.href="profil.html";
+    btn4.addEventListener("click", findCurrentProfile);
 
 }
 
