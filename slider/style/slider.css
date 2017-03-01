@@ -44,7 +44,7 @@
     width: 40px;
     height: 50px;
     cursor: pointer;
-    background: url('file:///C:/Users/omnip/Documents/Programering/Projekt1JS2T5/slider/img/a13.png') no-repeat;
+    background: url('a13.png') no-repeat;
     overflow: hidden;
 }
 .jssora13l { background-position: -10px -35px; }
