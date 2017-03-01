@@ -279,12 +279,40 @@ nav {
 /* header end*/
 /* footer*/
 #footer{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: none;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     bottom: 0px;
     position: relative;
     background-color: black; 
     height: 190px; 
     width: 100%;
 }
+
+#footer > div{
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    text-align: center;
+    margin: 0px;
+   
+}
+
+#footer .col-md-6{
+    text-align: center;
+    margin-left: 0px;
+}
+
 #footerLogo{
     margin-left: 40%;
     margin-right: auto;

@@ -112,7 +112,9 @@ function styleHeader(){
     let btn3 = headerBtns.children[2].firstChild;
     let btn4 = headerBtns.children[3].firstChild;
     let header = document.getElementById("header");
+    let footer = getID("footer");
     header.hidden = false;
+    
   
 	btn1.textContent = "Home";
     btn1.href="index.html";

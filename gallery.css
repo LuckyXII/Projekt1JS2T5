@@ -5,14 +5,24 @@
     top: 0;
 }
 #galleryFooter{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     bottom: 0px;
     position: relative;
     background-color: black; 
     height: 132px; 
     width: 100%;
 }
-#footerLogo{
-    
+#galleryFooterLogo{
+    position: relative;
     margin:auto;
     width: auto;
     height: 100%;

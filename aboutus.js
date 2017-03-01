@@ -1,3 +1,11 @@
+/*jshint esnext: true, moz: true*/
+/*jslint browser:true */
+
+//Import database
+var imported = document.createElement("script");
+imported.src = "userDatabase.js";
+document.head.appendChild(imported);
+
 document.getElementById("header").style.display = "block";
 
 document.getElementById("footer").style.display = "block";

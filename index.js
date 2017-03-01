@@ -65,6 +65,7 @@ function onLogin(){
     //longDiv.hidden = false;
     header.hidden = false;
     footer.hidden = false;
+    footer.style.display = "flex";
 	btn1.href="index.html";
     btn1.style.backgroundColor = "#000";
     btn1.style.color = "#FFF";

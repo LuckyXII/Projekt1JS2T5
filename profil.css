@@ -144,6 +144,7 @@ body {}
 #map {
     margin: auto;
     margin-top: 100px;
+    margin-bottom: 200px;
     width: 60%;
     height: 400px;
     background-color: gray;
