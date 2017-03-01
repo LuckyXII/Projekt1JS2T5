@@ -88,6 +88,7 @@ var edit = {
 //=====================================================================
 //main
 
+
 styleHeader();
 bestMatch();
 ifLogedIn();
@@ -127,7 +128,7 @@ cancelEdit.addEventListener("click", ()=>{
 //functions
 
 function printBestMatch(){
-    let logedIn = realLogedIn;
+    let logedIn = JSON.parse(localStorage.getItem("logedIn"));
     var profilBestMatchList = getID("profilBestMatchList");
     for ( let i = 0; i < logedIn.bestMatch.length; i++ ){
         profilBestMatchList.appendChild(newElement("a"));
@@ -151,6 +152,7 @@ function ifLogedIn(){
 }
 
 function styleHeader(){
+    
     let headerBtns = document.getElementsByClassName("nav")[0];
     let btn1 = headerBtns.children[0].firstChild;
     let btn2 = headerBtns.children[1].firstChild;
