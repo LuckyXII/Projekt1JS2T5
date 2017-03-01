@@ -124,12 +124,32 @@ cancelEdit.addEventListener("click", ()=>{
 
 //=====================================================================
 //functions
+
+function printBestMatch(){
+    let logedIn = realLogedIn;
+    var profilBestMatchList = getID("profilBestMatchList");
+    for ( let i = 0; i < logedIn.bestMatch.length; i++ ){
+        profilBestMatchList.appendChild(newElement("a"));
+        profilBestMatchList.children[i].href="profil.html";
+        profilBestMatchList.children[i].textContent=logedIn.bestMatch[i].username;
+        profilBestMatchList.children[i].title=logedIn.bestMatch[i].email;
+        profilBestMatchList.children[i].addEventListener("click", findCurrentProfile);
+        
+    }
+    
+    
+    let bestList;
+    bestMatch
+}
+
 function ifLogedIn(){
     let panel = document.getElementsByClassName("panel-footer")[0];
     
     if(logedIn.email != realLogedIn.email){
         editUserButton.style.display = "none";
         panel.style.height ="50px";
+    } else {
+        printBestMatch();
     }
 }
 
@@ -301,6 +321,7 @@ function bestMatch() {
         if (userDatabase.users[i].compatible === true) {
             bestMatches.push({
                 "username": userDatabase.users[i].username,
+                "email": userDatabase.users[i].email,
                 "score": userScore[i]
             });
         }
