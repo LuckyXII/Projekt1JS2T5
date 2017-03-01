@@ -3,7 +3,7 @@ body{
 }
 img{
     margin: 0px;
-    height: 100vh;
+    height: auto;
     width: 100vw;
 }
 h1 {

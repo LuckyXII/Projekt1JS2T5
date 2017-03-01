@@ -26,11 +26,6 @@ var finishRegistration = getID("reg4Confirm");
 //==========================================================================
 //functions
 
-loginRegistredUser(){
-   
-    
-}
-
 //add user to database
 function newUserToDatabase(){
 
