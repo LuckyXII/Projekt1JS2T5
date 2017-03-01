@@ -18,7 +18,204 @@ var userDatabase = {
 //===================================================================================
 //functions
 
+function goToProfile(profileInfo){
+    //let profileInfo = document.getElementsByClassName("profileInfo");
+    
+    for(let i = 0; i < profileInfo.length; i++){
+    
+        profileInfo[i].children[0].addEventListener("click", findCurrentProfile);
+    }
+}
 
+
+function findCurrentProfile(e){
+	let currentProfile = e.target.title;
+	let storageItem = localStorage.getItem(currentProfile);
+	if (storageItem !== null){
+		localStorage.setItem("currentProfile", storageItem);
+	}
+}
+
+//create option elements for year / month / day
+function createOptionsBirthdate(year, month, day){
+    
+    let currentYear = new Date().getFullYear();
+    //let option = $$("option"); - only works once with appendchild
+
+    //create options year
+    for(let i = 0; i < 100; i++){
+        year.appendChild(document.createElement("option"));
+        year.children[i].value = currentYear-i;
+        year.children[i].textContent = year.children[i].value;
+    }
+    //create options month
+    for(let i = 0; i < 12; i++){
+        month.appendChild(document.createElement("option"));
+        month.children[i].value = 1+i;
+        month.children[i].textContent = month.children[i].value;
+    }
+    //create options day
+    for(let i = 0; i < 31; i++){
+        day.appendChild(document.createElement("option"));
+        day.children[i].value = 1+i;
+         day.children[i].textContent =  day.children[i].value;
+    }
+}
+
+
+//======================
+
+//Snabbfunktion för skapa element
+function $$(str){
+    return document.createElement(str);
+}
+//Snabbfunktion för hämta element
+function $(str) {
+  if (document.querySelectorAll(str).length <= 1) {
+    return document.querySelector(str);
+  }
+  else {
+        return document.querySelectorAll(str);
+  }
+}
+function addInterestsToDocument(){
+    let addTo = $("#regInterestBoxes");
+    let interestList = ["Musik", "Litteratur", "Resa", "Film/TV", "Matlagning", "Party",
+                      "Vin & Dryck", "Korsord", "Restaurang", "Trädgård", "Hälsa",
+                      "Bakning", "Bilar", "Datorer", "New Age", "Städa", "PornHub",
+                      "Välta Kossor", "Stoppa elakingar från välta kossor", "Övrigt"];
+
+  interestList.forEach(e =>{
+    let div = $$("div");
+    div.style.marginRight = "30px";
+    div.style.float ="left";
+    let box = $$("input");
+    box.type = "checkbox";
+    box.name = "regInterests";
+    box.value = e;
+    box.id = e;
+    let label = $$("label");
+    label.htmlFor = document.getElementById(e);
+    label.appendChild(document.createTextNode(e));
+    div.appendChild(box);
+    div.appendChild(label);
+    addTo.appendChild(div);
+  });
+}
+
+
+//=======================
+
+//option element attribute value
+function getSelectOptionValue(attr){
+    for(let i = 0; i < attr.length; i++){
+        if(attr.children[i].selected === true){
+            return attr.children[i].textContent;
+        }
+    }
+}
+
+//value of checkboxes Selected
+function checkboxSelected(inputID){
+    let outputArray = [];
+    for(let i = 0; i < inputID.length; i++){
+        if(inputID[i].checked === true){
+            outputArray.push(inputID[i].value);
+        }
+    }
+    return outputArray;
+}
+
+//setBirthdate
+function setBirthday(selectedYear,selectedMonth,selectedDay){
+
+    let bday;
+    let year = 0;
+    let month = 0;
+    let day = 0;
+
+    year = getSelectOptionValue(selectedYear);
+    month = getSelectOptionValue(selectedMonth);
+    day = getSelectOptionValue(selectedDay);
+
+    //format string
+    if(day < 10){
+        day = "0"+day;
+    }
+    if(month < 10){
+        month = "0"+month;
+    }
+    bday = year + "-" + month + "-" + day;
+    //save to global var
+    return bday;
+}
+
+//Validate username
+function validateUser(username, email){
+    
+   // var username=getID("profileMail").value;
+    //User already registered
+    if(localStorage.getItem(username) !== null){
+        console.log("taken");
+        return false;
+    }
+    else{
+        if (validateEmail(username, email)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+}
+
+//Validate email
+function validateEmail(email, confirmEmail){
+    
+    //confirm mail matches
+   // var email = getID("profileMail").value;
+  //  var confirmEmail = getID("confirmProfileMail").value;
+    if(email != confirmEmail){
+        console.log("E-mail do not match");
+        return false;
+    }
+
+    //mailformat is correct
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
+        return true;
+    }
+    else{
+        console.log("You have entered an invalid email address!");
+        return false;
+    }
+}
+
+function newElement(elm){
+    let element = document.createElement(elm);
+    return element;
+}
+
+
+function getAge(dateString) {
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+}
+
+
+//get element by id
+function getID(ID){
+    let variable = document.getElementById(ID);
+    return variable;
+}
+
+
+// logout user
 function logoutUser(){
    
     let logedIn = JSON.parse(localStorage.getItem("logedIn"));
@@ -36,7 +233,7 @@ function loadCurrentProfile(e){
     
     if(localStorage.getItem(targetProfile) !== null){
         let currentProfile = localStorage.getItem(targetProfile);
-        localStorage.setItem("currentProfile", currentProfile);
+        localStorage.setItem("currentProfile", JSON.stringify(currentProfile));
     }
     else{
         console.log("Error: profile not found");
@@ -88,14 +285,15 @@ function localAddTestUsersToStorage(){
 // LOOP THROUGH LOCALSTORAGE USING KEY()
 function addUsersToDatabase(){
     var key;
-    var JSONkey;
     userDatabase.logedIn = JSON.parse(localStorage.getItem("logedIn"));
     for(let i = 0; i < localStorage.length; i++){
         key = localStorage.key(i);
-        JSONkey = JSON.parse(localStorage.getItem(key));
-        
-        if(!(JSONkey instanceof Array) && JSONkey.email != userDatabase.logedIn.email){
-            userDatabase.users.push(JSONkey);     
+
+        let storageKey = localStorage.getItem(key);
+        let JSONKey = JSON.parse(storageKey);
+
+        if(!(JSONKey instanceof Array) && JSONKey.email != userDatabase.logedIn.email){
+            userDatabase.users.push(JSONKey);     
         }
     }
 }
@@ -118,7 +316,7 @@ var localTestUsers =
             "firstName":"Johan",
             "lastName":"Magnusson",
             "district":"Mölndal",
-            "profilePic":"https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/14232971_10207465694944968_1889056014685634462_n.jpg?oh=ea3f2fa7e1a410f7a26387cd821d5ae4&oe=5942D6A3",
+            "profilePic":"http://littlehouseofamericangirl.com/wp-content/uploads/2014/10/BKH28_main_2.jpg",
             "height":178,
             "hairColor":"Brunette",
             "eyeColor":"Gröna",
@@ -154,7 +352,7 @@ var localTestUsers =
             "firstName":"Emil",
             "lastName":"Eriksson",
             "district":"Bergsjön",
-            "profilePic":"https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/14232971_10207465694944968_1889056014685634462_n.jpg?oh=ea3f2fa7e1a410f7a26387cd821d5ae4&oe=5942D6A3",
+            "profilePic":"http://littlehouseofamericangirl.com/wp-content/uploads/2014/10/BKH28_main_2.jpg",
             "height":180,
             "hairColor":"Brunette",
             "eyeColor":"Gråa",
@@ -333,8 +531,8 @@ var localTestUsers =
             "lookingFor":["transgender","cyborg"],
             "firstName":"Donald",
             "lastName":"Trump",
-            "district":"Frölunda",
-            "profilePic":"https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/14232971_10207465694944968_1889056014685634462_n.jpg?oh=ea3f2fa7e1a410f7a26387cd821d5ae4&oe=5942D6A3",
+            "district":"Frölunda", 
+			"profilePic":"resources/trumpwillwin.jpg",
             "height":150,
             "hairColor":"Blond",
             "eyeColor":"Röda/Violetta",
@@ -345,7 +543,7 @@ var localTestUsers =
             "employed":"True",
             "hasKids":"True",
             "interests":["Övrigt","Välta Kossor","PornHub","Film","TV"],
-            "aboutSelf":"Gillar att bygga väggar",
+            "aboutSelf":"Gillar att bygga murar",
             "aboutMatch":"Bör hata mexikanare",
             "prefEyeColor":"Blåa",
             "prefDistrict":"Frölunda",
@@ -357,7 +555,8 @@ var localTestUsers =
             "prefVegetarian":"False",
             "prefEmployed":"True",
             "prefHasKids":"False",
-            "prefBody":"Atletisk"
+            "prefBody":"Atletisk",
+            "friendsList":[],
         },
         {
              "username":"jesus",
@@ -439,8 +638,8 @@ var localTestUsers =
             "birthday":"1930-11-11",
             "sex":"male",
             "lookingFor":["woman"],
-            "firstName":"The",
-            "lastName":"Dovakhin",
+            "firstName":"Dovakhin",
+            "lastName":"Dragonborn",
             "district":"Askim",
             "profilePic":"https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/14232971_10207465694944968_1889056014685634462_n.jpg?oh=ea3f2fa7e1a410f7a26387cd821d5ae4&oe=5942D6A3",
             "height":210,

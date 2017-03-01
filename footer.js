@@ -4,7 +4,7 @@ document.write('\
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>\
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>\
 <div class="row">\
-    <div class="col-md-12" id="footer">\
+    <div class="col-md-12" id="footer" hidden="true">\
         <div id="socMedia" class="col-md-4 col-md-offset-5  col-xs-offset-4">\
            <a href="http://www.facebook.com/"> <i class="fa fa-facebook-square" style="font-size:32px"></i></a>\
            <a href="http://www.twitter.com/"><i class="fa fa-twitter" style="font-size:32px"></i></a>\

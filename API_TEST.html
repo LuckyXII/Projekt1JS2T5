@@ -1,105 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>API test</title>
-        <meta charset="utf-8">
-        <style>
-            #map{
-                width: 100%;
-                height:400px;
-                background-color: gray;
 
-            }
-        </style>
-        </head>
-    <body>
-       
-        <div id="map"></div>        
+<head>
+    <title>API test</title>
+    <meta charset="utf-8">
+    <style>
+        /*Add to profile.css */
+        #map {
+            width: 100%;
+            height: 400px;
+            background-color: gray;
+        }
+    </style>
+    <script src="userDatabase.js"></script>
+</head>
 
-       <!-- SCRIPT -->
-        <script>
-            
-            
-            //Globals and Namespace
-            var map;
-            var westDate = {};
-            
-             //place service request
-           westDate.placeRequest = function(title,latlng,radius,types){
-                var request = {
-                    "location":latlng,
-                    "radius": radius,
-                    "types": [types]
-                };
+<body>
 
-                var callPlaces = new google.maps.places.PlacesService(map);
-
-                callPlaces.nearbySearch(request, (result, status)=>{
-                    if(status == google.maps.places.PlacesServiceStatus.OK){
-                        console.log(result);
-
-                        for(let i = 0; i < result.length; i++){
-
-                            let location = result[i].geometry.location;
-                            let newPlace = new google.maps.Marker({
-                                map:map,
-                                position: location,
-                                title: result[i].name
-                            });
-                        }
-                    }
-                });
-            }
-
-            
-            //Google maps
-            westDate.initMap = function () {
-                
-                //adress
-                var adress = "korsvägen, göteborg";
-                var lat;
-                var lng;
-                var latlng = new google.maps.LatLng(57.6965417,11.986207199999967);    //57.6965417,11.986207199999967
-                var lt2 = new google.maps.LatLng(lat,lng);
-                var lt3;
-                
-               
-            
+   <!-- google maps -->
+    <div id="map"></div>
     
+    
+    
+    <!-- MAPS SCRIPT -->
+    <script>
+        /*jshint esnext: true, moz: true*/
+        /*jslint browser:true */
+
+        //Import database
+        var imported = document.createElement("script");
+        imported.src = "userDatabase.js";
+        document.head.appendChild(imported);
+        
+        //Globals and Namespace
+        var map;
+        var westDate = {};
+        
+        //switch to currentProfile instead of logedIn
+        userDatabase.currentProfile = JSON.parse(localStorage.getItem("logedIn"));
+        var currentProfile = userDatabase.currentProfile;
+        var profileStreet = currentProfile.adress;
+        var profieDistrict = currentProfile.district;
+        var profileAdress = `${profileStreet},${profieDistrict}`;
+        var profileInterests = currentProfile.interests;
+         
+        //convert to map compatible search strings
+        function googleMapsInterests(userInterest){
+            let interest = [];
+            for(let i = 0; i < profileInterests.length; i++){
+            
                 
-                 //geocode: adress -> latlng
-                var geocoder = new google.maps.Geocoder();
-                
+                if(userInterest[i] == "Music"){
+                    interest.push(["night_club", "stadium"]);
+
+                }
+                if(userInterest[i] == "Litteratur"){
+                    interest.push([ "book_store", "library", "art_gallery"]);
+                }
+                if(userInterest[i] == "Resa"){
+                    interest.push(["airport", "aquarium", "museum", "travel_agency"]);
+                }
+                if(userInterest[i] == "Film/Tv"){
+                    interest.push(["movie_rental","movie_theater"]);
+                }
+                if(userInterest[i] == "Matlagning"){
+                    interest.push(["convenience_store", "store"]);
+                }
+                if(userInterest[i] == "Party"){
+                    interest.push([ "bar", "night_club"]);
+                }
+                if(userInterest[i] == "Vin & Dryck"){
+                    interest.push(["bar", "liquor_store", "cafe"]);
+                }
+                if(userInterest[i] == "Korsord"){
+                    interest.push(["accounting", "art_gallery", "library", "museum", "post_office"]);
+                }
+                if(userInterest[i] == "Resturang"){
+                    interest.push(["cafe", "meal_delivery", "meal_takeaway", "restaurant"]);
+                }
+                if(userInterest[i] == "Trädgård"){
+                    interest.push(["cemetery", "florist", "home_goods_store", "park", "zoo", "campground"]);
+                }
+                if(userInterest[i] == "Hälsa"){
+                    interest.push(["beauty_salon", "hair_care", "pharmacy", "physiotherapist", "spa"]);
+                }
+                if(userInterest[i] == "Bakning"){
+                    interest.push(["cafe", "convenience_store","store"]);
+                }
+                if(userInterest[i] == "Bilar"){
+                    interest.push(["car_dealer", "car_rental", "car_repair", "car_wash", "gas_station","parking"]);
+                }
+                if(userInterest[i] == "Datorer"){
+                    interest.push([ "electronics_store", "convenience_store", "movie_rental", "zoo"]);
+                }
+                if(userInterest[i] == "New Age"){
+                   interest.push(["amusement_park", "aquarium", "art_gallery", "bowling_alley", "gym", "museum"]);
+                }
+                if(userInterest[i] == "Städa"){
+                    interest.push(["convenience_store", "home_goods_store", "laundry","lodging", "plumber"]);
+                }
+                if(userInterest[i] == "PornHub"){
+                    interest.push([ "atm", "city_hall","lawyer","university","cemetery", "funeral_home"]);
+                }
+                if(userInterest[i] == "Välta Kossor"){
+                    interest.push(["zoo", "veterinary_care", "hindu_temple", "pet_store"]);
+                }
+                if(userInterest[i] == "Stoppa elakingar från välta kossor"){
+                    interest.push(["zoo", "veterinary_care", "hindu_temple", "pet_store"]);
+                }
+                if(userInterest[i] == "Övrigt"){
+                    interest.push(["bowling_alley", "casino", "cemetery", "post_office", "church", "hospital"]);
+                }
+            }
+            return interest;
+        }
+        
+        //return random interest
+        function randomInterest(){
+            let interest = googleMapsInterests(profileInterests)
+            let index = Math.floor((Math.random()*interest.length)-0.01);
+            return interest[index];
+        }
+            
+        console.log(randomInterest());
+        
+        
+        //place service request
+        westDate.placeRequest = function (title, latlng, radius, types) {
+            var request = {
+                "location": latlng
+                , "radius": radius
+                , "types": types
+            };
+            var callPlaces = new google.maps.places.PlacesService(map);
+            callPlaces.nearbySearch(request, (result, status) => {
+                if (status == google.maps.places.PlacesServiceStatus.OK) {
+                    console.log(result);
+                    for (let i = 0; i < result.length; i++) {
+                        let location = result[i].geometry.location;
+                        let newPlace = new google.maps.Marker({
+                            map: map, 
+                            position: location, 
+                            title: result[i].name
+                        });
+                    }
+                }
+            });
+        }
+        //Turn Adress in to Coordinates
+        westDate.convertAdress = function (adress) {
+                var geocoder = new google.maps.Geocoder(map);
                 //mark adress and print coords
-                geocoder.geocode({"address":adress},(results, status)=>{
-                    if(status == google.maps.GeocoderStatus.OK){
-                        
-                        
-                        lat = results[0].geometry.location.lat();
-                        lng = results[0].geometry.location.lng();
-                        lt3 = results[0].geometry.location;
-                        //console.log(`Latitud: ${lat}, Longitud: ${lng}`);
-                        map.setCenter(latlng);
+                geocoder.geocode({
+                    "address": adress
+                }, (results, status) => {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        map.setCenter(results[0].geometry.location);
+                        westDate.placeRequest("POI", results[0].geometry.location, 1500, randomInterest());
                     }
                 });
-                
-                
-                 console.log(geocoder);
-                //map
-                 map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 14,
-                    center: latlng
-                });
-               
-               
-                westDate.placeRequest("Resturang",latlng,1500,["restaurant"]);
-                
-            }
-        </script>
-     <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARJ9GmJJDiBUq8QyKcBh2op17EWEVf8rU&callback=westDate.initMap&libraries=places">
-    </script> 
-    </body>
+        }
+        
+        //Google maps
+        westDate.initMap = function () {
+            //adress
+            var adress = profileAdress;
+            westDate.convertAdress(adress);
+            var latlng;
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 14
+                , center: latlng
+            });
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARJ9GmJJDiBUq8QyKcBh2op17EWEVf8rU&callback=westDate.initMap&libraries=places">
+    </script>
+</body>
+
 </html>
-
-

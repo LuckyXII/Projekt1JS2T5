@@ -1,5 +1,9 @@
-body{
 
+body{
+<<<<<<< HEAD
+
+=======
+>>>>>>> e92d49cf744c47485fc25a32797b082d09c9f0be
 }
 img{
 
@@ -8,37 +12,33 @@ h1 {
   text-align: center;
 }
 textarea{
+<<<<<<< HEAD
       border-radius: 5px;
 
 }
 .row{
 
+=======
+    border-radius: 5px;
+>>>>>>> e92d49cf744c47485fc25a32797b082d09c9f0be
 }
 .regOptionText{
-    margin-top: 10px;
     font-size: 13.5pt;
 }
 .regInfo {
   font-style: italic;
   color: #92959b;
+  font-size: 12px;
 }
-.container {
-}
-
 .row{
+<<<<<<< HEAD
 
+=======
+  margin: 15px;
+>>>>>>> e92d49cf744c47485fc25a32797b082d09c9f0be
 }
 .regOptionText{
     text-align: left;
-    margin-top: 10px;
-}
-
-.regInfo {
-  font-style: italic;
-  color: #92959b;
-  font-size: 12px;
-}
-.container {
 }
 .regInput {
   float: right;
@@ -47,15 +47,19 @@ textarea{
   float: right;
   margin: 10px;
 }
+<<<<<<< HEAD
 .row {
 
 }
 
+=======
+>>>>>>> e92d49cf744c47485fc25a32797b082d09c9f0be
 .regInput, select, option {
   border-radius: 5px;
   padding: 4px 12px;
   font-size: 16px;
 }
+<<<<<<< HEAD
 .regConfirm {
   float: right;
   margin: 10px;
@@ -64,9 +68,10 @@ textarea{
 
 }
 
+=======
+>>>>>>> e92d49cf744c47485fc25a32797b082d09c9f0be
 button {
     border-radius: 5px;
-
 }
 .regDropdown {
     width:50px;

@@ -1,15 +1,19 @@
+/*jshint esnext: true, moz: true*/
+/*jslint browser:true */
+/*jshint multistr: true */
+
 document.write('\
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">\
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>\
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>\
-    <div class="container-fullwidth">\
+    <div class="container-fullwidth" >\
     <link href="Css/style.css" rel="stylesheet">\
-    <div id="header">\
-        <div class="row">\
-            <div class="col-md-12"> \
-                <img id="banner" src="resources/header+logo.png">\
-            </div>\
-        </div>\
+    <div id="header" hidden="true">\
+        \
+            \
+              <img id="banner" src="resources/header+logo4.png">\
+            \
+        \
     <nav class="navbar navbar-inverse navbar-static-top"">\
         <div class="container-fluid" id="menubar">\
             <div class="navbar-header">\
@@ -27,7 +31,7 @@ document.write('\
                     <li><a href="#">Page 3</a></li>\
                 </ul>\
                 <ul class="nav navbar-nav navbar-right">\
-                    <li><a href="index.html"><span class="glyphicon glyphicon-log-out"></span> Logga ut</a></li>\
+                    <li ><a id="logOut" href="index.html"><span class="glyphicon glyphicon-log-out"></span> Logga ut</a></li>\
                 </ul>\
             </div>\
         </div>\
