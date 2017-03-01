@@ -103,20 +103,38 @@ body{
 }
 
 #redHeart{
-    display:inline-block;
-    width: 1000px;
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    width: 100%;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
     
 }
+
+#redHeart > div{
+     margin-left: 7.5%;
+}
+
 #redHeart img{
-   float: left;
-    -webkit-shape-outside: polygon(318px 267px, 276px 246px, 233px 213px, 218px 174px, 212px 153px, 223px 120px, 270px 89px, 317px 84px, 367px 102px, 405px 153px, 436px 86px, 500px 29px, 563px 24px, 600px 36px, 613px 66px, 622px 100px, 617px 136px, 602px 172px, 584px 201px, 555px 238px, 522px 287px, 523px 313px, 500px 324px, 467px 377px, 456px 351px, 431px 329px, 398px 302px);
-    shape-outside: polygon(318px 267px, 276px 246px, 233px 213px, 218px 174px, 212px 153px, 223px 120px, 270px 89px, 317px 84px, 367px 102px, 405px 153px, 436px 86px, 500px 29px, 563px 24px, 600px 36px, 613px 66px, 622px 100px, 617px 136px, 602px 172px, 584px 201px, 555px 238px, 522px 287px, 523px 313px, 500px 324px, 467px 377px, 456px 351px, 431px 329px, 398px 302px);
+   
+    -webkit-shape-outside: polygon(164px 287px, 117px 265px, 70px 232px, 43px 172px, 48px 128px, 78px 100px, 112px 78px, 149px 74px, 206px 92px, 244px 126px, 263px 79px, 311px 42px, 331px 25px, 355px 17px, 388px 10px, 438px 24px, 465px 62px, 467px 108px, 462px 144px, 447px 180px, 429px 209px, 400px 246px, 367px 295px, 368px 321px, 345px 332px, 309px 404px, 293px 378px, 271px 346px, 243px 321px);
+    shape-outside: polygon(164px 287px, 117px 265px, 70px 232px, 43px 172px, 48px 128px, 78px 100px, 112px 78px, 149px 74px, 206px 92px, 244px 126px, 263px 79px, 311px 42px, 331px 25px, 355px 17px, 388px 10px, 438px 24px, 465px 62px, 467px 108px, 462px 144px, 447px 180px, 429px 209px, 400px 246px, 367px 295px, 368px 321px, 345px 332px, 309px 404px, 293px 378px, 271px 346px, 243px 321px);
     width: auto;
     height: 400px;
-    margin-left: 7.5vw;
+    float: left;
     margin-bottom: 100px;
-    
-    
+}
+
+#redHeart p{
+    height: 400px;
 }
 
 #couple{
