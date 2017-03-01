@@ -139,9 +139,11 @@ function styleHeader(){
     let btn2 = headerBtns.children[1].firstChild;
     let btn3 = headerBtns.children[2].firstChild;
     let btn4 = headerBtns.children[3].firstChild;
+    let logOut = getID("logOut");
     let header = document.getElementById("header");
     header.hidden = false;
-  
+    
+    logOut.addEventListener("click", logoutUser);
 	btn1.textContent = "Home";
     btn1.href="index.html";
     btn2.style.color = "#FFF";
@@ -155,6 +157,7 @@ function styleHeader(){
 	btn4.style.color="#FFF";
     btn4.href="profil.html";
 	btn4.style.backgroundColor = "#000";
+    
 
 }
 

@@ -17,9 +17,19 @@ var selectedDay = document.getElementById("regDay");
 var confirmEmail = document.getElementById("regmailconfirm").value;
 var email = document.getElementById("regmail").value;
 var addToDB = false;
+var finishRegistration = getID("reg4Confirm");
+//==================================================================================
+//Callbacks
+
+
 
 //==========================================================================
 //functions
+
+loginRegistredUser(){
+   
+    
+}
 
 //add user to database
 function newUserToDatabase(){

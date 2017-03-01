@@ -44,3 +44,7 @@ button {
 .regDropdown {
     width:50px;
 }
+#reg4Confirm a{
+    color: #FFF;
+    text-decoration: none;
+}
