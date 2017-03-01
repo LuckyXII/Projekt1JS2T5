@@ -89,9 +89,10 @@ var edit = {
 //main
 
 styleHeader();
+bestMatch();
 ifLogedIn();
 getProfileOnClick(profile);
-bestMatch();
+
 
 
 
@@ -136,10 +137,6 @@ function printBestMatch(){
         profilBestMatchList.children[i].addEventListener("click", findCurrentProfile);
         
     }
-    
-    
-    let bestList;
-    bestMatch
 }
 
 function ifLogedIn(){
