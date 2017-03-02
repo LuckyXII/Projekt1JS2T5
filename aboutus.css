@@ -29,3 +29,21 @@ h1 {
     margin-bottom: 0;
 }
 
+#profileFooter {
+    bottom: 0px;
+    position: relative;
+    background-color: black;
+    height: 132px;
+    width: 100%;
+    margin-top: 100px;
+    left: 0;
+    bottom: -32px;
+}
+
+#profileFooterLogo {
+    position: relative;
+    display: block;
+    margin: auto;
+    width: auto;
+    height: 100%;
+}

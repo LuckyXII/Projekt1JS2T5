@@ -8,7 +8,7 @@ document.head.appendChild(imported);
 
 document.getElementById("header").style.display = "block";
 
-document.getElementById("footer").style.display = "block";
+//document.getElementById("footer").style.display = "block";
 
 function styleHeader(){
     let headerBtns = document.getElementsByClassName("nav")[0];

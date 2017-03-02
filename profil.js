@@ -170,6 +170,7 @@ function styleHeader(){
     let header = document.getElementById("header");
     header.hidden = false;
 
+
     logOut.addEventListener("click", logoutUser);
     btn1.textContent = "Home";
     btn1.href = "index.html";
@@ -449,12 +450,6 @@ function checkTime(i) {
     } // add zero in front of numbers < 10
     return i;
 }
-
-
-
-
-
-
 
 ///// SAVE FRIENDS
 /*
